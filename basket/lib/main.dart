@@ -7,6 +7,7 @@ import 'src/settings/settings_service.dart';
 import 'pages/logInPage.dart';
 
 void main() async {
+  print("test");
   runApp(const BasketApp());
 }
 
