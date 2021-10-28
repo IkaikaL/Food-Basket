@@ -6,8 +6,8 @@ import 'src/settings/settings_service.dart';
 // Page Imports
 import 'pages/logInPage.dart';
 
-void main() async {
-  print("test");
+void main() {
+  print("AAAAAAAAAAAAAAAAAAAAAAAAA");
   runApp(const BasketApp());
 }
 
@@ -30,7 +30,7 @@ class Title extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
     appBar: AppBar(
-      title: const Text('Startup Name Generator'),
+      title: const Text('Basket'),
       actions: [ IconButton(icon: const Icon(Icons.person), 
           onPressed:  () => Navigator.push(context,
                       MaterialPageRoute(builder: (context) => const FirstRoute())),
