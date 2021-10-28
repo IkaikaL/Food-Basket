@@ -1,20 +1,43 @@
 import 'package:flutter/material.dart';
-
 import 'src/app.dart';
 import 'src/settings/settings_controller.dart';
 import 'src/settings/settings_service.dart';
 
+// Page Imports
+import 'pages/logInPage.dart';
+
 void main() async {
-  // Set up the SettingsController, which will glue user settings to multiple
-  // Flutter Widgets.
-  final settingsController = SettingsController(SettingsService());
+  runApp(const BasketApp());
+}
 
-  // Load the user's preferred theme while the splash screen is displayed.
-  // This prevents a sudden theme change when the app is first displayed.
-  await settingsController.loadSettings();
+class BasketApp extends StatelessWidget {
+  const BasketApp({Key? key}) : super(key: key);
 
-  // Run the app and pass in the SettingsController. The app listens to the
-  // SettingsController for changes, then passes it further down to the
-  // SettingsView.
-  runApp(MyApp(settingsController: settingsController));
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      title: "Basket",
+      home: Title(),
+      );
+  }
+}
+
+class Title extends StatelessWidget {
+  const Title({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+    appBar: AppBar(
+      title: const Text('Startup Name Generator'),
+      actions: [ IconButton(icon: const Icon(Icons.person), 
+          onPressed:  () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const FirstRoute())),
+          tooltip: "Test String")
+                ]
+      ),
+    );
+    throw UnimplementedError();
+  }
+  
 }
