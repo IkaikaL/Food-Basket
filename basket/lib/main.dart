@@ -29,22 +29,74 @@ class BasketApp extends StatelessWidget {
 // UI for the page. Scaffold fills in the predesign with strings
 // and other widgets (like IconButton) with a basic styling
 
-class LandingScreen extends StatelessWidget {
+class LandingScreen extends StatefulWidget {
   const LandingScreen({Key? key}) : super(key: key);
 
   @override
+  _LandingScreenState createState() => _LandingScreenState();
+  }
+
+
+  class _LandingScreenState extends State<LandingScreen> {
+
+    int index = 0;
+
+    @override
   Widget build(BuildContext context) {
     return Scaffold(
-    appBar: AppBar(
-      title: const Text('Basket'),
-      actions: [ IconButton(icon: const Icon(Icons.person), 
-          onPressed:  () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const SampleRoute())),
-          tooltip: "Test String")
-                ]
+    bottomNavigationBar: BottomNavigationBar(
+      // Styling Options
+      backgroundColor: Colors.black,
+      unselectedItemColor: Colors.white,
+      selectedItemColor: Colors.green,
+      type: BottomNavigationBarType.fixed,
+      iconSize: 30,
+      // Icon Behaviors
+      currentIndex: index,
+      onTap: (int selectedIndex) {
+        setState(() {
+          index = selectedIndex;
+        });
+      },
+      // NavBar Icon Construction
+      items: <BottomNavigationBarItem>[
+        BottomNavigationBarItem(icon: 
+              IconButton(icon: const Icon(Icons.person), 
+              onPressed:  () => Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const SampleRoute())),
+              tooltip: "Test String"),
+              label: "button1"
+        ),
+        BottomNavigationBarItem(icon: 
+              IconButton(icon: const Icon(Icons.person), 
+              onPressed:  () => Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const SampleRoute())),
+              tooltip: "Test String"),
+              label: "button1"
+        ),
+        BottomNavigationBarItem(icon: 
+              IconButton(icon: const Icon(Icons.person), 
+              onPressed:  () => Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const SampleRoute())),
+              tooltip: "Test String"),
+              label: "button1"
+        ),
+        BottomNavigationBarItem(icon: 
+              IconButton(icon: const Icon(Icons.person), 
+              onPressed:  () => Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const SampleRoute())),
+              tooltip: "Test String"),
+              label: "button1"
+        ),
+        BottomNavigationBarItem(icon: 
+              IconButton(icon: const Icon(Icons.person), 
+              onPressed:  () => Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const SampleRoute())),
+              tooltip: "Test String"),
+              label: "button1"
+        ),
+      ],
       ),
     );
-    throw UnimplementedError();
+    }
   }
-  
-}
