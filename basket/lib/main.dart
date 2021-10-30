@@ -24,11 +24,6 @@ class BasketApp extends StatelessWidget {
   }
 }
 
-// Called by app widget to create the visual of the first page.
-// Here Scaffold does the heavy lifting by giving us a predesigned
-// UI for the page. Scaffold fills in the predesign with strings
-// and other widgets (like IconButton) with a basic styling
-
 class LandingScreen extends StatefulWidget {
   const LandingScreen({Key? key}) : super(key: key);
 
@@ -38,17 +33,24 @@ class LandingScreen extends StatefulWidget {
 
 
   class _LandingScreenState extends State<LandingScreen> {
-
+    final _biggerFont = const TextStyle(fontSize: 28.0);
+    String username = "UserName";
     int index = 0;
 
     @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // Good Enough for now
+      // Must be fixed before production.
+    body: Center(
+      child: Text("Welcome Back\n" + username, style: _biggerFont),
+    ),
+    // Creates the buttons at the bottom of the page
     bottomNavigationBar: BottomNavigationBar(
       // Styling Options
       backgroundColor: Colors.black,
       unselectedItemColor: Colors.white,
-      selectedItemColor: Colors.green,
+      selectedItemColor: Colors.white,
       type: BottomNavigationBarType.fixed,
       iconSize: 30,
       // Icon Behaviors
@@ -60,13 +62,6 @@ class LandingScreen extends StatefulWidget {
       },
       // NavBar Icon Construction
       items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(icon: 
-              IconButton(icon: const Icon(Icons.person), 
-              onPressed:  () => Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const SampleRoute())),
-              tooltip: "Test String"),
-              label: "button1"
-        ),
         BottomNavigationBarItem(icon: 
               IconButton(icon: const Icon(Icons.person), 
               onPressed:  () => Navigator.push(context,
