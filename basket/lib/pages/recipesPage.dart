@@ -2,26 +2,31 @@
 
 import 'package:flutter/material.dart';
 
+import 'samplePage.dart';
+
 // This is called by the landing page and constructs a new page.
 // Here Scaffold is used again to produce a basic design UI.
 class recipesPageRoute extends StatefulWidget {
   const recipesPageRoute({Key? key}) : super(key: key);
 
   @override
-  recipesPageRoute createState() => recipesPageRoute();
+  _recipesPageRoute createState() => _recipesPageRoute();
 }
 
-class _LandingScreenState extends State<recipesPageRoute> {
+class _recipesPageRoute extends State<recipesPageRoute> {
     final _biggerFont = const TextStyle(fontSize: 28.0);
     int index = 0;
 
 
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Recipes'),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
+      // Good Enough for now
+      // Must be fixed before production.
+    body: Center(
+      child: Text("Welcome Back\n ", style: _biggerFont),
+    ),
+    // Creates the buttons at the bottom of the page
+    bottomNavigationBar: BottomNavigationBar(
       // Styling Options
       backgroundColor: Colors.black,
       unselectedItemColor: Colors.white,
@@ -64,8 +69,9 @@ class _LandingScreenState extends State<recipesPageRoute> {
               MaterialPageRoute(builder: (context) => const SampleRoute())),
               tooltip: "Test String"),
               label: "Browse All"
+        ),
+      ],
+      ),
     );
   }
 }
-}
-  
