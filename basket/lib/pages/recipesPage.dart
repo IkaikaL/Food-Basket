@@ -20,11 +20,10 @@ class _recipesPageRoute extends State<recipesPageRoute> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      // Good Enough for now
-      // Must be fixed before production.
-    body: Center(
-      child: Text("Welcome Back\n ", style: _biggerFont),
+    appBar: AppBar(
+      title: const Text('Recipes'),
     ),
+    //body: _recipeList(),
     // Creates the buttons at the bottom of the page
     bottomNavigationBar: BottomNavigationBar(
       // Styling Options
