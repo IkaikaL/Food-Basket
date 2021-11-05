@@ -74,3 +74,23 @@ class _recipesPageRoute extends State<recipesPageRoute> {
     );
   }
 }
+
+Widget _recipeList() {
+  return ListView.builder(
+    padding: const EdgeInsets.all(16.0),
+    itemBuilder: (context, i) {
+      if (i.isOdd) return const Divider();
+      final index = i ~/ 2;
+      if (index >= _recipes.length) {
+        _recipes.addAll();
+      }
+      return _buildRow();
+    }
+  );
+}
+
+Widget _buildRow() {
+  return ListTile(
+    title: 
+  );
+}
