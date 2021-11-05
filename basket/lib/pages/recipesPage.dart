@@ -58,7 +58,7 @@ class _recipesPageRoute extends State<recipesPageRoute> {
         BottomNavigationBarItem(icon: 
               IconButton(icon: const Icon(Icons.person), 
               onPressed:  () => Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const recipesPageRoute())),
+              MaterialPageRoute(builder: (context) => const SampleRoute())),
               tooltip: "Test String"),
               label: "Recipes"
         ),
