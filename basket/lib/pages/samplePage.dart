@@ -13,6 +13,6 @@ class SampleRoute extends StatelessWidget {
       appBar: AppBar(
         title: const Text('SamplePage'),
       ),
-      );
+    );
   }
 }
