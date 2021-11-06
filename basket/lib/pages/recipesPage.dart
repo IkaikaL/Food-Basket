@@ -17,7 +17,7 @@ class recipesPageRoute extends StatefulWidget {
 }
 
 class _recipesPageRoute extends State<recipesPageRoute> {
-    final _biggerFont = const TextStyle(fontSize: 28.0);
+
     int index = 0;
 
 
@@ -28,12 +28,9 @@ class _recipesPageRoute extends State<recipesPageRoute> {
     ),
     body: ListView.builder(itemBuilder: (context, index) {
       return Container(
-        padding: const EdgeInsets.fromLTRB(10,10,10,0),
-          height: 220,
         width: double.maxFinite,
-        child: Card(
-          clipBehavior: Clip.antiAlias,
-            child: Column(
+        child: ExpansionTile(
+              title: const Text("I am a test string"),
               children: [
                 ListTile(
                   leading: Icon(Icons.arrow_drop_down_circle),
@@ -43,18 +40,10 @@ class _recipesPageRoute extends State<recipesPageRoute> {
                     style: TextStyle(color: Colors.black.withOpacity(0.6)),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Text(
-                    'Recipe Details',
-                    style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                  ),
-                ),
               ],
             ),
-          ),
-      );
-    }
+          );
+      }
     ),
     // Creates the buttons at the bottom of the page
     bottomNavigationBar: BottomNavigationBar(
