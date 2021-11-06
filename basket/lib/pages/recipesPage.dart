@@ -14,62 +14,78 @@ class recipesPageRoute extends StatefulWidget {
 }
 
 class _recipesPageRoute extends State<recipesPageRoute> {
-    final _biggerFont = const TextStyle(fontSize: 28.0);
-    int index = 0;
-
+  final _biggerFont = const TextStyle(fontSize: 28.0);
+  int index = 0;
 
   Widget build(BuildContext context) {
     return Scaffold(
-    appBar: AppBar(
-      title: const Text('Recipes'),
-    ),
-    //body: _recipeList(),
-    // Creates the buttons at the bottom of the page
-    bottomNavigationBar: BottomNavigationBar(
-      // Styling Options
-      backgroundColor: Colors.black,
-      unselectedItemColor: Colors.white,
-      selectedItemColor: Colors.white,
-      type: BottomNavigationBarType.fixed,
-      iconSize: 30,
-      // Icon Behaviors
-      currentIndex: index,
-      onTap: (int selectedIndex) {
-        setState(() {
-          index = selectedIndex;
-        });
-      },
-      // NavBar Icon Construction
-      items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(icon: 
-              IconButton(icon: const Icon(Icons.person), 
-              onPressed:  () => Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const SampleRoute())),
-              tooltip: "Test String"),
-              label: "Inventory"
-        ),
-        BottomNavigationBarItem(icon: 
-              IconButton(icon: const Icon(Icons.person), 
-              onPressed:  () => Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const SampleRoute())),
-              tooltip: "Test String"),
-              label: "Scan"
-        ),
-        BottomNavigationBarItem(icon: 
-              IconButton(icon: const Icon(Icons.person), 
-              onPressed:  () => Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const SampleRoute())),
-              tooltip: "Test String"),
-              label: "Recipes"
-        ),
-        BottomNavigationBarItem(icon: 
-              IconButton(icon: const Icon(Icons.person), 
-              onPressed:  () => Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const SampleRoute())),
-              tooltip: "Test String"),
-              label: "Browse All"
-        ),
-      ],
+      appBar: AppBar(
+        title: const Text('Recipes'),
+      ),
+      //body: _recipeList(),
+      // Creates the buttons at the bottom of the page
+      bottomNavigationBar: BottomNavigationBar(
+        // Styling Options
+        backgroundColor: Colors.black,
+        unselectedItemColor: Colors.white,
+        selectedItemColor: Colors.white,
+        type: BottomNavigationBarType.fixed,
+        iconSize: 30,
+        // Icon Behaviors
+        currentIndex: index,
+        onTap: (int selectedIndex) {
+          setState(() {
+            index = selectedIndex;
+          });
+        },
+        // NavBar Icon Construction
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+              icon: IconButton(
+                  icon: const Icon(Icons.person),
+                  onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SampleRoute())),
+                  tooltip: "Test String"),
+              label: "Search"),
+          BottomNavigationBarItem(
+              icon: IconButton(
+                  icon: const Icon(Icons.person),
+                  onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SampleRoute())),
+                  tooltip: "Test String"),
+              label: "Search"),
+          BottomNavigationBarItem(
+              icon: IconButton(
+                  icon: const Icon(Icons.person),
+                  onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SampleRoute())),
+                  tooltip: "Test String"),
+              label: "Scan"),
+          BottomNavigationBarItem(
+              icon: IconButton(
+                  icon: const Icon(Icons.person),
+                  onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SampleRoute())),
+                  tooltip: "Test String"),
+              label: "Grocery List"),
+          BottomNavigationBarItem(
+              icon: IconButton(
+                  icon: const Icon(Icons.person),
+                  onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SampleRoute())),
+                  tooltip: "Test String"),
+              label: "Favorites"),
+        ],
       ),
     );
   }
