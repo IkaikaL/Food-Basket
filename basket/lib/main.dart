@@ -1,4 +1,4 @@
-import 'package:basket/pages/recipesPage.dart';
+
 import 'package:flutter/material.dart';
 import 'src/app.dart';
 import 'src/settings/settings_controller.dart';
@@ -40,28 +40,45 @@ class _LandingScreenState extends State<LandingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Good Enough for now
-      // Must be fixed before production.
-      body: Center(
-        child: Text("Welcome Back\n " + username, style: _biggerFont),
-      ),
-      // Creates the buttons at the bottom of the page
-      bottomNavigationBar: BottomNavigationBar(
-        // Styling Options
-        backgroundColor: Colors.black,
-        unselectedItemColor: Colors.white,
-        selectedItemColor: Colors.white,
-        type: BottomNavigationBarType.fixed,
-        iconSize: 30,
-        // Icon Behaviors
-        currentIndex: index,
-        onTap: (int selectedIndex) {
-          setState(() {
-            index = selectedIndex;
-          });
-        },
-        // NavBar Icon Construction
-        items: <BottomNavigationBarItem>[
+    appBar: AppBar(
+      title: const Text('Recipes'),
+    ),
+    body: ListView.builder(itemBuilder: (context, index) {
+      return Container(
+        width: double.maxFinite,
+        child: ExpansionTile(
+              title: const Text("I am a test string"),
+              children: [
+                ListTile(
+                  leading: Icon(Icons.arrow_drop_down_circle),
+                  title: const Text('Recipe Title'),
+                  subtitle: Text(
+                    'Secondary Text',
+                    style: TextStyle(color: Colors.black.withOpacity(0.6)),
+                  ),
+                ),
+              ],
+            ),
+          );
+      }
+    ),
+    // Creates the buttons at the bottom of the page
+    bottomNavigationBar: BottomNavigationBar(
+      // Styling Options
+      backgroundColor: Colors.black,
+      unselectedItemColor: Colors.white,
+      selectedItemColor: Colors.white,
+      type: BottomNavigationBarType.fixed,
+      iconSize: 30,
+      // Icon Behaviors
+      currentIndex: index,
+      onTap: (int selectedIndex) {
+        setState(() {
+          index = selectedIndex;
+        });
+      },
+      // NavBar Icon Construction
+      items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
               icon: IconButton(
                   icon: const Icon(Icons.person),
@@ -86,7 +103,7 @@ class _LandingScreenState extends State<LandingScreen> {
                   onPressed: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const recipesPageRoute())),
+                          builder: (context) => const SampleRoute())),
                   tooltip: "Test String"),
               label: "Scan"),
           BottomNavigationBarItem(
@@ -111,4 +128,4 @@ class _LandingScreenState extends State<LandingScreen> {
       ),
     );
   }
-}
+  }
