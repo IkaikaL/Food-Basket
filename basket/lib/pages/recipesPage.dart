@@ -7,9 +7,6 @@ import 'package:flutter/material.dart';
 import 'samplePage.dart';
 
 
-// Objects
-import "package:basket/data/recipe_object.dart";
-
 List _recipes = [];
 
 class recipesPageRoute extends StatefulWidget {
