@@ -6,5 +6,6 @@ class recipe {
   int calories;
   List ingredients = [];
 
-  recipe(this.name, this.proteinInGrams, this.fatInGrams, this.carbsInGrams, this.calories);
+  recipe(this.name, this.proteinInGrams, 
+        this.fatInGrams, this.carbsInGrams, this.calories);
 }

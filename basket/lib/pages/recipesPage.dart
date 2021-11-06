@@ -1,11 +1,17 @@
 // ignore_for_file: file_names
 
+
 import 'package:flutter/material.dart';
 
+// Routes
 import 'samplePage.dart';
 
-// This is called by the landing page and constructs a new page.
-// Here Scaffold is used again to produce a basic design UI.
+
+// Objects
+import "package:basket/data/recipe_object.dart";
+
+List _recipes = [];
+
 class recipesPageRoute extends StatefulWidget {
   const recipesPageRoute({Key? key}) : super(key: key);
 
@@ -23,7 +29,36 @@ class _recipesPageRoute extends State<recipesPageRoute> {
     appBar: AppBar(
       title: const Text('Recipes'),
     ),
-    //body: _recipeList(),
+    body: ListView.builder(itemBuilder: (context, index) {
+      return Container(
+        padding: const EdgeInsets.fromLTRB(10,10,10,0),
+          height: 220,
+        width: double.maxFinite,
+        child: Card(
+          clipBehavior: Clip.antiAlias,
+            child: Column(
+              children: [
+                ListTile(
+                  leading: Icon(Icons.arrow_drop_down_circle),
+                  title: const Text('Recipe Title'),
+                  subtitle: Text(
+                    'Secondary Text',
+                    style: TextStyle(color: Colors.black.withOpacity(0.6)),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Text(
+                    'Recipe Details',
+                    style: TextStyle(color: Colors.black.withOpacity(0.6)),
+                  ),
+                ),
+              ],
+            ),
+          ),
+      );
+    }
+    ),
     // Creates the buttons at the bottom of the page
     bottomNavigationBar: BottomNavigationBar(
       // Styling Options
@@ -73,24 +108,6 @@ class _recipesPageRoute extends State<recipesPageRoute> {
       ),
     );
   }
-}
 
-Widget _recipeList() {
-  return ListView.builder(
-    padding: const EdgeInsets.all(16.0),
-    itemBuilder: (context, i) {
-      if (i.isOdd) return const Divider();
-      final index = i ~/ 2;
-      if (index >= _recipes.length) {
-        _recipes.addAll();
-      }
-      return _buildRow();
-    }
-  );
-}
 
-Widget _buildRow() {
-  return ListTile(
-    title: 
-  );
 }
