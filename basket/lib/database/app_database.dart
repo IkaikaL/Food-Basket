@@ -37,7 +37,7 @@ class AppDatabase {
       ${RecipeFields.id} $idType,
       ${RecipeFields.name} $textType,
       ${RecipeFields.ingredients} $textType,
-      ${RecipeFields.instructions} $textType,
+      ${RecipeFields.instructions} $textType
     )
     ''');
   }
