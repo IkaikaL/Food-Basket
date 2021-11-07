@@ -10,11 +10,18 @@ import 'pages/samplePage.dart';
 import 'package:basket/database/app_database.dart';
 import 'package:basket/database/recipe.dart';
 
-//Future<List<Recipe>> recipeList = List.empty() as Future<List<Recipe>>;
+List<Recipe> recipeList = [];
 
 void main() {
   print("main.dart is running");
   //recipeList = AppDatabase.instance.readAllRecipes();
+
+  Recipe testrecipe1 = const Recipe(name: "Meatballs", ingredients: "Ground Meat, eggs", instructions: "1. Cook");
+  Recipe testrecipe2 = const Recipe(name: "Turkey Meatballs", ingredients: "Ground Turkey, eggs", instructions: "1. Cook");
+  Recipe testrecipe3 = const Recipe(name: "Chicken Meatballs", ingredients: "Ground Chicken, eggs", instructions: "1. Cook");
+  recipeList.add(testrecipe1);
+  recipeList.add(testrecipe2);
+  recipeList.add(testrecipe3);
 
   runApp(const BasketApp());
 }
@@ -41,7 +48,6 @@ class LandingScreen extends StatefulWidget {
 
 class _LandingScreenState extends State<LandingScreen> {
   int index = 0;
-  int testMaxIndex = 20;
 
   @override
   Widget build(BuildContext context) {
@@ -50,28 +56,19 @@ class _LandingScreenState extends State<LandingScreen> {
       title: const Text('Recipes'),
     ),
     body: ListView.builder(
-      itemCount: testMaxIndex, 
+      itemCount: recipeList.length, 
       itemBuilder: (context, index) {
       return  Column(
-        children: const [
-          Image(image: AssetImage('assets/images/Meatballs.jpeg')),
+        children: [
+          const Image(image: AssetImage('assets/images/Meatballs.jpeg')),
           ExpansionTile(
-              title: Text("Recipe Title"),
+              title: Text(recipeList[index].name),
               children: [
                 ListTile(
-                  title: Text('Calories: '),
+                  title: Text('Ingredients: ' + recipeList[index].ingredients),
                   ),
                 ListTile(
-                  title: Text('Protein: '),
-                  ),
-                ListTile(
-                  title: Text('Fat: '),
-                  ),
-                ListTile(
-                  title: Text('Carbs: '),
-                  ),
-                ListTile(
-                  title: Text('Ingredients: '),
+                  title: Text('Instructions: ' + recipeList[index].instructions),
                   ),
               ],
             ),
