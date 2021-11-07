@@ -49,7 +49,8 @@ class _LandingScreenState extends State<LandingScreen> {
     appBar: AppBar(
       title: const Text('Recipes'),
     ),
-    body: ListView.builder(itemCount: testMaxIndex, 
+    body: ListView.builder(
+      itemCount: testMaxIndex, 
       itemBuilder: (context, index) {
       return  Column(
         children: const [
