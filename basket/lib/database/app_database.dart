@@ -2,9 +2,14 @@ import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
 import 'recipe.dart';
+import 'ingredient.dart';
 
 class AppDatabase {
   static final AppDatabase instance = AppDatabase._init();
+
+  //////////////////////////////////
+  //UNUSABLE METHODS AND FUNCTIONS//
+  //////////////////////////////////
 
   //database field
   static Database? _database;
@@ -31,6 +36,16 @@ class AppDatabase {
   Future _createDB(Database db, int version) async {
     const idType = 'INTEGER PRIMARY KEY AUTOINCREMENT';
     const textType = 'TEXT NOT NULL';
+    const integerType = 'INTEGER NOT NULL';
+
+    await db.execute('''
+    CREATE TABLE $tableIngredients (
+      ${IngredientFields.id} $idType,
+      ${IngredientFields.name} $textType,
+      ${IngredientFields.quantity} $integerType,
+      ${IngredientFields.unit} $textType
+    )
+    ''');
 
     await db.execute('''
     CREATE TABLE $tableRecipes (
@@ -40,6 +55,73 @@ class AppDatabase {
       ${RecipeFields.instructions} $textType
     )
     ''');
+  }
+
+  ////////////////////////////////
+  //USABLE METHODS AND FUNCTIONS//
+  ////////////////////////////////
+
+  resetTableIngredients() async {
+    final db = await instance.database;
+
+    db.delete(tableIngredients);
+  }
+
+  resetTableRecipes() async {
+    final db = await instance.database;
+
+    db.delete(tableRecipes);
+  }
+
+  Future<Ingredient> createIngredient(Ingredient ingredient) async {
+    final db = await instance.database;
+
+    final id = await db.insert(tableIngredients, ingredient.toJson());
+    return ingredient.copy(id: id);
+  }
+
+  Future<Ingredient> readIngredient(int id) async {
+    final db = await instance.database;
+
+    final maps = await db.query(
+      tableIngredients,
+      columns: IngredientFields.values,
+      where: '${IngredientFields.id} = ?',
+      whereArgs: [id],
+    );
+
+    if (maps.isNotEmpty) {
+      return Ingredient.fromJson(maps.first);
+    } else {
+      throw Exception('ID $id is not found');
+    }
+  }
+
+  Future<List<Ingredient>> readAllIngredients() async {
+    final db = await instance.database;
+
+    final orderBy = '${IngredientFields.name} ASC';
+
+    final result = await db.query(tableIngredients, orderBy: orderBy);
+
+    return result.map((json) => Ingredient.fromJson(json)).toList();
+  }
+
+  Future<int> updateIngredient(Ingredient ingredient) async {
+    final db = await instance.database;
+
+    return db.update(tableIngredients, ingredient.toJson(),
+        where: '${IngredientFields.id} = ?', whereArgs: [ingredient.id]);
+  }
+
+  Future<int> deleteIngredient(int id) async {
+    final db = await instance.database;
+
+    return await db.delete(
+      tableIngredients,
+      where: '${IngredientFields.id} = ?',
+      whereArgs: [id],
+    );
   }
 
   Future<Recipe> createRecipe(Recipe recipe) async {
