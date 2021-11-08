@@ -39,7 +39,10 @@ class _recipesPageRoute extends State<recipesPageRoute> {
 
   Future refreshIngredients() async {
     recipes = await AppDatabase.instance.readAllRecipes();
+
+    //testing statement
     print(recipes.length);
+
     setState(() {});
   }
 
