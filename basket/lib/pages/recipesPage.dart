@@ -18,25 +18,51 @@ class recipesPageRoute extends StatefulWidget {
 
 class _recipesPageRoute extends State<recipesPageRoute> {
   int index = 0;
+  List<Recipe> recipes = [];
+
+  @override
+  void initState() {
+    super.initState();
+
+    //to clear recipe table
+    //AppDatabase.instance.resetTableRecipes()
+
+    addRecipe();
+    refreshIngredients();
+  }
+
+  addRecipe() => AppDatabase.instance.createRecipe(Recipe(
+        name: 'salad',
+        ingredients: 'lettuce, cheese, ranch',
+        instructions: 'throw that shit in a bowl',
+      ));
+
+  Future refreshIngredients() async {
+    recipes = await AppDatabase.instance.readAllRecipes();
+
+    //testing statement
+    print(recipes.length);
+
+    setState(() {});
+  }
 
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView.builder(
-          itemCount: recipeList.length,
+          itemCount: recipes.length,
           itemBuilder: (context, index) {
             return Column(
               children: [
                 const Image(image: AssetImage('assets/images/Meatballs.jpeg')),
                 ExpansionTile(
-                  title: Text(recipeList[index].name),
+                  title: Text(recipes[index].name),
                   children: [
                     ListTile(
-                      title:
-                          Text('Ingredients: ' + recipeList[index].ingredients),
+                      title: Text('Ingredients: ' + recipes[index].ingredients),
                     ),
                     ListTile(
-                      title: Text(
-                          'Instructions: ' + recipeList[index].instructions),
+                      title:
+                          Text('Instructions: ' + recipes[index].instructions),
                     ),
                   ],
                 ),
