@@ -8,21 +8,29 @@ import 'package:basket/database/recipe.dart';
 import 'package:basket/main.dart';
 import 'package:basket/database/app_database.dart';
 import 'package:basket/database/ingredient.dart';
-
-class recipesPageRoute extends StatefulWidget {
-  const recipesPageRoute({Key? key}) : super(key: key);
+/*
+class pantryPageRoute extends StatefulWidget {
+  const pantryPageRoute({Key? key}) : super(key: key);
 
   @override
-  _recipesPageRoute createState() => _recipesPageRoute();
+  _pantryPageRoute createState() => _pantryPageRoute();
 }
 
-class _recipesPageRoute extends State<recipesPageRoute> {
+class _pantryPageRoute extends State<pantryPageRoute> {
+  Future<List<Ingredient>> ingredientList() async {
+    return await AppDatabase.instance.readAllIngredients();
+  }
+
+  late List<Ingredient> lengthOfIngredientsDatabase;
   int index = 0;
+  void initState() {
+    lengthOfIngredientsDatabase = ingredientList() as List<Ingredient>;
+  }
 
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView.builder(
-          itemCount: recipeList.length,
+          itemCount: lengthOfIngredientsDatabase.length,
           itemBuilder: (context, index) {
             return Column(
               children: [
@@ -46,3 +54,4 @@ class _recipesPageRoute extends State<recipesPageRoute> {
     );
   }
 }
+*/
