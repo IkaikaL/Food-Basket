@@ -1,3 +1,4 @@
+import 'package:basket/pages/notInUse_recipesPage.dart';
 import 'package:flutter/material.dart';
 import 'src/app.dart';
 import 'src/settings/settings_controller.dart';
@@ -16,6 +17,8 @@ void main() {
   print("main.dart is running");
   //recipeList = AppDatabase.instance.readAllRecipes();
 
+  // Testing Code
+  // Not Meant for Production
   Recipe testrecipe1 = const Recipe(name: "Meatballs", ingredients: "Ground Meat, eggs", instructions: "1. Cook");
   Recipe testrecipe2 = const Recipe(name: "Turkey Meatballs", ingredients: "Ground Turkey, eggs", instructions: "1. Cook");
   Recipe testrecipe3 = const Recipe(name: "Chicken Meatballs", ingredients: "Ground Chicken, eggs", instructions: "1. Cook");
@@ -47,7 +50,14 @@ class LandingScreen extends StatefulWidget {
 }
 
 class _LandingScreenState extends State<LandingScreen> {
-  int index = 0;
+  var pages = [
+    SampleRoute(),
+    recipesPageRoute(),
+    SampleRoute(),
+    SampleRoute(),
+    SampleRoute(),
+  ];
+  int index = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -55,29 +65,7 @@ class _LandingScreenState extends State<LandingScreen> {
     appBar: AppBar(
       title: const Text('Recipes'),
     ),
-    body: ListView.builder(
-      itemCount: recipeList.length, 
-      itemBuilder: (context, index) {
-      return  Column(
-        children: [
-          const Image(image: AssetImage('assets/images/Meatballs.jpeg')),
-          ExpansionTile(
-              title: Text(recipeList[index].name),
-              children: [
-                ListTile(
-                  title: Text('Ingredients: ' + recipeList[index].ingredients),
-                  ),
-                ListTile(
-                  title: Text('Instructions: ' + recipeList[index].instructions),
-                  ),
-              ],
-            ),
-        ],
-      );
-      
-          
-      }
-    ),
+    body: pages[index],
     // Creates the buttons at the bottom of the page
     bottomNavigationBar: BottomNavigationBar(
       // Styling Options
@@ -94,51 +82,21 @@ class _LandingScreenState extends State<LandingScreen> {
         });
       },
       // NavBar Icon Construction
-      items: <BottomNavigationBarItem>[
+      items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-              icon: IconButton(
-                  icon: const Icon(Icons.person),
-                  onPressed: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SampleRoute())),
-                  tooltip: "Test String"),
+              icon: Icon(Icons.person),
               label: "Pantry"),
           BottomNavigationBarItem(
-              icon: IconButton(
-                  icon: const Icon(Icons.person),
-                  onPressed: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SampleRoute())),
-                  tooltip: "Test String"),
+              icon: Icon(Icons.person),
               label: "Search"),
           BottomNavigationBarItem(
-              icon: IconButton(
-                  icon: const Icon(Icons.person),
-                  onPressed: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SampleRoute())),
-                  tooltip: "Test String"),
+              icon: Icon(Icons.person),
               label: "Scan"),
           BottomNavigationBarItem(
-              icon: IconButton(
-                  icon: const Icon(Icons.person),
-                  onPressed: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SampleRoute())),
-                  tooltip: "Test String"),
+              icon: Icon(Icons.person),
               label: "Grocery List"),
           BottomNavigationBarItem(
-              icon: IconButton(
-                  icon: const Icon(Icons.person),
-                  onPressed: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SampleRoute())),
-                  tooltip: "Test String"),
+              icon: Icon(Icons.person),
               label: "Favorites"),
         ],
       ),

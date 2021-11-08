@@ -5,9 +5,8 @@ import 'package:flutter/material.dart';
 
 // Routes
 import 'samplePage.dart';
-
-
-List _recipes = [];
+import 'package:basket/database/recipe.dart';
+import 'package:basket/main.dart';
 
 class recipesPageRoute extends StatefulWidget {
   const recipesPageRoute({Key? key}) : super(key: key);
@@ -17,79 +16,33 @@ class recipesPageRoute extends StatefulWidget {
 }
 
 class _recipesPageRoute extends State<recipesPageRoute> {
-  final _biggerFont = const TextStyle(fontSize: 28.0);
   int index = 0;
 
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Recipes'),
-      ),
-      //body: _recipeList(),
-      // Creates the buttons at the bottom of the page
-      bottomNavigationBar: BottomNavigationBar(
-        // Styling Options
-        backgroundColor: Colors.black,
-        unselectedItemColor: Colors.white,
-        selectedItemColor: Colors.white,
-        type: BottomNavigationBarType.fixed,
-        iconSize: 30,
-        // Icon Behaviors
-        currentIndex: index,
-        onTap: (int selectedIndex) {
-          setState(() {
-            index = selectedIndex;
-          });
-        },
-        // NavBar Icon Construction
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-              icon: IconButton(
-                  icon: const Icon(Icons.person),
-                  onPressed: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SampleRoute())),
-                  tooltip: "Test String"),
-              label: "Pantry"),
-          BottomNavigationBarItem(
-              icon: IconButton(
-                  icon: const Icon(Icons.person),
-                  onPressed: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SampleRoute())),
-                  tooltip: "Test String"),
-              label: "Search"),
-          BottomNavigationBarItem(
-              icon: IconButton(
-                  icon: const Icon(Icons.person),
-                  onPressed: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SampleRoute())),
-                  tooltip: "Test String"),
-              label: "Scan"),
-          BottomNavigationBarItem(
-              icon: IconButton(
-                  icon: const Icon(Icons.person),
-                  onPressed: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SampleRoute())),
-                  tooltip: "Test String"),
-              label: "Grocery List"),
-          BottomNavigationBarItem(
-              icon: IconButton(
-                  icon: const Icon(Icons.person),
-                  onPressed: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SampleRoute())),
-                  tooltip: "Test String"),
-              label: "Favorites"),
+      body: ListView.builder(
+      itemCount: recipeList.length, 
+      itemBuilder: (context, index) {
+      return  Column(
+        children: [
+          const Image(image: AssetImage('assets/images/Meatballs.jpeg')),
+          ExpansionTile(
+              title: Text(recipeList[index].name),
+              children: [
+                ListTile(
+                  title: Text('Ingredients: ' + recipeList[index].ingredients),
+                  ),
+                ListTile(
+                  title: Text('Instructions: ' + recipeList[index].instructions),
+                  ),
+              ],
+            ),
         ],
-      ),
+      );
+      
+          
+      }
+    ),
     );
   }
 
