@@ -31,7 +31,7 @@ class _recipesPageRoute extends State<recipesPageRoute> {
     refreshIngredients();
   }
 
-  addRecipe() => AppDatabase.instance.createRecipe(Recipe(
+  addRecipe() => AppDatabase.instance.createRecipe(const Recipe(
         name: 'salad',
         ingredients: 'lettuce, cheese, ranch',
         instructions: 'throw that shit in a bowl',

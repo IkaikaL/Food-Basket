@@ -3,6 +3,7 @@ import 'package:path/path.dart';
 
 import 'recipe.dart';
 import 'ingredient.dart';
+import 'ingredient_property.dart';
 
 class AppDatabase {
   static final AppDatabase instance = AppDatabase._init();
@@ -39,6 +40,15 @@ class AppDatabase {
     const integerType = 'INTEGER NOT NULL';
 
     await db.execute('''
+    CREATE TABLE $tableIngredientProperty (
+      ${IngredientPropertyFields.id} $idType,
+      ${IngredientPropertyFields.name} $textType,
+      ${IngredientPropertyFields.calories} $integerType,
+      ${IngredientPropertyFields.barcode} $integerType
+    )
+    ''');
+
+    await db.execute('''
     CREATE TABLE $tableIngredients (
       ${IngredientFields.id} $idType,
       ${IngredientFields.name} $textType,
@@ -61,6 +71,12 @@ class AppDatabase {
   //USABLE METHODS AND FUNCTIONS//
   ////////////////////////////////
 
+  resetTableIngredientProperty() async {
+    final db = await instance.database;
+
+    db.delete(tableIngredientProperty);
+  }
+
   resetTableIngredients() async {
     final db = await instance.database;
 
@@ -71,6 +87,61 @@ class AppDatabase {
     final db = await instance.database;
 
     db.delete(tableRecipes);
+  }
+
+  Future<IngredientProperty> createIngredientProperty(
+      IngredientProperty ingredientProperty) async {
+    final db = await instance.database;
+
+    final id =
+        await db.insert(tableIngredientProperty, ingredientProperty.toJson());
+    return ingredientProperty.copy(id: id);
+  }
+
+  Future<IngredientProperty> readIngredientProperty(int id) async {
+    final db = await instance.database;
+
+    final maps = await db.query(
+      tableIngredientProperty,
+      columns: IngredientPropertyFields.values,
+      where: '${IngredientPropertyFields.id} = ?',
+      whereArgs: [id],
+    );
+
+    if (maps.isNotEmpty) {
+      return IngredientProperty.fromJson(maps.first);
+    } else {
+      throw Exception('ID $id is not found');
+    }
+  }
+
+  Future<List<IngredientProperty>> readAllIngredientProperties() async {
+    final db = await instance.database;
+
+    final orderBy = '${IngredientPropertyFields.name} ASC';
+
+    final result = await db.query(tableIngredientProperty, orderBy: orderBy);
+
+    return result.map((json) => IngredientProperty.fromJson(json)).toList();
+  }
+
+  Future<int> updateIngredientProperty(
+      IngredientProperty ingredientProperty) async {
+    final db = await instance.database;
+
+    return db.update(tableIngredientProperty, ingredientProperty.toJson(),
+        where: '${IngredientPropertyFields.id} = ?',
+        whereArgs: [ingredientProperty.id]);
+  }
+
+  Future<int> deleteIngredientProperty(int id) async {
+    final db = await instance.database;
+
+    return await db.delete(
+      tableIngredientProperty,
+      where: '${IngredientPropertyFields.id} = ?',
+      whereArgs: [id],
+    );
   }
 
   Future<Ingredient> createIngredient(Ingredient ingredient) async {
