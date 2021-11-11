@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
@@ -53,7 +54,9 @@ class AppDatabase {
       ${IngredientFields.id} $idType,
       ${IngredientFields.name} $textType,
       ${IngredientFields.quantity} $integerType,
-      ${IngredientFields.unit} $textType
+      ${IngredientFields.unit} $textType,
+      ${IngredientPropertyFields.calories} $integerType,
+      ${IngredientFields.barcode} $integerType
     )
     ''');
 
@@ -98,7 +101,7 @@ class AppDatabase {
     return ingredientProperty.copy(id: id);
   }
 
-  Future<IngredientProperty> readIngredientProperty(int id) async {
+  Future<IngredientProperty> readIngredientPropertyID(int id) async {
     final db = await instance.database;
 
     final maps = await db.query(
@@ -112,6 +115,23 @@ class AppDatabase {
       return IngredientProperty.fromJson(maps.first);
     } else {
       throw Exception('ID $id is not found');
+    }
+  }
+
+  Future<IngredientProperty> readIngredientPropertyBarcode(int barcode) async {
+    final db = await instance.database;
+
+    final maps = await db.query(
+      tableIngredientProperty,
+      columns: IngredientPropertyFields.values,
+      where: '${IngredientPropertyFields.barcode} = ?',
+      whereArgs: [barcode],
+    );
+
+    if (maps.isNotEmpty) {
+      return IngredientProperty.fromJson(maps.first);
+    } else {
+      throw Exception('BARCODE $barcode is not found');
     }
   }
 
@@ -151,7 +171,7 @@ class AppDatabase {
     return ingredient.copy(id: id);
   }
 
-  Future<Ingredient> readIngredient(int id) async {
+  Future<Ingredient> readIngredientID(int id) async {
     final db = await instance.database;
 
     final maps = await db.query(
@@ -165,6 +185,23 @@ class AppDatabase {
       return Ingredient.fromJson(maps.first);
     } else {
       throw Exception('ID $id is not found');
+    }
+  }
+
+  Future<Ingredient> readIngredientName(String name) async {
+    final db = await instance.database;
+
+    final maps = await db.query(
+      tableIngredients,
+      columns: IngredientFields.values,
+      where: '${IngredientFields.name} = ?',
+      whereArgs: [name],
+    );
+
+    if (maps.isNotEmpty) {
+      return Ingredient.fromJson(maps.first);
+    } else {
+      throw Exception('NAME $name is not found');
     }
   }
 
@@ -202,7 +239,7 @@ class AppDatabase {
     return recipe.copy(id: id);
   }
 
-  Future<Recipe> readRecipe(int id) async {
+  Future<Recipe> readRecipeID(int id) async {
     final db = await instance.database;
 
     final maps = await db.query(
@@ -216,6 +253,23 @@ class AppDatabase {
       return Recipe.fromJson(maps.first);
     } else {
       throw Exception('ID $id is not found');
+    }
+  }
+
+  Future<List<Recipe>> readRecipeName(String name) async {
+    final db = await instance.database;
+
+    final result = await db.query(
+      tableRecipes,
+      columns: RecipeFields.values,
+      where: '${RecipeFields.name} LIKE ?',
+      whereArgs: [name],
+    );
+
+    if (result.isNotEmpty) {
+      return result.map((json) => Recipe.fromJson(json)).toList();
+    } else {
+      throw Exception('NAME $name is not found');
     }
   }
 
