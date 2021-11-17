@@ -19,18 +19,28 @@ class recipesPageRoute extends StatefulWidget {
 class _recipesPageRoute extends State<recipesPageRoute> {
   int index = 0;
   List<Recipe> recipes = [];
+  List<Ingredient> ingredients = [];
 
   @override
   void initState() {
     super.initState();
 
     //to clear recipe table
-    //AppDatabase.instance.resetTableRecipes()
-
+    AppDatabase.instance.resetTableRecipes();
+    //AppDatabase.instance.deleteDB();
+    addIngredient();
     addRecipe();
+
     refreshIngredients();
   }
 
+  addIngredient() => AppDatabase.instance.createIngredient(const Ingredient(
+        name: 'lettuce',
+        quantity: 0,
+        unit: 'oz',
+        calories: 0,
+        barcode: 145141,
+      ));
   addRecipe() => AppDatabase.instance.createRecipe(const Recipe(
         name: 'salad',
         ingredients: 'lettuce, cheese, ranch',
@@ -38,11 +48,12 @@ class _recipesPageRoute extends State<recipesPageRoute> {
       ));
 
   Future refreshIngredients() async {
-    recipes = await AppDatabase.instance.readAllRecipes();
+    ingredients = await AppDatabase.instance.readAllIngredients();
+    recipes = await AppDatabase.instance.readRecipeIngredients(ingredients);
 
     //testing statement
+    //print(recipes.length);
     print(recipes.length);
-
     setState(() {});
   }
 

@@ -55,7 +55,7 @@ class AppDatabase {
       ${IngredientFields.name} $textType,
       ${IngredientFields.quantity} $integerType,
       ${IngredientFields.unit} $textType,
-      ${IngredientPropertyFields.calories} $integerType,
+      ${IngredientFields.calories} $integerType,
       ${IngredientFields.barcode} $integerType
     )
     ''');
@@ -74,10 +74,11 @@ class AppDatabase {
   //USABLE METHODS AND FUNCTIONS//
   ////////////////////////////////
 
-  resetTableIngredientProperty() async {
-    final db = await instance.database;
+  Future<void> deleteDB({String filePath = 'app_database.db'}) async {
+    final dbPath = await getDatabasesPath();
+    final path = join(dbPath!, filePath);
 
-    db.delete(tableIngredientProperty);
+    deleteDatabase(path);
   }
 
   resetTableIngredients() async {
@@ -271,6 +272,32 @@ class AppDatabase {
     } else {
       throw Exception('NAME $name is not found');
     }
+  }
+
+  Future<List<Recipe>> readRecipeIngredients(
+      List<Ingredient> ingredients) async {
+    final db = await instance.database;
+    final list = await readAllRecipes();
+    var result = <Recipe>[];
+    var relevance = [];
+    for (final recipe in list) {
+      final recipeIngredients = recipe.getIngredients();
+      var likes = 0;
+      for (final recipeIng in recipeIngredients) {
+        var hit = 0;
+        for (final i in ingredients) {
+          if (recipeIng.toLowerCase().contains(i.name.toLowerCase())) {
+            hit = 1;
+          }
+        }
+        if (hit == 1) likes++;
+      }
+      if (likes > 0) {
+        result.add(recipe);
+        relevance.add(likes);
+      }
+    }
+    return result;
   }
 
   Future<List<Recipe>> readAllRecipes() async {

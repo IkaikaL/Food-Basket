@@ -22,6 +22,11 @@ class Recipe {
     required this.instructions,
   });
 
+  List<String> getIngredients() {
+    final ingredients = this.ingredients.split(',');
+    return ingredients;
+  }
+
   Recipe copy({
     int? id,
     String? name,
