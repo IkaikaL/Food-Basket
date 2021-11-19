@@ -26,15 +26,16 @@ class _recipesPageRoute extends State<recipesPageRoute> {
     super.initState();
 
     //to clear recipe table
-    AppDatabase.instance.resetTableRecipes();
-    //AppDatabase.instance.deleteDB();
+    //AppDatabase.instance.resetTableRecipes();
+    AppDatabase.instance.deleteDB();
     addIngredient();
     addRecipe();
 
     refreshIngredients();
   }
 
-  addIngredient() => AppDatabase.instance.createIngredient(const Ingredient(
+  addIngredient() =>
+      AppDatabase.instance.addIngredientInventory(const Ingredient(
         name: 'lettuce',
         quantity: 0,
         unit: 'oz',
@@ -48,8 +49,8 @@ class _recipesPageRoute extends State<recipesPageRoute> {
       ));
 
   Future refreshIngredients() async {
-    ingredients = await AppDatabase.instance.readAllIngredients();
-    recipes = await AppDatabase.instance.readRecipeIngredients(ingredients);
+    ingredients = await AppDatabase.instance.readAllInventory();
+    recipes = await AppDatabase.instance.searchRecipeIngredients(ingredients);
 
     //testing statement
     //print(recipes.length);

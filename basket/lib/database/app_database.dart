@@ -81,7 +81,7 @@ class AppDatabase {
     deleteDatabase(path);
   }
 
-  resetTableIngredients() async {
+  resetTableInventory() async {
     final db = await instance.database;
 
     db.delete(tableIngredients);
@@ -165,14 +165,14 @@ class AppDatabase {
     );
   }
 
-  Future<Ingredient> createIngredient(Ingredient ingredient) async {
+  Future<Ingredient> addIngredientInventory(Ingredient ingredient) async {
     final db = await instance.database;
 
     final id = await db.insert(tableIngredients, ingredient.toJson());
     return ingredient.copy(id: id);
   }
 
-  Future<Ingredient> readIngredientID(int id) async {
+  Future<Ingredient> readInventoryID(int id) async {
     final db = await instance.database;
 
     final maps = await db.query(
@@ -189,7 +189,7 @@ class AppDatabase {
     }
   }
 
-  Future<Ingredient> readIngredientName(String name) async {
+  Future<Ingredient> readInventoryName(String name) async {
     final db = await instance.database;
 
     final maps = await db.query(
@@ -206,7 +206,7 @@ class AppDatabase {
     }
   }
 
-  Future<List<Ingredient>> readAllIngredients() async {
+  Future<List<Ingredient>> readAllInventory() async {
     final db = await instance.database;
 
     final orderBy = '${IngredientFields.name} ASC';
@@ -216,14 +216,14 @@ class AppDatabase {
     return result.map((json) => Ingredient.fromJson(json)).toList();
   }
 
-  Future<int> updateIngredient(Ingredient ingredient) async {
+  Future<int> updateInventory(Ingredient ingredient) async {
     final db = await instance.database;
 
     return db.update(tableIngredients, ingredient.toJson(),
         where: '${IngredientFields.id} = ?', whereArgs: [ingredient.id]);
   }
 
-  Future<int> deleteIngredient(int id) async {
+  Future<int> deleteIngredientInventory(int id) async {
     final db = await instance.database;
 
     return await db.delete(
@@ -274,7 +274,7 @@ class AppDatabase {
     }
   }
 
-  Future<List<Recipe>> readRecipeIngredients(
+  Future<List<Recipe>> searchRecipeIngredients(
       List<Ingredient> ingredients) async {
     final db = await instance.database;
     final list = await readAllRecipes();
