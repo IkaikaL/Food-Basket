@@ -14,7 +14,6 @@ import 'package:basket/database/recipe.dart';
 
 
 void main() {
-  print("main.dart is running");
   //recipeList = AppDatabase.instance.readAllRecipes();
 
   runApp(const BasketApp());
