@@ -26,8 +26,8 @@ class _recipesPageRoute extends State<recipesPageRoute> {
     super.initState();
 
     //to clear recipe table
-    //AppDatabase.instance.resetTableRecipes();
-    AppDatabase.instance.deleteDB();
+    AppDatabase.instance.resetTableRecipes();
+    //AppDatabase.instance.deleteDB();
     addIngredient();
     addRecipe();
 
