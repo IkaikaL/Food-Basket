@@ -24,7 +24,11 @@ class _RecipesPage extends State<RecipesPage> {
   void initState() {
     super.initState();
 
-    //to clear recipe table
+    //The statement below will cause 'sqflitedatabaseexception (databaseexception(database_closed))' error when switching pages
+    //just comment it out again and the error will go away
+    //AppDatabase.instance.deleteDB(); //only use whenever Anthony changes the database structure, or just once whenever using a new pull
+    //
+    //if you want to clear database contents, use these statements instead:
     //AppDatabase.instance.resetTableRecipes();
     //AppDatabase.instance.deleteDB();
     //addIngredient();
@@ -36,9 +40,9 @@ class _RecipesPage extends State<RecipesPage> {
   addIngredient() =>
       AppDatabase.instance.addIngredientInventory(const Ingredient(
         name: 'lettuce',
-        quantity: 0,
+        quantity: 3,
         unit: 'oz',
-        calories: 0,
+        calories: 100,
         barcode: 145141,
       ));
   addRecipe() => AppDatabase.instance.createRecipe(const Recipe(
@@ -53,8 +57,9 @@ class _RecipesPage extends State<RecipesPage> {
     recipes = await AppDatabase.instance.searchRecipeIngredients(ingredients);
 
     //testing statement
-    //print(recipes.length);
+    print(ingredients[0].quantity);
     print(recipes.length);
+
     setState(() {});
   }
 

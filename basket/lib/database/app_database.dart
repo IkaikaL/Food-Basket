@@ -39,12 +39,13 @@ class AppDatabase {
     const idType = 'INTEGER PRIMARY KEY AUTOINCREMENT';
     const textType = 'TEXT NOT NULL';
     const integerType = 'INTEGER NOT NULL';
+    const realType = 'REAL NOT NULL';
 
     await db.execute('''
     CREATE TABLE $tableIngredientProperty (
       ${IngredientPropertyFields.id} $idType,
       ${IngredientPropertyFields.name} $textType,
-      ${IngredientPropertyFields.calories} $integerType,
+      ${IngredientPropertyFields.calories} $realType,
       ${IngredientPropertyFields.barcode} $integerType
     )
     ''');
@@ -53,9 +54,9 @@ class AppDatabase {
     CREATE TABLE $tableIngredients (
       ${IngredientFields.id} $idType,
       ${IngredientFields.name} $textType,
-      ${IngredientFields.quantity} $integerType,
+      ${IngredientFields.quantity} $realType,
       ${IngredientFields.unit} $textType,
-      ${IngredientFields.calories} $integerType,
+      ${IngredientFields.calories} $realType,
       ${IngredientFields.barcode} $integerType
     )
     ''');
@@ -79,6 +80,12 @@ class AppDatabase {
     final path = join(dbPath!, filePath);
 
     deleteDatabase(path);
+  }
+
+  resetTableIngredientProperties() async {
+    final db = await instance.database;
+
+    db.delete(tableIngredientProperty);
   }
 
   resetTableInventory() async {
