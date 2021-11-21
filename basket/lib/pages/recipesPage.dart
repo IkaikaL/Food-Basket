@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 
 // Routes
 import 'package:basket/database/recipe.dart';
-import 'package:basket/database/app_database.dart';
 import 'package:basket/database/ingredient.dart';
+
+import 'package:basket/database/app_database.dart';
 
 class RecipesPage extends StatefulWidget {
   const RecipesPage({Key? key}) : super(key: key);
@@ -25,13 +26,13 @@ class _RecipesPage extends State<RecipesPage> {
 
     //to clear recipe table
     //AppDatabase.instance.resetTableRecipes();
-    AppDatabase.instance.deleteDB();
-    addIngredient();
-    addRecipe();
+    //AppDatabase.instance.deleteDB();
+    //addIngredient();
+    //addRecipe();
 
     refreshIngredients();
   }
-
+/*
   addIngredient() =>
       AppDatabase.instance.addIngredientInventory(const Ingredient(
         name: 'lettuce',
@@ -45,6 +46,7 @@ class _RecipesPage extends State<RecipesPage> {
         ingredients: 'lettuce, cheese, ranch',
         instructions: 'throw that shit in a bowl',
       ));
+*/
 
   Future refreshIngredients() async {
     ingredients = await AppDatabase.instance.readAllInventory();
