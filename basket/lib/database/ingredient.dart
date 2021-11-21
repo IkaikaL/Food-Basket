@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 const String tableIngredients = 'inventory';
 
 class IngredientFields {
@@ -21,9 +23,9 @@ class IngredientFields {
 class Ingredient {
   final int? id;
   final String name;
-  final double quantity;
+  final num quantity;
   final String unit;
-  final double calories;
+  final num calories;
   final int barcode;
 
   const Ingredient({
@@ -38,9 +40,9 @@ class Ingredient {
   Ingredient copy({
     int? id,
     String? name,
-    double? quantity,
+    num? quantity,
     String? unit,
-    double? calories,
+    num? calories,
     int? barcode,
   }) =>
       Ingredient(

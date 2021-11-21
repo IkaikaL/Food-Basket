@@ -36,21 +36,7 @@ class _RecipesPage extends State<RecipesPage> {
 
     refreshIngredients();
   }
-/*
-  addIngredient() =>
-      AppDatabase.instance.addIngredientInventory(const Ingredient(
-        name: 'lettuce',
-        quantity: 3,
-        unit: 'oz',
-        calories: 100,
-        barcode: 145141,
-      ));
-  addRecipe() => AppDatabase.instance.createRecipe(const Recipe(
-        name: 'salad',
-        ingredients: 'lettuce, cheese, ranch',
-        instructions: 'throw that shit in a bowl',
-      ));
-*/
+
 
   Future refreshIngredients() async {
     ingredients = await AppDatabase.instance.readAllInventory();

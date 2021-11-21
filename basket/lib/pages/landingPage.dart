@@ -23,7 +23,7 @@ class LandingPage extends StatefulWidget {
 
 class _LandingPageState extends State<LandingPage> {
   static const pages = [
-    SamplePage(),
+    pantryPage(),
     RecipesPage(),
     SamplePage(),
     SamplePage(),

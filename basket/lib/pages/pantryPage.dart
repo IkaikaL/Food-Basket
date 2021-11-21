@@ -10,23 +10,20 @@ late String nameOfItem;
 late int quantityOfItem;
 late double caloriesOfItem;
 
-class pantryPageRoute extends StatefulWidget {
-  const pantryPageRoute({Key? key}) : super(key: key);
+class pantryPage extends StatefulWidget {
+  const pantryPage({Key? key}) : super(key: key);
 
   @override
-  _pantryPageRoute createState() => _pantryPageRoute();
+  _pantryPage createState() => _pantryPage();
 }
 
-class _pantryPageRoute extends State<pantryPageRoute> {
+class _pantryPage extends State<pantryPage> {
   List<Ingredient> ingredients = [];
   int index = 1;
   @override
   void initState() {
     super.initState();
 
-    //to clear recipe table
-    AppDatabase.instance.resetTableRecipes();
-    //AppDatabase.instance.deleteDB();
 
     refreshInventory();
   }
@@ -40,9 +37,10 @@ class _pantryPageRoute extends State<pantryPageRoute> {
     setState(() {});
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Inventory'), centerTitle: true),
+        appBar: AppBar(title: const Text('Inventory'), centerTitle: true),
         body: ListView.builder(
             itemCount: ingredients.length,
             itemBuilder: (context, index) {
@@ -74,10 +72,10 @@ class _pantryPageRoute extends State<pantryPageRoute> {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => addItemToInventoryManually()));
+                    builder: (context) => const addItemToInventoryManually()));
           },
-          icon: Icon(Icons.add),
-          label: Text('add items'),
+          icon: const Icon(Icons.add),
+          label: const Text('add items'),
         ));
   }
 }
@@ -94,14 +92,14 @@ class _addItemToInventoryManually extends State<addItemToInventoryManually> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Inventory Input'),
+          title: const Text('Inventory Input'),
         ),
         body: Column(children: [
           Padding(
-              padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+              padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
               child: TextField(
                 onChanged: (value) => nameOfItem = value,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     filled: true,
                     fillColor: Colors.white,
                     hintText: 'Ingredient Name',
@@ -112,10 +110,10 @@ class _addItemToInventoryManually extends State<addItemToInventoryManually> {
                     ))),
               )),
           Padding(
-              padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+              padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
               child: TextField(
                 onChanged: (value) => quantityOfItem = int.parse(value),
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     filled: true,
                     fillColor: Colors.white,
                     hintText: 'Ingredient Quantity',
@@ -126,10 +124,10 @@ class _addItemToInventoryManually extends State<addItemToInventoryManually> {
                     ))),
               )),
           Padding(
-              padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+              padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
               child: TextField(
                 onChanged: (value) => caloriesOfItem = double.parse(value),
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     filled: true,
                     fillColor: Colors.white,
                     hintText: 'Ingredient Calories',
@@ -143,10 +141,7 @@ class _addItemToInventoryManually extends State<addItemToInventoryManually> {
         floatingActionButton: ElevatedButton.icon(
             onPressed: () {
               Navigator.pop(context,
-                  MaterialPageRoute(builder: (context) => pantryPageRoute()));
-              print(nameOfItem);
-              print(quantityOfItem);
-              print(caloriesOfItem);
+                  MaterialPageRoute(builder: (context) => const pantryPage()));
 /*
               addIngredient() =>
                   AppDatabase.instance.addIngredientInventory(const Ingredient(
@@ -159,7 +154,7 @@ class _addItemToInventoryManually extends State<addItemToInventoryManually> {
                   ))
               ;*/
             },
-            icon: Icon(Icons.done),
-            label: Text('Done')));
+            icon: const Icon(Icons.done),
+            label: const Text('Done')));
   }
 }
