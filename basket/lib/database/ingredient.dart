@@ -21,9 +21,9 @@ class IngredientFields {
 class Ingredient {
   final int? id;
   final String name;
-  final int quantity;
+  final double quantity;
   final String unit;
-  final int calories;
+  final double calories;
   final int barcode;
 
   const Ingredient({
@@ -38,9 +38,9 @@ class Ingredient {
   Ingredient copy({
     int? id,
     String? name,
-    int? quantity,
+    double? quantity,
     String? unit,
-    int? calories,
+    double? calories,
     int? barcode,
   }) =>
       Ingredient(
@@ -55,9 +55,9 @@ class Ingredient {
   static Ingredient fromJson(Map<String, Object?> json) => Ingredient(
         id: json[IngredientFields.id] as int?,
         name: json[IngredientFields.name] as String,
-        quantity: json[IngredientFields.quantity] as int,
+        quantity: json[IngredientFields.quantity] as double,
         unit: json[IngredientFields.unit] as String,
-        calories: json[IngredientFields.calories] as int,
+        calories: json[IngredientFields.calories] as double,
         barcode: json[IngredientFields.barcode] as int,
       );
 
