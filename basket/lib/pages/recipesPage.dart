@@ -3,20 +3,19 @@
 import 'package:flutter/material.dart';
 
 // Routes
-import 'samplePage.dart';
 import 'package:basket/database/recipe.dart';
-import 'package:basket/main.dart';
-import 'package:basket/database/app_database.dart';
 import 'package:basket/database/ingredient.dart';
 
-class recipesPageRoute extends StatefulWidget {
-  const recipesPageRoute({Key? key}) : super(key: key);
+import 'package:basket/database/app_database.dart';
+
+class RecipesPage extends StatefulWidget {
+  const RecipesPage({Key? key}) : super(key: key);
 
   @override
-  _recipesPageRoute createState() => _recipesPageRoute();
+  _RecipesPage createState() => _RecipesPage();
 }
 
-class _recipesPageRoute extends State<recipesPageRoute> {
+class _RecipesPage extends State<RecipesPage> {
   int index = 0;
   List<Recipe> recipes = [];
   List<Ingredient> ingredients = [];
@@ -31,15 +30,13 @@ class _recipesPageRoute extends State<recipesPageRoute> {
     //
     //if you want to clear database contents, use these statements instead:
     //AppDatabase.instance.resetTableRecipes();
-    //AppDatabase.instance.resetTableInventory();
-    //AppDatabase.instance.resetTableIngredientProperties();
-
-    addIngredient();
-    addRecipe();
+    //AppDatabase.instance.deleteDB();
+    //addIngredient();
+    //addRecipe();
 
     refreshIngredients();
   }
-
+/*
   addIngredient() =>
       AppDatabase.instance.addIngredientInventory(const Ingredient(
         name: 'lettuce',
@@ -53,6 +50,7 @@ class _recipesPageRoute extends State<recipesPageRoute> {
         ingredients: 'lettuce, cheese, ranch',
         instructions: 'throw that shit in a bowl',
       ));
+*/
 
   Future refreshIngredients() async {
     ingredients = await AppDatabase.instance.readAllInventory();
