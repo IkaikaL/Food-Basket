@@ -10,6 +10,7 @@ import 'package:basket/database/app_database.dart';
 import 'package:basket/database/recipe.dart';class DatabaseDriver {
 
   void addAllDemoRecipes(){
+    //AppDatabase.instance.deleteDB();
     AppDatabase.instance.resetTableRecipes();
     AppDatabase.instance.resetTableInventory();
     addSalad();
