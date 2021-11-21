@@ -76,7 +76,8 @@ class _pantryPage extends State<pantryPage> {
           },
           icon: const Icon(Icons.add),
           label: const Text('add items'),
-        ));
+        )
+      );
   }
 }
 
@@ -107,8 +108,11 @@ class _addItemToInventoryManually extends State<addItemToInventoryManually> {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(
                       Radius.circular(10.0),
-                    ))),
-              )),
+                    )
+                  )
+                ),
+              )
+            ),
           Padding(
               padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
               child: TextField(
@@ -121,8 +125,11 @@ class _addItemToInventoryManually extends State<addItemToInventoryManually> {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(
                       Radius.circular(10.0),
-                    ))),
-              )),
+                    )
+                  )
+                ),
+              )
+            ),
           Padding(
               padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
               child: TextField(
@@ -135,8 +142,11 @@ class _addItemToInventoryManually extends State<addItemToInventoryManually> {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(
                       Radius.circular(10.0),
-                    ))),
-              ))
+                    )
+                  )
+                ),
+              )
+            )
         ]),
         floatingActionButton: ElevatedButton.icon(
             onPressed: () {
@@ -155,6 +165,8 @@ class _addItemToInventoryManually extends State<addItemToInventoryManually> {
               ;*/
             },
             icon: const Icon(Icons.done),
-            label: const Text('Done')));
+            label: const Text('Done')
+            )
+          );
   }
 }
