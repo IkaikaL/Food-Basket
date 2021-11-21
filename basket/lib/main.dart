@@ -1,4 +1,5 @@
 import 'package:basket/pages/recipesPage.dart';
+import 'package:basket/pages/scannerPage.dart';
 import 'package:flutter/material.dart';
 import 'src/app.dart';
 import 'src/settings/settings_controller.dart';
@@ -62,7 +63,7 @@ class _LandingScreenState extends State<LandingScreen> {
     //pantryPageRoute(),
     SampleRoute(),
     recipesPageRoute(),
-    SampleRoute(),
+    BarCodeScanner(),
     SampleRoute(),
     SampleRoute(),
   ];
