@@ -3,6 +3,8 @@ import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter/material.dart';
 
 class BarCodeScanner extends StatefulWidget {
+  const BarCodeScanner({Key? key}) : super(key: key);
+
   @override
   BarCodeState createState() => BarCodeState();
 }
