@@ -12,7 +12,7 @@ class IngredientPropertyFields {
 class IngredientProperty {
   final int? id;
   final String name;
-  final int calories;
+  final double calories;
   final int barcode;
 
   const IngredientProperty({
@@ -25,7 +25,7 @@ class IngredientProperty {
   IngredientProperty copy({
     int? id,
     String? name,
-    int? calories,
+    double? calories,
     int? barcode,
   }) =>
       IngredientProperty(
@@ -39,7 +39,7 @@ class IngredientProperty {
       IngredientProperty(
         id: json[IngredientPropertyFields.id] as int?,
         name: json[IngredientPropertyFields.name] as String,
-        calories: json[IngredientPropertyFields.calories] as int,
+        calories: json[IngredientPropertyFields.calories] as double,
         barcode: json[IngredientPropertyFields.barcode] as int,
       );
 
