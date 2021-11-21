@@ -10,11 +10,13 @@ import 'package:basket/database/app_database.dart';
 import 'package:basket/database/recipe.dart';class DatabaseDriver {
 
   void addAllDemoRecipes(){
-    //AppDatabase.instance.deleteDB();
     AppDatabase.instance.resetTableRecipes();
+    AppDatabase.instance.resetTableInventory();
     addSalad();
     addGreenBeanSalad();
     addMeatBalls();
+
+    testLettuce();
   }
 
   addSalad(){
@@ -36,6 +38,16 @@ import 'package:basket/database/recipe.dart';class DatabaseDriver {
         name: 'Meatballs',
         ingredients: 'Groundmeat, salt, pepper',
         instructions: 'throw that shit in a bowl, add heat',
+      ));
+  }
+
+  testLettuce() {
+    AppDatabase.instance.addIngredientInventory(const Ingredient(
+        name: 'lettuce',
+        quantity: 0,
+        unit: 'oz',
+        calories: 0,
+        barcode: 145141,
       ));
   }
 }

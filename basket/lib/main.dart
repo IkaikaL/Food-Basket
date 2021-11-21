@@ -15,7 +15,6 @@ import 'package:basket/database/database_driver.dart';
 
 
 void main() {
-  DatabaseDriver().addAllDemoRecipes();
   runApp(const BasketApp());
 }
 
