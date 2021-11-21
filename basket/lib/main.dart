@@ -59,8 +59,7 @@ class LandingScreen extends StatefulWidget {
 
 class _LandingScreenState extends State<LandingScreen> {
   var pages = [
-    //pantryPageRoute(),
-    SampleRoute(),
+    pantryPageRoute(),
     recipesPageRoute(),
     SampleRoute(),
     SampleRoute(),
@@ -71,9 +70,6 @@ class _LandingScreenState extends State<LandingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Recipes'),
-      ),
       body: pages[index],
       // Creates the buttons at the bottom of the page
       bottomNavigationBar: BottomNavigationBar(
@@ -92,7 +88,7 @@ class _LandingScreenState extends State<LandingScreen> {
         },
         // NavBar Icon Construction
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Pantry"),
+          BottomNavigationBarItem(icon: Icon(Icons.inventory), label: "Pantry"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Search"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Scan"),
           BottomNavigationBarItem(

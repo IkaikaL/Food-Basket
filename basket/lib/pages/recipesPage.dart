@@ -43,9 +43,9 @@ class _recipesPageRoute extends State<recipesPageRoute> {
   addIngredient() =>
       AppDatabase.instance.addIngredientInventory(const Ingredient(
         name: 'lettuce',
-        quantity: 20.7,
+        quantity: 3,
         unit: 'oz',
-        calories: 100.50,
+        calories: 100,
         barcode: 145141,
       ));
   addRecipe() => AppDatabase.instance.createRecipe(const Recipe(
