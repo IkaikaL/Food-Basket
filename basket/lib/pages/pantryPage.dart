@@ -143,14 +143,14 @@ class _addItemToInventoryManually extends State<addItemToInventoryManually> {
             onPressed: () {
               Navigator.pop(context,
                   MaterialPageRoute(builder: (context) => const pantryPage()));
-              /*addIngredient() =>
-                  AppDatabase.instance.addIngredientInventory(const Ingredient(
+              addIngredient() =>
+                  AppDatabase.instance.addIngredientInventory(Ingredient(
                     name: nameOfItem,
                     quantity: quantityOfItem,
                     unit: 'oz',
                     calories: caloriesOfItem,
                     barcode: 145141,
-                  ));*/
+                  ));
             },
             icon: const Icon(Icons.done),
             label: const Text('Done')));
