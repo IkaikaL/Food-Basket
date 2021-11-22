@@ -23,8 +23,6 @@ class _pantryPage extends State<pantryPage> {
   @override
   void initState() {
     super.initState();
-
-
     refreshInventory();
   }
 
@@ -76,8 +74,7 @@ class _pantryPage extends State<pantryPage> {
           },
           icon: const Icon(Icons.add),
           label: const Text('add items'),
-        )
-      );
+        ));
   }
 }
 
@@ -97,7 +94,8 @@ class _addItemToInventoryManually extends State<addItemToInventoryManually> {
         ),
         body: Column(children: [
           Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+              padding:
+                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
               child: TextField(
                 onChanged: (value) => nameOfItem = value,
                 decoration: const InputDecoration(
@@ -108,13 +106,11 @@ class _addItemToInventoryManually extends State<addItemToInventoryManually> {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(
                       Radius.circular(10.0),
-                    )
-                  )
-                ),
-              )
-            ),
+                    ))),
+              )),
           Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+              padding:
+                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
               child: TextField(
                 onChanged: (value) => quantityOfItem = int.parse(value),
                 decoration: const InputDecoration(
@@ -125,13 +121,11 @@ class _addItemToInventoryManually extends State<addItemToInventoryManually> {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(
                       Radius.circular(10.0),
-                    )
-                  )
-                ),
-              )
-            ),
+                    ))),
+              )),
           Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+              padding:
+                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
               child: TextField(
                 onChanged: (value) => caloriesOfItem = double.parse(value),
                 decoration: const InputDecoration(
@@ -142,31 +136,23 @@ class _addItemToInventoryManually extends State<addItemToInventoryManually> {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(
                       Radius.circular(10.0),
-                    )
-                  )
-                ),
-              )
-            )
+                    ))),
+              ))
         ]),
         floatingActionButton: ElevatedButton.icon(
             onPressed: () {
               Navigator.pop(context,
                   MaterialPageRoute(builder: (context) => const pantryPage()));
-/*
-              addIngredient() =>
+              /*addIngredient() =>
                   AppDatabase.instance.addIngredientInventory(const Ingredient(
                     name: nameOfItem,
                     quantity: quantityOfItem,
                     unit: 'oz',
                     calories: caloriesOfItem,
                     barcode: 145141,
-                    
-                  ))
-              ;*/
+                  ));*/
             },
             icon: const Icon(Icons.done),
-            label: const Text('Done')
-            )
-          );
+            label: const Text('Done')));
   }
 }
