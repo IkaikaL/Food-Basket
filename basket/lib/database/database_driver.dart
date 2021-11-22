@@ -13,7 +13,7 @@ import 'package:basket/database/recipe.dart';class DatabaseDriver {
     //AppDatabase.instance.deleteDB();
     AppDatabase.instance.resetTableRecipes();
     AppDatabase.instance.resetTableInventory();
-    AppDatabase.instance.resetTableIngredientProperties()();
+    AppDatabase.instance.resetTableIngredientProperties();
     addSalad();
     addGreenBeanSalad();
     addMeatBalls();
