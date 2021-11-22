@@ -18,7 +18,6 @@ class DatabaseDriver {
     addSalad();
     addGreenBeanSalad();
     addMeatBalls();
-
     testLettuce();
   }
 
