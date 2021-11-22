@@ -17,7 +17,6 @@ import 'package:basket/database/recipe.dart';class DatabaseDriver {
     addSalad();
     addGreenBeanSalad();
     addMeatBalls();
-
     testLettuce();
   }
 
