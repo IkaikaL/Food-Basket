@@ -71,6 +71,8 @@ class _pantryPage extends State<pantryPage> {
                 context,
                 MaterialPageRoute(
                     builder: (context) => const addItemToInventoryManually()));
+            refreshInventory();
+            build(context);
           },
           icon: const Icon(Icons.add),
           label: const Text('add items'),
@@ -151,6 +153,7 @@ class _addItemToInventoryManually extends State<addItemToInventoryManually> {
                     calories: caloriesOfItem,
                     barcode: 145141,
                   ));
+              addIngredient();
             },
             icon: const Icon(Icons.done),
             label: const Text('Done')));
