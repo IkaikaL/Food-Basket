@@ -7,9 +7,10 @@ import 'ingredient_property.dart';
 
 //Database Imports
 import 'package:basket/database/app_database.dart';
-import 'package:basket/database/recipe.dart';class DatabaseDriver {
+import 'package:basket/database/recipe.dart';
 
-  void addAllDemoRecipes(){
+class DatabaseDriver {
+  void addAllDemoRecipes() {
     //AppDatabase.instance.deleteDB();
     AppDatabase.instance.resetTableRecipes();
     AppDatabase.instance.resetTableInventory();
@@ -21,35 +22,37 @@ import 'package:basket/database/recipe.dart';class DatabaseDriver {
     testLettuce();
   }
 
-  addSalad(){
+  addSalad() {
     AppDatabase.instance.createRecipe(const Recipe(
-        name: 'salad',
-        ingredients: 'lettuce, cheese, ranch',
-        instructions: 'throw that shit in a bowl',
-      ));
+      name: 'salad',
+      ingredients: 'lettuce, cheese, ranch',
+      instructions: 'throw that shit in a bowl',
+    ));
   }
-  addGreenBeanSalad(){
+
+  addGreenBeanSalad() {
     AppDatabase.instance.createRecipe(const Recipe(
-        name: 'GreenBeanSalad',
-        ingredients: 'GreenBeans, balsamic vinaigrette, walnuts',
-        instructions: 'throw that shit in a bowl, add heat',
-      ));
+      name: 'GreenBeanSalad',
+      ingredients: 'GreenBeans, balsamic vinaigrette, walnuts',
+      instructions: 'throw that shit in a bowl, add heat',
+    ));
   }
-  addMeatBalls(){
+
+  addMeatBalls() {
     AppDatabase.instance.createRecipe(const Recipe(
-        name: 'Meatballs',
-        ingredients: 'Groundmeat, salt, pepper',
-        instructions: 'throw that shit in a bowl, add heat',
-      ));
+      name: 'Meatballs',
+      ingredients: 'Groundmeat, salt, pepper',
+      instructions: 'throw that shit in a bowl, add heat',
+    ));
   }
 
   testLettuce() {
     AppDatabase.instance.addIngredientInventory(const Ingredient(
-        name: 'lettuce',
-        quantity: 0,
-        unit: 'oz',
-        calories: 0,
-        barcode: 145141,
-      ));
+      name: 'lettuce',
+      quantity: 0,
+      unit: 'oz',
+      calories: 0,
+      barcode: 145141,
+    ));
   }
 }

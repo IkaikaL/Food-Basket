@@ -37,13 +37,11 @@ class _RecipesPage extends State<RecipesPage> {
     refreshIngredients();
   }
 
-
   Future refreshIngredients() async {
     ingredients = await AppDatabase.instance.readAllInventory();
     recipes = await AppDatabase.instance.searchRecipeIngredients(ingredients);
 
     //testing statement
-    print(ingredients[0].quantity);
     print(recipes.length);
 
     setState(() {});

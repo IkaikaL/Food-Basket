@@ -19,7 +19,7 @@ class pantryPage extends StatefulWidget {
 
 class _pantryPage extends State<pantryPage> {
   List<Ingredient> ingredients = [];
-  int index = 1;
+  //int index = 1;
   @override
   void initState() {
     super.initState();
@@ -37,6 +37,7 @@ class _pantryPage extends State<pantryPage> {
 
   @override
   Widget build(BuildContext context) {
+    refreshInventory();
     return Scaffold(
         appBar: AppBar(title: const Text('Inventory'), centerTitle: true),
         body: ListView.builder(
@@ -143,14 +144,13 @@ class _addItemToInventoryManually extends State<addItemToInventoryManually> {
             onPressed: () {
               Navigator.pop(context,
                   MaterialPageRoute(builder: (context) => const pantryPage()));
-              /*addIngredient() =>
-                  AppDatabase.instance.addIngredientInventory(const Ingredient(
-                    name: nameOfItem,
-                    quantity: quantityOfItem,
-                    unit: 'oz',
-                    calories: caloriesOfItem,
-                    barcode: 145141,
-                  ));*/
+              AppDatabase.instance.addIngredientInventory(Ingredient(
+                name: nameOfItem,
+                quantity: quantityOfItem,
+                unit: 'oz',
+                calories: caloriesOfItem,
+                barcode: 145141,
+              ));
             },
             icon: const Icon(Icons.done),
             label: const Text('Done')));
