@@ -23,6 +23,7 @@ class BasketApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DatabaseDriver().addAllDemoRecipes();
     return const MaterialApp(
       title: "Basket",
       home: LandingPage(),

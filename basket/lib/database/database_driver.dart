@@ -7,7 +7,9 @@ import 'ingredient_property.dart';
 
 //Database Imports
 import 'package:basket/database/app_database.dart';
-import 'package:basket/database/recipe.dart';class DatabaseDriver {
+import 'package:basket/database/recipe.dart';
+
+class DatabaseDriver {
 
   void addAllDemoRecipes(){
     //AppDatabase.instance.deleteDB();
@@ -17,7 +19,6 @@ import 'package:basket/database/recipe.dart';class DatabaseDriver {
     addSalad();
     addGreenBeanSalad();
     addMeatBalls();
-
     testLettuce();
   }
 

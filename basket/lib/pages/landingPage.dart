@@ -16,6 +16,7 @@ import 'package:basket/database/database_driver.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
+  
 
   @override
   _LandingPageState createState() => _LandingPageState();
@@ -33,7 +34,6 @@ class _LandingPageState extends State<LandingPage> {
 
   @override
   Widget build(BuildContext context) {
-    DatabaseDriver().addAllDemoRecipes();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Recipes'),
