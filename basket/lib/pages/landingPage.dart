@@ -23,12 +23,12 @@ class _LandingPageState extends State<LandingPage> {
     SamplePage(),
     SamplePage(),
   ];
-  int index = 2;
+  int indexOfCurrentPage = 2;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: pages[index],
+      body: pages[indexOfCurrentPage],
       // Creates the buttons at the bottom of the page
       bottomNavigationBar: BottomNavigationBar(
         // Styling Options
@@ -38,10 +38,10 @@ class _LandingPageState extends State<LandingPage> {
         type: BottomNavigationBarType.fixed,
         iconSize: 30,
         // Icon Behaviors
-        currentIndex: index,
+        currentIndex: indexOfCurrentPage,
         onTap: (int selectedIndex) {
           setState(() {
-            index = selectedIndex;
+            indexOfCurrentPage = selectedIndex;
           });
         },
         // NavBar Icon Construction
