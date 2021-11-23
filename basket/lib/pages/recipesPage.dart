@@ -2,10 +2,9 @@
 
 import 'package:flutter/material.dart';
 
-// Routes
+// Database Imports
 import 'package:basket/database/recipe.dart';
 import 'package:basket/database/ingredient.dart';
-
 import 'package:basket/database/app_database.dart';
 
 class RecipesPage extends StatefulWidget {
