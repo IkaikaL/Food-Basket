@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'samplePage.dart';
 import 'pantryPage.dart';
 import 'package:basket/pages/recipesPage.dart';
-import 'package:basket/pages/scannerPage.dart';
+//import 'package:basket/pages/scannerPage.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
@@ -19,7 +19,7 @@ class _LandingPageState extends State<LandingPage> {
   static const pages = [
     pantryPage(),
     RecipesPage(),
-    BarCodeScanner(),
+    SamplePage(),
     SamplePage(),
     SamplePage(),
   ];
