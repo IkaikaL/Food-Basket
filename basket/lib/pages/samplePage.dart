@@ -2,8 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-// This is called by the landing page and constructs a new page.
-// Here Scaffold is used again to produce a basic design UI.
+
 class SamplePage extends StatelessWidget {
   const SamplePage({Key? key}) : super(key: key);
 
