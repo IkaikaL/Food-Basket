@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 // Routes
-import 'package:basket/main.dart';
 import 'package:basket/database/app_database.dart';
 import 'package:basket/database/ingredient.dart';
 
@@ -28,10 +27,6 @@ class _pantryPage extends State<pantryPage> {
 
   Future refreshInventory() async {
     ingredients = await AppDatabase.instance.readAllInventory();
-
-    //testing statement
-    //print(recipes.length);
-    print(ingredients.length);
     setState(() {});
   }
 
