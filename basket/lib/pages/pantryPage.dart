@@ -19,10 +19,6 @@ class pantryPage extends StatefulWidget {
 
 class _pantryPage extends State<pantryPage> {
   List<Ingredient> ingredients = [];
-  late TextEditingController controller;
-  //String item = 'Meatballs';
-  //final String test = 'assets/images/' + item + 'jpeg';
-  //int index = 1;
   @override
   void initState() {
     super.initState();
