@@ -76,7 +76,7 @@ class _pantryPage extends State<pantryPage> {
             build(context);
           },
           icon: const Icon(Icons.add),
-          label: const Text('add items'),
+          label: const Text('add item'),
         ));
   }
 }
