@@ -14,7 +14,7 @@ class DatabaseDriver {
     addSalad();
     addGreenBeanSalad();
     addMeatBalls();
-    testLettuce();
+    AddIngredientLettuce();
   }
 
   addSalad() {
@@ -41,7 +41,7 @@ class DatabaseDriver {
     ));
   }
 
-  testLettuce() {
+  AddIngredientLettuce() {
     AppDatabase.instance.addIngredientInventory(const Ingredient(
       name: 'lettuce',
       quantity: 0,
