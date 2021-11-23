@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:basket/database/app_database.dart';
 import 'package:basket/database/ingredient.dart';
 
+late int newQuantity;
 late String nameOfItem;
 late int quantityOfItem;
 late double caloriesOfItem;
@@ -18,7 +19,6 @@ class pantryPage extends StatefulWidget {
 
 class _pantryPage extends State<pantryPage> {
   List<Ingredient> ingredients = [];
-  //int index = 1;
   @override
   void initState() {
     super.initState();
@@ -40,8 +40,9 @@ class _pantryPage extends State<pantryPage> {
             itemBuilder: (context, index) {
               return Column(
                 children: [
-                  const Image(
+                  /*const Image(
                       image: AssetImage('assets/images/Meatballs.jpeg')),
+                  */
                   ExpansionTile(
                     title: Text(ingredients[index].name),
                     children: [
@@ -51,7 +52,17 @@ class _pantryPage extends State<pantryPage> {
                       ListTile(
                           title: Text('Quantity: ' +
                               ingredients[index].quantity.toString()),
-                          trailing: const Icon(Icons.mode_edit)),
+                          trailing: ElevatedButton.icon(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const changeQuantityManually()));
+                            },
+                            icon: const Icon(Icons.edit),
+                            label: const Text('edit'),
+                          )),
                       ListTile(
                         title: Text('Calories: ' +
                             ingredients[index].calories.toString()),
@@ -144,9 +155,57 @@ class _addItemToInventoryManually extends State<addItemToInventoryManually> {
               AppDatabase.instance.addIngredientInventory(Ingredient(
                 name: nameOfItem,
                 quantity: quantityOfItem,
-                unit: 'oz',
+                unit: 'grams',
                 calories: caloriesOfItem,
-                barcode: 145141,
+                barcode: 6969696,
+              ));
+            },
+            icon: const Icon(Icons.done),
+            label: const Text('Done')));
+  }
+}
+
+class changeQuantityManually extends StatefulWidget {
+  const changeQuantityManually({Key? key}) : super(key: key);
+
+  @override
+  _changeQuantityManually createState() => _changeQuantityManually();
+}
+
+class _changeQuantityManually extends State<changeQuantityManually> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('Change Quantity'),
+        ),
+        body: Column(children: [
+          Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+              child: TextField(
+                onChanged: (value) => newQuantity = int.parse(value),
+                decoration: const InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    hintText: 'New Quantity',
+                    hintStyle: TextStyle(color: Colors.black),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                      Radius.circular(10.0),
+                    ))),
+              )),
+        ]),
+        floatingActionButton: ElevatedButton.icon(
+            onPressed: () {
+              Navigator.pop(context,
+                  MaterialPageRoute(builder: (context) => const pantryPage()));
+              AppDatabase.instance.addIngredientInventory(Ingredient(
+                name: nameOfItem,
+                quantity: newQuantity,
+                unit: 'grams',
+                calories: caloriesOfItem,
+                barcode: 6969696,
               ));
             },
             icon: const Icon(Icons.done),

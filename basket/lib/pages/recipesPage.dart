@@ -2,10 +2,9 @@
 
 import 'package:flutter/material.dart';
 
-// Routes
+// Database Imports
 import 'package:basket/database/recipe.dart';
 import 'package:basket/database/ingredient.dart';
-
 import 'package:basket/database/app_database.dart';
 
 class RecipesPage extends StatefulWidget {
@@ -16,7 +15,7 @@ class RecipesPage extends StatefulWidget {
 }
 
 class _RecipesPage extends State<RecipesPage> {
-  int index = 0;
+  int indexOfRecipeList = 0;
   List<Recipe> recipes = [];
   List<Ingredient> ingredients = [];
 
@@ -39,19 +38,19 @@ class _RecipesPage extends State<RecipesPage> {
       ),
       body: ListView.builder(
           itemCount: recipes.length,
-          itemBuilder: (context, index) {
+          itemBuilder: (context, indexOfRecipeList) {
             return Column(
               children: [
                 const Image(image: AssetImage('assets/images/Meatballs.jpeg')),
                 ExpansionTile(
-                  title: Text(recipes[index].name),
+                  title: Text(recipes[indexOfRecipeList].name),
                   children: [
                     ListTile(
-                      title: Text('Ingredients: ' + recipes[index].ingredients),
+                      title: Text('Ingredients: ' + recipes[indexOfRecipeList].ingredients),
                     ),
                     ListTile(
                       title:
-                          Text('Instructions: ' + recipes[index].instructions),
+                          Text('Instructions: ' + recipes[indexOfRecipeList].instructions),
                     ),
                   ],
                 ),

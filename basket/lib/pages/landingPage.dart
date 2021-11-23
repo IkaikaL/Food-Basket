@@ -1,12 +1,12 @@
 // ignore_for_file: file_names
 
-import 'package:basket/pages/recipesPage.dart';
-import 'package:basket/pages/scannerPage.dart';
 import 'package:flutter/material.dart';
 
 // Page Imports
 import 'samplePage.dart';
 import 'pantryPage.dart';
+import 'package:basket/pages/recipesPage.dart';
+import 'package:basket/pages/scannerPage.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
@@ -23,34 +23,29 @@ class _LandingPageState extends State<LandingPage> {
     SamplePage(),
     SamplePage(),
   ];
-  int index = 2;
+  int indexOfCurrentPage = 2;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: pages[index],
-      // Creates the buttons at the bottom of the page
+      body: pages[indexOfCurrentPage],
       bottomNavigationBar: BottomNavigationBar(
-        // Styling Options
         backgroundColor: Colors.black,
         unselectedItemColor: Colors.white,
         selectedItemColor: Colors.white,
         type: BottomNavigationBarType.fixed,
         iconSize: 30,
-        // Icon Behaviors
-        currentIndex: index,
+        currentIndex: indexOfCurrentPage,
         onTap: (int selectedIndex) {
           setState(() {
-            index = selectedIndex;
+            indexOfCurrentPage = selectedIndex;
           });
         },
-        // NavBar Icon Construction
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Pantry"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Search"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Scan"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person), label: "Grocery List"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Grocery List"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Favorites"),
         ],
       ),
