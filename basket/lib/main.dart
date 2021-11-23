@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 
 // Page Imports
 import 'pages/landingPage.dart';
-//Database Imports
+// Database Imports
 import 'package:basket/database/database_driver.dart';
 
 void main() {
   runApp(const BasketApp());
 }
 
-// Launches the app but does not display a screen
 class BasketApp extends StatelessWidget {
   const BasketApp({Key? key}) : super(key: key);
 

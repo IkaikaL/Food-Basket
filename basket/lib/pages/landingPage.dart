@@ -1,12 +1,12 @@
 // ignore_for_file: file_names
 
-import 'package:basket/pages/recipesPage.dart';
-import 'package:basket/pages/scannerPage.dart';
 import 'package:flutter/material.dart';
 
 // Page Imports
 import 'samplePage.dart';
 import 'pantryPage.dart';
+import 'package:basket/pages/recipesPage.dart';
+import 'package:basket/pages/scannerPage.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
