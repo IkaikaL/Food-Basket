@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:basket/pages/recipesPage.dart';
+import 'package:basket/pages/scannerPage.dart';
 import 'package:flutter/material.dart';
 
 // Page Imports
@@ -23,7 +24,7 @@ class _LandingPageState extends State<LandingPage> {
   static const pages = [
     pantryPage(),
     RecipesPage(),
-    SamplePage(),
+    BarCodeScanner(),
     SamplePage(),
     SamplePage(),
   ];
