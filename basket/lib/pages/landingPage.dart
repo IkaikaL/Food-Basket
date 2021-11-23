@@ -29,22 +29,18 @@ class _LandingPageState extends State<LandingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: pages[indexOfCurrentPage],
-      // Creates the buttons at the bottom of the page
       bottomNavigationBar: BottomNavigationBar(
-        // Styling Options
         backgroundColor: Colors.black,
         unselectedItemColor: Colors.white,
         selectedItemColor: Colors.white,
         type: BottomNavigationBarType.fixed,
         iconSize: 30,
-        // Icon Behaviors
         currentIndex: indexOfCurrentPage,
         onTap: (int selectedIndex) {
           setState(() {
             indexOfCurrentPage = selectedIndex;
           });
         },
-        // NavBar Icon Construction
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Pantry"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Search"),
