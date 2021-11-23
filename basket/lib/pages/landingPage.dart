@@ -45,8 +45,7 @@ class _LandingPageState extends State<LandingPage> {
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Pantry"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Search"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Scan"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person), label: "Grocery List"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Grocery List"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Favorites"),
         ],
       ),
