@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 const String tableIngredients = 'inventory';
 
 class IngredientFields {
