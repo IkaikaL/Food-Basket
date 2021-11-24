@@ -1,5 +1,7 @@
 // ignore_for_file: file_names, camel_case_types
 
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 // Routes
 import 'package:basket/database/app_database.dart';
@@ -41,6 +43,7 @@ class _pantryPage extends State<pantryPage> {
   Widget build(BuildContext context) {
     refreshInventory();
     return Scaffold(
+        backgroundColor: Colors.grey.shade900,
         appBar: AppBar(
             title: const Text('Inventory'),
             centerTitle: true,
@@ -48,50 +51,102 @@ class _pantryPage extends State<pantryPage> {
         body: ListView.builder(
             itemCount: ingredients.length,
             itemBuilder: (context, index) {
-              return Column(
-                children: [
-                  Image(image: AssetImage(findWhichImageToUse(index))),
-                  ExpansionTile(
-                    title: Text(ingredients[index].name),
+              return Column(children: [
+                Card(
+                    child: Column(children: [
+                  Stack(
+                    alignment: Alignment.topCenter,
                     children: [
-                      ListTile(
-                        title: Text('Name: ' + ingredients[index].name),
-                      ),
-                      ListTile(
-                          title: Text('Quantity: ' +
-                              ingredients[index].quantity.toString()),
-                          trailing: ElevatedButton.icon(
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const changeQuantityManually()));
-                            },
-                            icon: const Icon(Icons.edit),
-                            label: const Text('edit'),
-                          )),
-                      ListTile(
-                        title: Text('Calories: ' +
-                            ingredients[index].calories.toString()),
+                      Ink.image(
+                        image: AssetImage(findWhichImageToUse(index)),
+                        child: InkWell(
+                          onTap: () {},
+                        ),
+                        height: 300,
+                        fit: BoxFit.cover,
                       ),
                     ],
                   ),
-                ],
-              );
+                  SizedBox(height: 1),
+                  ButtonBar(alignment: MainAxisAlignment.end, children: [
+                    Container(
+                      width: 300,
+                      child: Text(
+                        ingredients[index].name,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        primary: Colors.white,
+                        backgroundColor: Colors.black,
+                      ),
+                      child: Text(
+                        'Remove',
+                      ),
+                      onPressed: () {
+                        AppDatabase.instance
+                            .deleteIngredientInventory(ingredients[index].id!);
+                      },
+                    ),
+                    /*Container(
+                      color: Colors.white,
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.all(5.0),
+                          ),
+                          Text(
+                            ingredients[index].name,
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            textAlign: TextAlign.start,
+                          ),
+                          Spacer(),
+                          Container(
+                            padding: EdgeInsets.all(5.0),
+                            color: Colors.white,
+                            child: TextButton(
+                              style: TextButton.styleFrom(
+                                  primary: Colors.white,
+                                  backgroundColor: Colors.black,
+                                  alignment: Alignment.centerRight),
+                              child: Text(
+                                'Remove',
+                              ),
+                              onPressed: () {
+                                
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),*/
+                  ])
+                ]))
+              ]);
             }),
         floatingActionButton: ElevatedButton.icon(
-          onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const addItemToInventoryManually()));
-            refreshInventory();
-            build(context);
-          },
-          icon: const Icon(Icons.add),
-          label: const Text('add item'),
-        ));
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          const addItemToInventoryManually()));
+              refreshInventory();
+              build(context);
+            },
+            icon: const Icon(Icons.add),
+            label: const Text('add item'),
+            style: TextButton.styleFrom(
+              backgroundColor: Colors.lightGreen,
+            )));
   }
 }
 

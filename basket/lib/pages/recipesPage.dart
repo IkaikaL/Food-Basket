@@ -39,9 +39,10 @@ class _RecipesPage extends State<RecipesPage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.grey.shade900,
         appBar: AppBar(
           title: const Text('Recipes'),
+          centerTitle: true,
           backgroundColor: (Colors.lightGreen),
         ),
         body: ListView.builder(
@@ -70,7 +71,7 @@ class _RecipesPage extends State<RecipesPage> {
                         alignment: MainAxisAlignment.end,
                         children: [
                           Container(
-                            width: 200,
+                            width: 203,
                             child: Text(
                               recipes[indexOfRecipeList].name,
                               style: TextStyle(
@@ -82,7 +83,8 @@ class _RecipesPage extends State<RecipesPage> {
                           ),
                           TextButton(
                             style: TextButton.styleFrom(
-                              primary: Colors.black,
+                              primary: Colors.white,
+                              backgroundColor: Colors.black,
                             ),
                             child: Text(
                               'Share',
@@ -91,7 +93,8 @@ class _RecipesPage extends State<RecipesPage> {
                           ),
                           TextButton(
                             style: TextButton.styleFrom(
-                              primary: Colors.black,
+                              primary: Colors.white,
+                              backgroundColor: Colors.black,
                             ),
                             child: Text(
                               'View Recipe',
