@@ -28,7 +28,7 @@ class DatabaseDriver {
   addGreenBeanSalad() {
     AppDatabase.instance.createRecipe(const Recipe(
       name: 'GreenBeanSalad',
-      ingredients: 'g, b, w',
+      ingredients: 'greenbeans, balsamic, walnuts',
       instructions: 'throw that shit in a bowl, add heat',
     ));
   }
