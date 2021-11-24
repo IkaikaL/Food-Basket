@@ -19,7 +19,7 @@ dependencies:
   sqflite: 2.0.0
   
   introduction_screen: ^1.0.7
-  flutter_barcode_scanner: ^2.0.0
+  
   scan: ^1.5.0
   
 

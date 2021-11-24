@@ -1,9 +1,9 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
-import 'recipe.dart';
-import 'ingredient.dart';
-import 'ingredient_property.dart';
+import 'package:basket/database/recipe.dart';
+import 'package:basket/database/ingredient.dart';
+import 'package:basket/database/ingredient_property.dart';
 
 class AppDatabase {
   static final AppDatabase instance = AppDatabase._init();

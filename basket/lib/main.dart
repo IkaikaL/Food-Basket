@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 // Page Imports
-import 'pages/landingPage.dart';
+import 'package:basket/pages/landingPage.dart';
 // Database Imports
 import 'package:basket/database/database_driver.dart';
 
@@ -18,6 +18,7 @@ class BasketApp extends StatelessWidget {
     return const MaterialApp(
       title: "Basket",
       home: LandingPage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

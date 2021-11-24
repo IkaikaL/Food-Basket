@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 
-
 class SamplePage extends StatelessWidget {
   const SamplePage({Key? key}) : super(key: key);
 
@@ -11,6 +10,7 @@ class SamplePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('SamplePage'),
+        backgroundColor: (Colors.lightGreen),
       ),
     );
   }
