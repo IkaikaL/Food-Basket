@@ -4,6 +4,8 @@ import 'package:path/path.dart';
 import 'package:basket/database/recipe.dart';
 import 'package:basket/database/ingredient.dart';
 import 'package:basket/database/ingredient_property.dart';
+import 'package:basket/database/recipe_ui.dart';
+import 'package:basket/database/grocery_item.dart';
 
 class AppDatabase {
   static final AppDatabase instance = AppDatabase._init();
@@ -68,6 +70,26 @@ class AppDatabase {
       ${RecipeFields.instructions} $textType
     )
     ''');
+
+    await db.execute('''
+    CREATE TABLE $tableGrocery (
+      ${GroceryFields.id} $idType,
+      ${GroceryFields.name} $textType,
+      ${GroceryFields.quantity} 'REAL',
+      ${GroceryFields.unit} 'TEXT',
+      ${GroceryFields.calories} 'REAL',
+      ${GroceryFields.barcode} 'INTEGER'
+    )
+    ''');
+
+    await db.execute('''
+    CREATE TABLE $tableFavorites (
+      ${RecipeFields.id} $idType,
+      ${RecipeFields.name} $textType,
+      ${RecipeFields.ingredients} $textType,
+      ${RecipeFields.instructions} $textType
+    )
+    ''');
   }
 
   ////////////////////////////////
@@ -97,6 +119,18 @@ class AppDatabase {
     final db = await instance.database;
 
     db.delete(tableRecipes);
+  }
+
+  resetTableGroceries() async {
+    final db = await instance.database;
+
+    db.delete(tableGrocery);
+  }
+
+  resetTableFavorites() async {
+    final db = await instance.database;
+
+    db.delete(tableFavorites);
   }
 
   Future<IngredientProperty> createIngredientProperty(
@@ -178,7 +212,7 @@ class AppDatabase {
     return ingredient.copy(id: id);
   }
 
-  Future<Ingredient> readInventoryID(int id) async {
+  Future<Ingredient> searchInventoryID(int id) async {
     final db = await instance.database;
 
     final maps = await db.query(
@@ -195,7 +229,7 @@ class AppDatabase {
     }
   }
 
-  Future<Ingredient> readInventoryName(String name) async {
+  Future<Ingredient> searchInventoryName(String name) async {
     final db = await instance.database;
 
     final maps = await db.query(
@@ -239,6 +273,18 @@ class AppDatabase {
     );
   }
 
+  RecipeUI recipeParse(Recipe recipe) {
+    final ingredients = recipe.getIngredients();
+    final instructions = recipe.getInstructions();
+
+    final RecipeUI recipeUI = RecipeUI(
+        name: recipe.name,
+        ingredients: ingredients,
+        instructions: instructions);
+
+    return recipeUI;
+  }
+
   Future<Recipe> createRecipe(Recipe recipe) async {
     final db = await instance.database;
 
@@ -246,7 +292,7 @@ class AppDatabase {
     return recipe.copy(id: id);
   }
 
-  Future<Recipe> readRecipeID(int id) async {
+  Future<RecipeUI> searchRecipeID(int id) async {
     final db = await instance.database;
 
     final maps = await db.query(
@@ -257,13 +303,14 @@ class AppDatabase {
     );
 
     if (maps.isNotEmpty) {
-      return Recipe.fromJson(maps.first);
+      Recipe recipe = Recipe.fromJson(maps.first);
+      return recipeParse(recipe);
     } else {
       throw Exception('ID $id is not found');
     }
   }
 
-  Future<List<Recipe>> readRecipeName(String name) async {
+  Future<List<RecipeUI>> searchRecipeName(String name) async {
     final db = await instance.database;
 
     final result = await db.query(
@@ -274,45 +321,54 @@ class AppDatabase {
     );
 
     if (result.isNotEmpty) {
-      return result.map((json) => Recipe.fromJson(json)).toList();
+      List<Recipe> recipeResult =
+          result.map((json) => Recipe.fromJson(json)).toList();
+      List<RecipeUI> recipeListUI = [];
+      for (var recipe in recipeResult) {
+        recipeListUI.add(recipeParse(recipe));
+      }
+      return recipeListUI;
     } else {
       throw Exception('NAME $name is not found');
     }
   }
 
-  Future<List<Recipe>> searchRecipeIngredients(
-      List<Ingredient> ingredients) async {
-    final db = await instance.database;
-    final list = await readAllRecipes();
-    var result = <Recipe>[];
-    var relevance = [];
+  Future<List<RecipeUI>> searchRecipeIngredients(
+      List<Ingredient> searchIngredients) async {
+    var ingr = <String>[];
+    for (final i in searchIngredients) {
+      ingr.add(i.name.toLowerCase());
+    }
+    var list = await readAllRecipes();
+    var result = <RecipeUI>[];
+    var match = 0;
     for (final recipe in list) {
-      final recipeIngredients = recipe.getIngredients();
-      var likes = 0;
-      for (final recipeIng in recipeIngredients) {
-        var hit = 0;
-        for (final i in ingredients) {
-          if (recipeIng.toLowerCase().contains(i.name.toLowerCase())) {
-            hit = 1;
-          }
+      for (final ingredient in recipe.ingredients) {
+        if (ingr.contains(ingredient.toLowerCase())) {
+          match++;
         }
-        if (hit == 1) likes++;
       }
-      if (likes > 0) {
+      if (match == recipe.ingredients.length) {
         result.add(recipe);
-        relevance.add(likes);
+        match = 0;
       }
     }
     return result;
   }
 
-  Future<List<Recipe>> readAllRecipes() async {
+  Future<List<RecipeUI>> readAllRecipes() async {
     final db = await instance.database;
 
     final orderBy = '${RecipeFields.name} ASC';
     final result = await db.query(tableRecipes, orderBy: orderBy);
 
-    return result.map((json) => Recipe.fromJson(json)).toList();
+    List<Recipe> recipeResult =
+        result.map((json) => Recipe.fromJson(json)).toList();
+    List<RecipeUI> recipeListUI = [];
+    for (var recipe in recipeResult) {
+      recipeListUI.add(recipeParse(recipe));
+    }
+    return recipeListUI;
   }
 
   Future<int> updateRecipe(Recipe recipe) async {
@@ -327,6 +383,137 @@ class AppDatabase {
 
     return await db.delete(
       tableRecipes,
+      where: '${RecipeFields.id} = ?',
+      whereArgs: [id],
+    );
+  }
+
+  Future<GroceryItem> addGroceryItem(GroceryItem groceryItem) async {
+    final db = await instance.database;
+
+    final id = await db.insert(tableGrocery, groceryItem.toJson());
+    return groceryItem.copy(id: id);
+  }
+
+  Future<GroceryItem> searchGroceryID(int id) async {
+    final db = await instance.database;
+
+    final maps = await db.query(
+      tableGrocery,
+      columns: GroceryFields.values,
+      where: '${GroceryFields.id} = ?',
+      whereArgs: [id],
+    );
+
+    if (maps.isNotEmpty) {
+      return GroceryItem.fromJson(maps.first);
+    } else {
+      throw Exception('ID $id is not found');
+    }
+  }
+
+  Future<List<GroceryItem>> readAllGroceries() async {
+    final db = await instance.database;
+
+    final orderBy = '${GroceryFields.name} ASC';
+
+    final result = await db.query(tableGrocery, orderBy: orderBy);
+
+    return result.map((json) => GroceryItem.fromJson(json)).toList();
+  }
+
+  Future<int> updateGroceries(GroceryItem groceryItem) async {
+    final db = await instance.database;
+
+    return db.update(tableGrocery, groceryItem.toJson(),
+        where: '${GroceryFields.id} = ?', whereArgs: [groceryItem.id]);
+  }
+
+  Future<int> deleteGroceryItem(int id) async {
+    final db = await instance.database;
+
+    return await db.delete(
+      tableGrocery,
+      where: '${GroceryFields.id} = ?',
+      whereArgs: [id],
+    );
+  }
+
+  Future<Recipe> addFavorite(Recipe recipe) async {
+    final db = await instance.database;
+
+    final id = await db.insert(tableFavorites, recipe.toJson());
+    return recipe.copy(id: id);
+  }
+
+  Future<RecipeUI> searchFavoritesID(int id) async {
+    final db = await instance.database;
+
+    final maps = await db.query(
+      tableFavorites,
+      columns: RecipeFields.values,
+      where: '${RecipeFields.id} = ?',
+      whereArgs: [id],
+    );
+
+    if (maps.isNotEmpty) {
+      Recipe recipe = Recipe.fromJson(maps.first);
+      return recipeParse(recipe);
+    } else {
+      throw Exception('ID $id is not found');
+    }
+  }
+
+  Future<List<RecipeUI>> searchFavoritesName(String name) async {
+    final db = await instance.database;
+
+    final result = await db.query(
+      tableFavorites,
+      columns: RecipeFields.values,
+      where: '${RecipeFields.name} LIKE ?',
+      whereArgs: [name],
+    );
+
+    if (result.isNotEmpty) {
+      List<Recipe> recipeResult =
+          result.map((json) => Recipe.fromJson(json)).toList();
+      List<RecipeUI> recipeListUI = [];
+      for (var recipe in recipeResult) {
+        recipeListUI.add(recipeParse(recipe));
+      }
+      return recipeListUI;
+    } else {
+      throw Exception('NAME $name is not found');
+    }
+  }
+
+  Future<List<RecipeUI>> readAllFavorites() async {
+    final db = await instance.database;
+
+    final orderBy = '${RecipeFields.name} ASC';
+    final result = await db.query(tableFavorites, orderBy: orderBy);
+
+    List<Recipe> recipeResult =
+        result.map((json) => Recipe.fromJson(json)).toList();
+    List<RecipeUI> recipeListUI = [];
+    for (var recipe in recipeResult) {
+      recipeListUI.add(recipeParse(recipe));
+    }
+    return recipeListUI;
+  }
+
+  Future<int> updateFavorites(Recipe recipe) async {
+    final db = await instance.database;
+
+    return db.update(tableFavorites, recipe.toJson(),
+        where: '${RecipeFields.id} = ?', whereArgs: [recipe.id]);
+  }
+
+  Future<int> deleteFavorites(int id) async {
+    final db = await instance.database;
+
+    return await db.delete(
+      tableFavorites,
       where: '${RecipeFields.id} = ?',
       whereArgs: [id],
     );

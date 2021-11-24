@@ -1,4 +1,5 @@
 const String tableRecipes = 'recipes';
+const String tableFavorites = 'favorites';
 
 class RecipeFields {
   static final List<String> values = [id, name, ingredients, instructions];
@@ -25,6 +26,11 @@ class Recipe {
   List<String> getIngredients() {
     final ingredients = this.ingredients.split(',');
     return ingredients;
+  }
+
+  List<String> getInstructions() {
+    final instructions = this.instructions.split(',');
+    return instructions;
   }
 
   Recipe copy({
