@@ -39,71 +39,78 @@ class _RecipesPage extends State<RecipesPage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-      appBar: AppBar(
-        title: const Text('Recipes'),
-        backgroundColor: (Colors.lightGreen),
-      ),
-      body: Card(
-        child: Column(
-          children: [
-            Stack(
-              alignment: Alignment.bottomRight,
-              children: [
-                Ink.image(
-                  image: AssetImage(findWhichImageToUse(indexOfRecipeList)),
-                  child: InkWell(
-                    onTap: () {},
-                  ),
-                  height: 240,
-                  fit: BoxFit.cover,
-                ),
-              ],
-            ),
-            SizedBox(height: 1),
-            ButtonBar(
-              alignment: MainAxisAlignment.end,
-              children: [
-                Container(
-                  width: 200,
-                  child: Text(
-                    recipes[indexOfRecipeList].name,
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-                TextButton(
-                  style: TextButton.styleFrom(
-                    primary: Colors.black,
-                  ),
-                  child: Text(
-                    'Share',
-                  ),
-                  onPressed: () {},
-                ),
-                TextButton(
-                  style: TextButton.styleFrom(
-                    primary: Colors.black,
-                  ),
-                  child: Text(
-                    'View Recipe',
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const singleRecipe()));
-                  },
-                ),
-              ],
-            ),
-          ],
+        backgroundColor: Colors.black,
+        appBar: AppBar(
+          title: const Text('Recipes'),
+          backgroundColor: (Colors.lightGreen),
         ),
-      ),
-    );
+        body: ListView.builder(
+            itemCount: recipes.length,
+            itemBuilder: (context, indexOfRecipeList) {
+              return Column(children: [
+                Card(
+                  child: Column(
+                    children: [
+                      Stack(
+                        alignment: Alignment.topCenter,
+                        children: [
+                          Ink.image(
+                            image: AssetImage(
+                                findWhichImageToUse(indexOfRecipeList)),
+                            child: InkWell(
+                              onTap: () {},
+                            ),
+                            height: 300,
+                            fit: BoxFit.cover,
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 1),
+                      ButtonBar(
+                        alignment: MainAxisAlignment.end,
+                        children: [
+                          Container(
+                            width: 200,
+                            child: Text(
+                              recipes[indexOfRecipeList].name,
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              textAlign: TextAlign.left,
+                            ),
+                          ),
+                          TextButton(
+                            style: TextButton.styleFrom(
+                              primary: Colors.black,
+                            ),
+                            child: Text(
+                              'Share',
+                            ),
+                            onPressed: () {},
+                          ),
+                          TextButton(
+                            style: TextButton.styleFrom(
+                              primary: Colors.black,
+                            ),
+                            child: Text(
+                              'View Recipe',
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const singleRecipe()));
+                            },
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                )
+              ]);
+            }));
   }
 }
 
