@@ -1,5 +1,5 @@
-import 'recipe.dart';
-import 'ingredient.dart';
+import 'package:basket/database/recipe.dart';
+import 'package:basket/database/ingredient.dart';
 
 //Database Imports
 import 'package:basket/database/app_database.dart';

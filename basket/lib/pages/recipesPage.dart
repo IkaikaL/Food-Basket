@@ -58,35 +58,46 @@ class _RecipesPage extends State<RecipesPage> {
                   height: 240,
                   fit: BoxFit.cover,
                 ),
-                SizedBox(height: 8),
-                ButtonBar(
-                  alignment: MainAxisAlignment.end,
-                  children: [
-                    TextButton(
-                      child: Text(
-                        'Share',
-                      ),
-                      onPressed: () {},
+              ],
+            ),
+            SizedBox(height: 1),
+            ButtonBar(
+              alignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  width: 200,
+                  child: Text(
+                    recipes[indexOfRecipeList].name,
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
                     ),
-                    TextButton(
-                      child: Text('View Recipe'),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const singleRecipe()));
-                      },
-                    ),
-                  ],
-                ), /*
-                Text(
-                  recipes[indexOfRecipeList].name,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    fontSize: 24,
+                    textAlign: TextAlign.left,
                   ),
-                ),*/
+                ),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    primary: Colors.black,
+                  ),
+                  child: Text(
+                    'Share',
+                  ),
+                  onPressed: () {},
+                ),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    primary: Colors.black,
+                  ),
+                  child: Text(
+                    'View Recipe',
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const singleRecipe()));
+                  },
+                ),
               ],
             ),
           ],

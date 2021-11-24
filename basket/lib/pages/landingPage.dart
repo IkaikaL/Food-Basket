@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 
 // Page Imports
-import 'samplePage.dart';
-import 'pantryPage.dart';
+import 'package:basket/pages/samplePage.dart';
+import 'package:basket/pages/pantryPage.dart';
 import 'package:basket/pages/recipesPage.dart';
 //import 'package:basket/pages/scannerPage.dart';
 
