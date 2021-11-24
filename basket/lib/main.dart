@@ -18,6 +18,7 @@ class BasketApp extends StatelessWidget {
     return const MaterialApp(
       title: "Basket",
       home: LandingPage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

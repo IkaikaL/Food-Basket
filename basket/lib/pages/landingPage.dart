@@ -32,7 +32,7 @@ class _LandingPageState extends State<LandingPage> {
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.black,
         unselectedItemColor: Colors.white,
-        selectedItemColor: Colors.white,
+        selectedItemColor: Colors.lightGreen,
         type: BottomNavigationBarType.fixed,
         iconSize: 30,
         currentIndex: indexOfCurrentPage,
@@ -42,11 +42,13 @@ class _LandingPageState extends State<LandingPage> {
           });
         },
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Pantry"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Search"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Scan"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Grocery List"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Favorites"),
+          BottomNavigationBarItem(icon: Icon(Icons.inventory), label: "Pantry"),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.qr_code_scanner), label: "Scan"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.list), label: "Grocery List"),
+          BottomNavigationBarItem(icon: Icon(Icons.star), label: "Favorites"),
         ],
       ),
     );

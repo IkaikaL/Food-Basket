@@ -30,19 +30,27 @@ class _pantryPage extends State<pantryPage> {
     setState(() {});
   }
 
+  String findWhichImageToUse(int index) {
+    refreshInventory();
+    String inventortyItem = ingredients[index].name;
+    String fileFinder = 'assets/images/' + inventortyItem + '.jpg';
+    return fileFinder;
+  }
+
   @override
   Widget build(BuildContext context) {
     refreshInventory();
     return Scaffold(
-        appBar: AppBar(title: const Text('Inventory'), centerTitle: true),
+        appBar: AppBar(
+            title: const Text('Inventory'),
+            centerTitle: true,
+            backgroundColor: (Colors.lightGreen)),
         body: ListView.builder(
             itemCount: ingredients.length,
             itemBuilder: (context, index) {
               return Column(
                 children: [
-                  /*const Image(
-                      image: AssetImage('assets/images/Meatballs.jpeg')),
-                  */
+                  Image(image: AssetImage(findWhichImageToUse(index))),
                   ExpansionTile(
                     title: Text(ingredients[index].name),
                     children: [
