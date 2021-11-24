@@ -58,6 +58,27 @@ class _RecipesPage extends State<RecipesPage> {
                   height: 240,
                   fit: BoxFit.cover,
                 ),
+                SizedBox(height: 8),
+                ButtonBar(
+                  alignment: MainAxisAlignment.end,
+                  children: [
+                    TextButton(
+                      child: Text(
+                        'Share',
+                      ),
+                      onPressed: () {},
+                    ),
+                    TextButton(
+                      child: Text('View Recipe'),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const singleRecipe()));
+                      },
+                    ),
+                  ],
+                ), /*
                 Text(
                   recipes[indexOfRecipeList].name,
                   style: TextStyle(
@@ -65,61 +86,12 @@ class _RecipesPage extends State<RecipesPage> {
                     color: Colors.white,
                     fontSize: 24,
                   ),
-                ),
+                ),*/
               ],
             ),
-            SizedBox(height: 8),
-            Padding(
-              padding: EdgeInsets.all(16).copyWith(bottom: 0),
-              child: Text(
-                'testing this shit',
-                style: TextStyle(fontSize: 16),
-              ),
-            ),
-            SizedBox(height: 8),
-            ButtonBar(
-              alignment: MainAxisAlignment.end,
-              children: [
-                TextButton(
-                  child: Text('Share'),
-                  onPressed: () {},
-                ),
-                TextButton(
-                  child: Text('View Recipe'),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const singleRecipe()));
-                  },
-                ),
-              ],
-            )
           ],
         ),
-      ), /*ListView.builder(
-          itemCount: recipes.length,
-          itemBuilder: (context, indexOfRecipeList) {
-            return Column(
-              children: [
-                Image(
-                    image: AssetImage(findWhichImageToUse(indexOfRecipeList))),
-                ExpansionTile(
-                  title: Text(recipes[indexOfRecipeList].name),
-                  children: [
-                    ListTile(
-                      title: Text('Ingredients: ' +
-                          recipes[indexOfRecipeList].ingredients),
-                    ),
-                    ListTile(
-                      title: Text('Instructions: ' +
-                          recipes[indexOfRecipeList].instructions),
-                    ),
-                  ],
-                ),
-              ],
-            );
-          }),*/
+      ),
     );
   }
 }
