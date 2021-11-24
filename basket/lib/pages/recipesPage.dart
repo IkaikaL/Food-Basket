@@ -6,9 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:basket/database/recipe.dart';
 import 'package:basket/database/ingredient.dart';
 import 'package:basket/database/app_database.dart';
+import 'package:basket/database/recipe_ui.dart';
 
 int indexOfRecipeList = 0;
-List<Recipe> recipes = [];
+List<RecipeUI> recipes = [];
 List<Ingredient> ingredients = [];
 
 class RecipesPage extends StatefulWidget {
@@ -168,7 +169,7 @@ class _singleRecipe extends State<singleRecipe> {
             Padding(
               padding: EdgeInsets.all(10).copyWith(left: 0),
               child: Text(
-                recipes[indexOfRecipeList].ingredients,
+                recipes[indexOfRecipeList].ingredients[0],
                 textAlign: TextAlign.left,
                 style: TextStyle(fontSize: 16),
               ),
@@ -177,7 +178,7 @@ class _singleRecipe extends State<singleRecipe> {
             Padding(
               padding: EdgeInsets.all(10).copyWith(left: 0),
               child: Text(
-                recipes[indexOfRecipeList].instructions,
+                recipes[indexOfRecipeList].instructions[0],
                 textAlign: TextAlign.left,
                 style: TextStyle(fontSize: 16),
               ),
