@@ -10,6 +10,7 @@ class SamplePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('SamplePage'),
+        centerTitle: true,
         backgroundColor: (Colors.lightGreen),
       ),
     );
