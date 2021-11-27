@@ -1,54 +1,53 @@
 // ignore_for_file: file_names, camel_case_types
 
-import 'package:basket/database/recipe.dart';
 import 'package:flutter/material.dart';
 
 // Database Imports
-import 'package:basket/database/ingredient.dart';
 import 'package:basket/database/app_database.dart';
 import 'package:basket/database/recipe_ui.dart';
 
-int indexOfRecipeList = 0;
-List<RecipeUI> recipes = [];
-List<Ingredient> ingredients = [];
+int indexOfFavoritesList = 0;
+List<RecipeUI> favoritedRecipes = [];
 
-class RecipesPage extends StatefulWidget {
-  const RecipesPage({Key? key}) : super(key: key);
+class FavoritesPage extends StatefulWidget {
+  const FavoritesPage({Key? key}) : super(key: key);
 
   @override
-  _RecipesPage createState() => _RecipesPage();
+  _FavoritesPage createState() => _FavoritesPage();
 }
 
-class _RecipesPage extends State<RecipesPage> {
+class _FavoritesPage extends State<FavoritesPage> {
   @override
   void initState() {
     super.initState();
-    refreshIngredients();
+    refreshFavorites();
   }
 
-  Future refreshIngredients() async {
-    ingredients = await AppDatabase.instance.readAllInventory();
-    recipes = await AppDatabase.instance.searchRecipeIngredients(ingredients);
+  Future refreshFavorites() async {
+    favoritedRecipes = await AppDatabase.instance.readAllFavorites();
+    print(favoritedRecipes[0].name);
     setState(() {});
   }
 
   String findWhichImageToUse(int index) {
-    String recipeName = recipes[index].name;
+    String recipeName = favoritedRecipes[index].name;
     String fileFinder = 'assets/images/' + recipeName + '.jpg';
     return fileFinder;
   }
 
+  @override
   Widget build(BuildContext context) {
+    refreshFavorites();
     return Scaffold(
       backgroundColor: Colors.grey.shade900,
       appBar: AppBar(
-        title: const Text('Recipes'),
+        title: const Text('Favorites'),
         centerTitle: true,
         backgroundColor: (Colors.lightGreen),
       ),
       body: ListView.builder(
-        itemCount: recipes.length,
-        itemBuilder: (context, indexOfRecipeList) {
+        itemCount: favoritedRecipes.length,
+        itemBuilder: (context, indexOfFavoritesList) {
           return Column(
             children: [
               Card(
@@ -59,7 +58,7 @@ class _RecipesPage extends State<RecipesPage> {
                       children: [
                         Ink.image(
                           image: AssetImage(
-                              findWhichImageToUse(indexOfRecipeList)),
+                              findWhichImageToUse(indexOfFavoritesList)),
                           child: InkWell(
                             onTap: () {},
                           ),
@@ -68,8 +67,8 @@ class _RecipesPage extends State<RecipesPage> {
                         ),
                         FloatingActionButton(
                           onPressed: () {
-                            AppDatabase.instance.addFavorite(
-                                (recipes[indexOfRecipeList]).toRecipe());
+                            AppDatabase.instance.deleteFavorites(
+                                favoritedRecipes[indexOfFavoritesList].id!);
                           },
                           child: Icon(Icons.star),
                           foregroundColor: Colors.white,
@@ -85,7 +84,7 @@ class _RecipesPage extends State<RecipesPage> {
                         Container(
                           width: 130,
                           child: Text(
-                            recipes[indexOfRecipeList].name,
+                            favoritedRecipes[indexOfFavoritesList].name,
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
@@ -123,7 +122,7 @@ class _RecipesPage extends State<RecipesPage> {
                     ),
                   ],
                 ),
-              ),
+              )
             ],
           );
         },
@@ -141,17 +140,16 @@ class singleRecipe extends StatefulWidget {
 
 class _singleRecipe extends State<singleRecipe> {
   Future refreshIngredients() async {
-    ingredients = await AppDatabase.instance.readAllInventory();
-    recipes = await AppDatabase.instance.searchRecipeIngredients(ingredients);
+    favoritedRecipes = await AppDatabase.instance.readAllFavorites();
   }
 
   String findWhichNameToPutAtTop(int index) {
-    String name = recipes[index].name;
+    String name = favoritedRecipes[index].name;
     return name;
   }
 
   String findWhichImageToUse(int index) {
-    String recipeName = recipes[index].name;
+    String recipeName = favoritedRecipes[index].name;
     String fileFinder = 'assets/images/' + recipeName + '.jpg';
     return fileFinder;
   }
@@ -160,7 +158,7 @@ class _singleRecipe extends State<singleRecipe> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text(findWhichNameToPutAtTop(indexOfRecipeList)),
+        title: Text(findWhichNameToPutAtTop(indexOfFavoritesList)),
         backgroundColor: (Colors.lightGreen),
       ),
       body: Card(
@@ -170,7 +168,7 @@ class _singleRecipe extends State<singleRecipe> {
               alignment: Alignment.bottomRight,
               children: [
                 Ink.image(
-                  image: AssetImage(findWhichImageToUse(indexOfRecipeList)),
+                  image: AssetImage(findWhichImageToUse(indexOfFavoritesList)),
                   child: InkWell(
                     onTap: () {},
                   ),
@@ -183,7 +181,7 @@ class _singleRecipe extends State<singleRecipe> {
             Padding(
               padding: EdgeInsets.all(10).copyWith(left: 0),
               child: Text(
-                recipes[indexOfRecipeList].ingredients[0],
+                favoritedRecipes[indexOfFavoritesList].ingredients[0],
                 textAlign: TextAlign.left,
                 style: TextStyle(fontSize: 16),
               ),
@@ -192,7 +190,7 @@ class _singleRecipe extends State<singleRecipe> {
             Padding(
               padding: EdgeInsets.all(10).copyWith(left: 0),
               child: Text(
-                recipes[indexOfRecipeList].instructions[0],
+                favoritedRecipes[indexOfFavoritesList].instructions[0],
                 textAlign: TextAlign.left,
                 style: TextStyle(fontSize: 16),
               ),

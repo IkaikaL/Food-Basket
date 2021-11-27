@@ -12,6 +12,7 @@ class DatabaseDriver {
     AppDatabase.instance.resetTableInventory();
     AppDatabase.instance.resetTableIngredientProperties();
     AppDatabase.instance.resetTableGroceries();
+    AppDatabase.instance.resetTableFavorites();
     AppDatabase.instance.readAllFavorites();
     addSalad();
     addGreenBeanSalad();

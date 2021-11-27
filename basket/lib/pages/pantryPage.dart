@@ -43,110 +43,83 @@ class _pantryPage extends State<pantryPage> {
   Widget build(BuildContext context) {
     refreshInventory();
     return Scaffold(
-        backgroundColor: Colors.grey.shade900,
-        appBar: AppBar(
-            title: const Text('Inventory'),
-            centerTitle: true,
-            backgroundColor: (Colors.lightGreen)),
-        body: ListView.builder(
-            itemCount: ingredients.length,
-            itemBuilder: (context, index) {
-              return Column(children: [
-                Card(
-                    child: Column(children: [
-                  Stack(
-                    alignment: Alignment.topCenter,
-                    children: [
-                      Ink.image(
-                        image: AssetImage(findWhichImageToUse(index)),
-                        child: InkWell(
-                          onTap: () {},
-                        ),
-                        height: 300,
-                        fit: BoxFit.cover,
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 1),
-                  ButtonBar(alignment: MainAxisAlignment.end, children: [
-                    Container(
-                      width: 300,
-                      child: Text(
-                        ingredients[index].name,
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        textAlign: TextAlign.left,
-                      ),
-                    ),
-                    TextButton(
-                      style: TextButton.styleFrom(
-                        primary: Colors.white,
-                        backgroundColor: Colors.black,
-                      ),
-                      child: Text(
-                        'Remove',
-                      ),
-                      onPressed: () {
-                        AppDatabase.instance
-                            .deleteIngredientInventory(ingredients[index].id!);
-                      },
-                    ),
-                    /*Container(
-                      color: Colors.white,
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.all(5.0),
+      backgroundColor: Colors.grey.shade900,
+      appBar: AppBar(
+          title: const Text('Inventory'),
+          centerTitle: true,
+          backgroundColor: (Colors.lightGreen)),
+      body: ListView.builder(
+        itemCount: ingredients.length,
+        itemBuilder: (context, index) {
+          return Column(
+            children: [
+              Card(
+                child: Column(
+                  children: [
+                    Stack(
+                      alignment: Alignment.topCenter,
+                      children: [
+                        Ink.image(
+                          image: AssetImage(findWhichImageToUse(index)),
+                          child: InkWell(
+                            onTap: () {},
                           ),
-                          Text(
+                          height: 300,
+                          fit: BoxFit.cover,
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 1),
+                    ButtonBar(
+                      alignment: MainAxisAlignment.end,
+                      children: [
+                        Container(
+                          width: 300,
+                          child: Text(
                             ingredients[index].name,
                             style: TextStyle(
-                              fontSize: 18,
+                              fontSize: 20,
                               fontWeight: FontWeight.bold,
                             ),
-                            textAlign: TextAlign.start,
+                            textAlign: TextAlign.left,
                           ),
-                          Spacer(),
-                          Container(
-                            padding: EdgeInsets.all(5.0),
-                            color: Colors.white,
-                            child: TextButton(
-                              style: TextButton.styleFrom(
-                                  primary: Colors.white,
-                                  backgroundColor: Colors.black,
-                                  alignment: Alignment.centerRight),
-                              child: Text(
-                                'Remove',
-                              ),
-                              onPressed: () {
-                                
-                              },
-                            ),
+                        ),
+                        TextButton(
+                          style: TextButton.styleFrom(
+                            primary: Colors.white,
+                            backgroundColor: Colors.black,
                           ),
-                        ],
-                      ),
-                    ),*/
-                  ])
-                ]))
-              ]);
-            }),
-        floatingActionButton: ElevatedButton.icon(
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          const addItemToInventoryManually()));
-              refreshInventory();
-              build(context);
-            },
-            icon: const Icon(Icons.add),
-            label: const Text('add item'),
-            style: TextButton.styleFrom(
-              backgroundColor: Colors.lightGreen,
-            )));
+                          child: Text(
+                            'Remove',
+                          ),
+                          onPressed: () {
+                            AppDatabase.instance.deleteIngredientInventory(
+                                ingredients[index].id!);
+                          },
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              )
+            ],
+          );
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const addItemToInventoryManually()));
+          refreshInventory();
+          build(context);
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Colors.lightGreen,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+    );
   }
 }
 
@@ -161,117 +134,71 @@ class _addItemToInventoryManually extends State<addItemToInventoryManually> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Inventory Input'),
-        ),
-        body: Column(children: [
-          Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-              child: TextField(
-                onChanged: (value) => nameOfItem = value,
-                decoration: const InputDecoration(
-                    filled: true,
-                    fillColor: Colors.white,
-                    hintText: 'Ingredient Name',
-                    hintStyle: TextStyle(color: Colors.black),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(
-                      Radius.circular(10.0),
-                    ))),
-              )),
-          Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-              child: TextField(
-                onChanged: (value) => quantityOfItem = int.parse(value),
-                decoration: const InputDecoration(
-                    filled: true,
-                    fillColor: Colors.white,
-                    hintText: 'Ingredient Quantity',
-                    hintStyle: TextStyle(color: Colors.black),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(
-                      Radius.circular(10.0),
-                    ))),
-              )),
-          Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-              child: TextField(
-                onChanged: (value) => caloriesOfItem = double.parse(value),
-                decoration: const InputDecoration(
-                    filled: true,
-                    fillColor: Colors.white,
-                    hintText: 'Ingredient Calories',
-                    hintStyle: TextStyle(color: Colors.black),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(
-                      Radius.circular(10.0),
-                    ))),
-              ))
-        ]),
-        floatingActionButton: ElevatedButton.icon(
-            onPressed: () {
-              Navigator.pop(context,
-                  MaterialPageRoute(builder: (context) => const pantryPage()));
-              AppDatabase.instance.addIngredientInventory(Ingredient(
-                name: nameOfItem,
-                quantity: quantityOfItem,
-                unit: 'grams',
-                calories: caloriesOfItem,
-                barcode: 6969696,
-              ));
-            },
-            icon: const Icon(Icons.done),
-            label: const Text('Done')));
-  }
-}
-
-class changeQuantityManually extends StatefulWidget {
-  const changeQuantityManually({Key? key}) : super(key: key);
-
-  @override
-  _changeQuantityManually createState() => _changeQuantityManually();
-}
-
-class _changeQuantityManually extends State<changeQuantityManually> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text('Change Quantity'),
-        ),
-        body: Column(children: [
-          Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-              child: TextField(
-                onChanged: (value) => newQuantity = int.parse(value),
-                decoration: const InputDecoration(
-                    filled: true,
-                    fillColor: Colors.white,
-                    hintText: 'New Quantity',
-                    hintStyle: TextStyle(color: Colors.black),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(
-                      Radius.circular(10.0),
-                    ))),
-              )),
-        ]),
-        floatingActionButton: ElevatedButton.icon(
-            onPressed: () {
-              Navigator.pop(context,
-                  MaterialPageRoute(builder: (context) => const pantryPage()));
-              AppDatabase.instance.addIngredientInventory(Ingredient(
-                name: nameOfItem,
-                quantity: newQuantity,
-                unit: 'grams',
-                calories: caloriesOfItem,
-                barcode: 6969696,
-              ));
-            },
-            icon: const Icon(Icons.done),
-            label: const Text('Done')));
+      appBar: AppBar(
+        title: const Text('Inventory Input'),
+      ),
+      body: Column(children: [
+        Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+            child: TextField(
+              onChanged: (value) => nameOfItem = value,
+              decoration: const InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  hintText: 'Ingredient Name',
+                  hintStyle: TextStyle(color: Colors.black),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                    Radius.circular(10.0),
+                  ))),
+            )),
+        Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+            child: TextField(
+              onChanged: (value) => quantityOfItem = int.parse(value),
+              decoration: const InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  hintText: 'Ingredient Quantity',
+                  hintStyle: TextStyle(color: Colors.black),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                    Radius.circular(10.0),
+                  ))),
+            )),
+        Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+            child: TextField(
+              onChanged: (value) => caloriesOfItem = double.parse(value),
+              decoration: const InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  hintText: 'Ingredient Calories',
+                  hintStyle: TextStyle(color: Colors.black),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                    Radius.circular(10.0),
+                  ))),
+            ))
+      ]),
+      floatingActionButton: ElevatedButton.icon(
+        onPressed: () {
+          Navigator.pop(context,
+              MaterialPageRoute(builder: (context) => const pantryPage()));
+          AppDatabase.instance.addIngredientInventory(Ingredient(
+            name: nameOfItem,
+            quantity: quantityOfItem,
+            unit: 'grams',
+            calories: caloriesOfItem,
+            barcode: 6969696,
+          ));
+        },
+        icon: const Icon(Icons.done),
+        label: const Text('Done'),
+      ),
+    );
   }
 }
