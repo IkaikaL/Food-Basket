@@ -80,7 +80,7 @@ class _RecipesPage extends State<RecipesPage> {
                     ),
                     SizedBox(height: 1),
                     ButtonBar(
-                      alignment: MainAxisAlignment.end,
+                      alignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
                           child: Align(

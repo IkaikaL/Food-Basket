@@ -54,40 +54,35 @@ class _GroceryPage extends State<GroceryPage> {
                   children: [
                     SizedBox(height: 1),
                     ButtonBar(
+                      alignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
                           alignment: Alignment.centerLeft,
-                          width: 180,
                           child: Text(
                             groceries[indexOfGroceryList].name,
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
                             ),
-                            textAlign: TextAlign.left,
                           ),
                         ),
-                        Container(
-                          width: 190,
-                          alignment: Alignment.centerRight,
-                          child: TextButton(
-                            style: TextButton.styleFrom(
-                              primary: Colors.white,
-                              backgroundColor: Colors.black,
-                            ),
-                            child: Text(
-                              'Remove',
-                            ),
-                            onPressed: () {
-                              AppDatabase.instance.deleteGroceryItem(
-                                  groceries[indexOfGroceryList].id!);
-                              setState(
-                                () {
-                                  build(context);
-                                },
-                              );
-                            },
+                        TextButton(
+                          style: TextButton.styleFrom(
+                            primary: Colors.white,
+                            backgroundColor: Colors.black,
                           ),
+                          child: Text(
+                            'Remove',
+                          ),
+                          onPressed: () {
+                            AppDatabase.instance.deleteGroceryItem(
+                                groceries[indexOfGroceryList].id!);
+                            setState(
+                              () {
+                                build(context);
+                              },
+                            );
+                          },
                         ),
                       ],
                     ),

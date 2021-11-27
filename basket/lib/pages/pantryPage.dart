@@ -45,7 +45,7 @@ class _pantryPage extends State<pantryPage> {
     return Scaffold(
       backgroundColor: Colors.grey.shade900,
       appBar: AppBar(
-          title: const Text('Inventory'),
+          title: const Text('Pantry'),
           centerTitle: true,
           backgroundColor: (Colors.lightGreen)),
       body: ListView.builder(
@@ -71,17 +71,18 @@ class _pantryPage extends State<pantryPage> {
                     ),
                     SizedBox(height: 1),
                     ButtonBar(
-                      alignment: MainAxisAlignment.end,
+                      alignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          width: 300,
-                          child: Text(
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
                             ingredients[index].name,
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
+                              ),
                             ),
-                            textAlign: TextAlign.left,
                           ),
                         ),
                         TextButton(

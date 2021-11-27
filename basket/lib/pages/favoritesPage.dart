@@ -82,28 +82,19 @@ class _FavoritesPage extends State<FavoritesPage> {
                     ),
                     SizedBox(height: 1),
                     ButtonBar(
-                      alignment: MainAxisAlignment.end,
+                      alignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          width: 200,
-                          child: Text(
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
                             favoritedRecipes[indexOfFavoritesList].name,
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
                             ),
-                            textAlign: TextAlign.left,
                           ),
-                        ),
-                        TextButton(
-                          style: TextButton.styleFrom(
-                            primary: Colors.white,
-                            backgroundColor: Colors.black,
                           ),
-                          child: Text(
-                            'Share',
-                          ),
-                          onPressed: () {},
                         ),
                         TextButton(
                           style: TextButton.styleFrom(
@@ -180,6 +171,7 @@ class _singleRecipe extends State<singleRecipe> {
                 ),
               ],
             ),
+            SizedBox(height: 1),
             Padding(
               padding: EdgeInsets.all(10).copyWith(left: 5),
               child: Column(
