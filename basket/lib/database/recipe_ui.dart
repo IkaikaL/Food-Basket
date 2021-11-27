@@ -24,12 +24,20 @@ class RecipeUI {
   Recipe toRecipe() {
     String ingr = '';
     String inst = '';
-    for (final i in ingredients) {
-      ingr = ingr + i;
-    }
 
-    for (final j in instructions) {
-      inst = inst + j;
+    for (int i = 0; i < ingredients.length; i++) {
+      if (i == 0) {
+        ingr = ingr + ingredients[i];
+      } else {
+        ingr = ingr + ',' + ingredients[i];
+      }
+    }
+    for (int i = 0; i < instructions.length; i++) {
+      if (i == 0) {
+        inst = inst + instructions[i];
+      } else {
+        inst = inst + ',' + instructions[i];
+      }
     }
 
     return Recipe(id: id, name: name, ingredients: ingr, instructions: inst);
