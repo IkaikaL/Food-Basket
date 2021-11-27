@@ -180,25 +180,55 @@ class _singleRecipe extends State<singleRecipe> {
                 ),
               ],
             ),
-            SizedBox(height: 8),
             Padding(
-              padding: EdgeInsets.all(10).copyWith(left: 0),
-              child: Text(
-                favoritedRecipes[indexOfFavoritesList].ingredients[0],
-                textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 16),
+              padding: EdgeInsets.all(10).copyWith(left: 5),
+              child: Column(
+                children: [
+                  for (final currentIngredient
+                      in favoritedRecipes[indexOfFavoritesList]
+                          .getIngredients()) ...[
+                    Text(
+                      currentIngredient,
+                      style: TextStyle(
+                        fontFamily: 'Open Sans',
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ],
               ),
             ),
-            SizedBox(height: 8),
             Padding(
-              padding: EdgeInsets.all(10).copyWith(left: 0),
-              child: Text(
-                favoritedRecipes[indexOfFavoritesList].instructions[0],
-                textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 16),
+              padding: EdgeInsets.all(10).copyWith(left: 5),
+              child: Column(
+                children: [
+                  for (final currentInstructions
+                      in favoritedRecipes[indexOfFavoritesList]
+                          .getInstructions()) ...[
+                    Text(
+                      currentInstructions,
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ],
               ),
             ),
           ],
+        ),
+      ),
+      floatingActionButton: ElevatedButton.icon(
+        onPressed: () {
+          AppDatabase.instance.addGroceryList(
+              (favoritedRecipes[indexOfFavoritesList]).toRecipe());
+        },
+        icon: const Icon(Icons.add),
+        label: const Text('Add Ingredients to Grocery List'),
+        style: ElevatedButton.styleFrom(
+          primary: Colors.black,
         ),
       ),
     );

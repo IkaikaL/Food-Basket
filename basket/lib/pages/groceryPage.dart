@@ -34,66 +34,76 @@ class _GroceryPage extends State<GroceryPage> {
     return fileFinder;
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey.shade900,
-        appBar: AppBar(
-          title: const Text('Grocery List'),
-          centerTitle: true,
-          backgroundColor: (Colors.lightGreen),
-        ),
-        body: ListView.builder(
-            itemCount: groceries.length,
-            itemBuilder: (context, indexOfGroceryList) {
-              return Column(children: [
-                Card(
-                  child: Column(
-                    children: [
-                      Stack(
-                        alignment: Alignment.topCenter,
-                        children: [
-                          Ink.image(
-                            image: AssetImage(
-                                findWhichImageToUse(indexOfGroceryList)),
-                            child: InkWell(
-                              onTap: () {},
-                            ),
-                            height: 300,
-                            fit: BoxFit.cover,
+      backgroundColor: Colors.grey.shade900,
+      appBar: AppBar(
+        title: const Text('Grocery List'),
+        centerTitle: true,
+        backgroundColor: (Colors.lightGreen),
+      ),
+      body: ListView.builder(
+        itemCount: groceries.length,
+        itemBuilder: (context, indexOfGroceryList) {
+          return Column(
+            children: [
+              Card(
+                child: Column(
+                  children: [
+                    /*
+                    Stack(
+                      alignment: Alignment.topCenter,
+                      children: [
+                        Ink.image(
+                          image: AssetImage(
+                              findWhichImageToUse(indexOfGroceryList)),
+                          child: InkWell(
+                            onTap: () {},
                           ),
-                        ],
-                      ),
-                      SizedBox(height: 1),
-                      ButtonBar(
-                        alignment: MainAxisAlignment.end,
-                        children: [
-                          Container(
-                            width: 203,
-                            child: Text(
-                              groceries[indexOfGroceryList].name,
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              textAlign: TextAlign.left,
+                          height: 300,
+                          fit: BoxFit.cover,
+                        ),
+                      ],
+                    ),*/
+                    SizedBox(height: 1),
+                    ButtonBar(
+                      alignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 160,
+                          child: Text(
+                            groceries[indexOfGroceryList].name,
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
                             ),
+                            textAlign: TextAlign.left,
                           ),
-                          TextButton(
+                        ),
+                        Container(
+                          width: 190,
+                          alignment: Alignment.centerRight,
+                          child: TextButton(
                             style: TextButton.styleFrom(
                               primary: Colors.white,
                               backgroundColor: Colors.black,
                             ),
                             child: Text(
-                              'Share',
+                              'Remove',
                             ),
                             onPressed: () {},
                           ),
-                        ],
-                      ),
-                    ],
-                  ),
-                )
-              ]);
-            }));
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          );
+        },
+      ),
+    );
   }
 }
