@@ -55,10 +55,10 @@ class GroceryItem {
   static GroceryItem fromJson(Map<String, Object?> json) => GroceryItem(
         id: json[GroceryFields.id] as int?,
         name: json[GroceryFields.name] as String,
-        quantity: json[GroceryFields.quantity] as double,
-        unit: json[GroceryFields.unit] as String,
-        calories: json[GroceryFields.calories] as double,
-        barcode: json[GroceryFields.barcode] as int,
+        quantity: json[GroceryFields.quantity] as double?,
+        unit: json[GroceryFields.unit] as String?,
+        calories: json[GroceryFields.calories] as double?,
+        barcode: json[GroceryFields.barcode] as int?,
       );
 
   Map<String, Object?> toJson() => {
