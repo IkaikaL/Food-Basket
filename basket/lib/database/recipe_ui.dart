@@ -32,6 +32,6 @@ class RecipeUI {
       inst = inst + j;
     }
 
-    return Recipe(name: name, ingredients: ingr, instructions: inst);
+    return Recipe(id: id, name: name, ingredients: ingr, instructions: inst);
   }
 }
