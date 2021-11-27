@@ -1,3 +1,5 @@
+import 'package:basket/database/recipe.dart';
+
 class RecipeUI {
   final int? id;
   final String name;
@@ -17,5 +19,19 @@ class RecipeUI {
 
   List<String> getInstructions() {
     return instructions;
+  }
+
+  Recipe toRecipe() {
+    String ingr = '';
+    String inst = '';
+    for (final i in ingredients) {
+      ingr = ingr + i;
+    }
+
+    for (final j in instructions) {
+      inst = inst + j;
+    }
+
+    return Recipe(name: name, ingredients: ingr, instructions: inst);
   }
 }
