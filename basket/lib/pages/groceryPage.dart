@@ -36,6 +36,7 @@ class _GroceryPage extends State<GroceryPage> {
 
   @override
   Widget build(BuildContext context) {
+    refreshGroceries();
     return Scaffold(
       backgroundColor: Colors.grey.shade900,
       appBar: AppBar(
@@ -92,7 +93,15 @@ class _GroceryPage extends State<GroceryPage> {
                             child: Text(
                               'Remove',
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              AppDatabase.instance.deleteGroceryItem(
+                                  groceries[indexOfGroceryList].id!);
+                              setState(
+                                () {
+                                  build(context);
+                                },
+                              );
+                            },
                           ),
                         ),
                       ],
