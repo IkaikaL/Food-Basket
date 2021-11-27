@@ -25,7 +25,7 @@ class _FavoritesPage extends State<FavoritesPage> {
 
   Future refreshFavorites() async {
     favoritedRecipes = await AppDatabase.instance.readAllFavorites();
-    print(favoritedRecipes[0].name);
+    //print(favoritedRecipes[0].name);
     setState(() {});
   }
 
