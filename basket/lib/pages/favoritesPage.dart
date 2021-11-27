@@ -69,6 +69,9 @@ class _FavoritesPage extends State<FavoritesPage> {
                           onPressed: () {
                             AppDatabase.instance.deleteFavorites(
                                 favoritedRecipes[indexOfFavoritesList].id!);
+                            setState(() {
+                              build(context);
+                            });
                           },
                           child: Icon(Icons.star),
                           foregroundColor: Colors.white,
@@ -82,7 +85,7 @@ class _FavoritesPage extends State<FavoritesPage> {
                       alignment: MainAxisAlignment.end,
                       children: [
                         Container(
-                          width: 130,
+                          width: 200,
                           child: Text(
                             favoritedRecipes[indexOfFavoritesList].name,
                             style: TextStyle(

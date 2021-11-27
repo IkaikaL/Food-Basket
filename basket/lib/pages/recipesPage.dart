@@ -83,7 +83,7 @@ class _RecipesPage extends State<RecipesPage> {
                       alignment: MainAxisAlignment.end,
                       children: [
                         Container(
-                          width: 130,
+                          width: 200,
                           child: Text(
                             recipes[indexOfRecipeList].name,
                             style: TextStyle(
@@ -165,9 +165,10 @@ class _singleRecipe extends State<singleRecipe> {
       ),
       body: Card(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Stack(
-              alignment: Alignment.bottomRight,
+              alignment: Alignment.centerLeft,
               children: [
                 Ink.image(
                   image: AssetImage(findWhichImageToUse(indexOfRecipeList)),
@@ -179,22 +180,39 @@ class _singleRecipe extends State<singleRecipe> {
                 ),
               ],
             ),
-            SizedBox(height: 8),
             Padding(
-              padding: EdgeInsets.all(10).copyWith(left: 0),
-              child: Text(
-                recipes[indexOfRecipeList].ingredients[0],
-                textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 16),
+              padding: EdgeInsets.all(10).copyWith(left: 5),
+              child: Column(
+                children: [
+                  for (final currentIngredient
+                      in recipes[indexOfRecipeList].getIngredients()) ...[
+                    Text(
+                      currentIngredient,
+                      style: TextStyle(
+                        fontFamily: 'Open Sans',
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ],
               ),
             ),
-            SizedBox(height: 8),
             Padding(
-              padding: EdgeInsets.all(10).copyWith(left: 0),
-              child: Text(
-                recipes[indexOfRecipeList].instructions[0],
-                textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 16),
+              padding: EdgeInsets.all(10).copyWith(left: 5),
+              child: Column(
+                children: [
+                  for (final currentInstructions
+                      in recipes[indexOfRecipeList].getInstructions()) ...[
+                    Text(
+                      currentInstructions,
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ],
               ),
             ),
           ],

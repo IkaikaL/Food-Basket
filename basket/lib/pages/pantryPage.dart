@@ -112,11 +112,11 @@ class _pantryPage extends State<pantryPage> {
               context,
               MaterialPageRoute(
                   builder: (context) => const addItemToInventoryManually()));
-          refreshInventory();
           build(context);
         },
         child: Icon(Icons.add),
-        backgroundColor: Colors.lightGreen,
+        backgroundColor: Colors.black,
+        mini: true,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
