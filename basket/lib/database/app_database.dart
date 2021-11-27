@@ -396,6 +396,13 @@ class AppDatabase {
     return groceryItem.copy(id: id);
   }
 
+  addGroceryList(Recipe recipe) async {
+    RecipeUI recipeUI = recipeParse(recipe);
+    for (final ingr in recipeUI.ingredients) {
+      addGroceryItem(GroceryItem(name: ingr));
+    }
+  }
+
   Future<GroceryItem> searchGroceryID(int id) async {
     final db = await instance.database;
 
