@@ -52,27 +52,12 @@ class _GroceryPage extends State<GroceryPage> {
               Card(
                 child: Column(
                   children: [
-                    /*
-                    Stack(
-                      alignment: Alignment.topCenter,
-                      children: [
-                        Ink.image(
-                          image: AssetImage(
-                              findWhichImageToUse(indexOfGroceryList)),
-                          child: InkWell(
-                            onTap: () {},
-                          ),
-                          height: 300,
-                          fit: BoxFit.cover,
-                        ),
-                      ],
-                    ),*/
                     SizedBox(height: 1),
                     ButtonBar(
-                      alignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          width: 160,
+                          alignment: Alignment.centerLeft,
+                          width: 180,
                           child: Text(
                             groceries[indexOfGroceryList].name,
                             style: TextStyle(

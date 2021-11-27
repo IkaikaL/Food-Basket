@@ -83,25 +83,16 @@ class _RecipesPage extends State<RecipesPage> {
                       alignment: MainAxisAlignment.end,
                       children: [
                         Container(
-                          width: 200,
-                          child: Text(
-                            recipes[indexOfRecipeList].name,
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              recipes[indexOfRecipeList].name,
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                            textAlign: TextAlign.left,
                           ),
-                        ),
-                        TextButton(
-                          style: TextButton.styleFrom(
-                            primary: Colors.white,
-                            backgroundColor: Colors.black,
-                          ),
-                          child: Text(
-                            'Share',
-                          ),
-                          onPressed: () {},
                         ),
                         TextButton(
                           style: TextButton.styleFrom(
