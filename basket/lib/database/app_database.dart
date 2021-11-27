@@ -278,6 +278,7 @@ class AppDatabase {
     final instructions = recipe.getInstructions();
 
     final RecipeUI recipeUI = RecipeUI(
+        id: recipe.id,
         name: recipe.name,
         ingredients: ingredients,
         instructions: instructions);
