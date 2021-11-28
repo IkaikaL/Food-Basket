@@ -159,7 +159,7 @@ class _singleRecipe extends State<singleRecipe> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Stack(
-              alignment: Alignment.centerLeft,
+              alignment: Alignment.bottomRight,
               children: [
                 Ink.image(
                   image: AssetImage(findWhichImageToUse(indexOfRecipeList)),
@@ -175,14 +175,19 @@ class _singleRecipe extends State<singleRecipe> {
               padding: EdgeInsets.all(10).copyWith(left: 5),
               child: Column(
                 children: [
+                  const Text("Ingredients: ",
+                  style: TextStyle(
+                    fontSize: 23,
+                    fontWeight: FontWeight.bold
+                    ),
+                  ),
                   for (final currentIngredient
-                      in recipes[indexOfRecipeList].getIngredients()) ...[
+                      in recipes[indexOfRecipeList]
+                        .getIngredients()) ...[
                     Text(
                       currentIngredient,
-                      style: TextStyle(
-                        fontFamily: 'Open Sans',
+                      style: const TextStyle(
                         fontSize: 20,
-                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ],
@@ -190,16 +195,21 @@ class _singleRecipe extends State<singleRecipe> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(10).copyWith(left: 5),
+              padding: const EdgeInsets.all(10).copyWith(left: 5),
               child: Column(
                 children: [
+                  const Text("Instructions: ",
+                  style: TextStyle(
+                    fontSize: 23,
+                    fontWeight: FontWeight.bold
+                    ),
+                  ),
                   for (final currentInstructions
                       in recipes[indexOfRecipeList].getInstructions()) ...[
                     Text(
                       currentInstructions,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 20,
-                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ],
