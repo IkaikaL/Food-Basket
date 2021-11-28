@@ -1,5 +1,8 @@
 // ignore_for_file: file_names
 
+import 'package:basket/pages/favoritesPage.dart';
+import 'package:basket/pages/groceryPage.dart';
+import 'package:basket/pages/scannerPage2.dart';
 import 'package:flutter/material.dart';
 
 // Page Imports
@@ -19,7 +22,9 @@ class _LandingPageState extends State<LandingPage> {
   static const pages = [
     pantryPage(),
     RecipesPage(),
-    SamplePage(),
+    BarCodeScanner(),
+    GroceryPage(),
+    FavoritesPage(),
     SamplePage(),
     SamplePage(),
   ];
@@ -43,7 +48,8 @@ class _LandingPageState extends State<LandingPage> {
         },
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.inventory), label: "Pantry"),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.menu_book), label: "Recipes"),
           BottomNavigationBarItem(
               icon: Icon(Icons.qr_code_scanner), label: "Scan"),
           BottomNavigationBarItem(

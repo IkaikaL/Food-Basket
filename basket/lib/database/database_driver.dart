@@ -4,6 +4,7 @@ import 'package:basket/database/ingredient.dart';
 //Database Imports
 import 'package:basket/database/app_database.dart';
 import 'package:basket/database/grocery_item.dart';
+import 'package:basket/pages/pantryPage.dart';
 
 class DatabaseDriver {
   void addAllDemoRecipes() {
@@ -12,8 +13,10 @@ class DatabaseDriver {
     AppDatabase.instance.resetTableInventory();
     AppDatabase.instance.resetTableIngredientProperties();
     AppDatabase.instance.resetTableGroceries();
+    AppDatabase.instance.resetTableFavorites();
     AppDatabase.instance.readAllFavorites();
     addSalad();
+    addGrocery();
     addGreenBeanSalad();
     addMeatBalls();
     AddIngredientLettuce();
