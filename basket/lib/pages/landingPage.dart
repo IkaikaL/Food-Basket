@@ -2,6 +2,7 @@
 
 import 'package:basket/pages/favoritesPage.dart';
 import 'package:basket/pages/groceryPage.dart';
+import 'package:basket/pages/scannerPage2.dart';
 import 'package:flutter/material.dart';
 
 // Page Imports
@@ -21,9 +22,11 @@ class _LandingPageState extends State<LandingPage> {
   static const pages = [
     pantryPage(),
     RecipesPage(),
-    SamplePage(),
+    BarCodeScanner(),
     GroceryPage(),
     FavoritesPage(),
+    SamplePage(),
+    SamplePage(),
   ];
   int indexOfCurrentPage = 2;
 
