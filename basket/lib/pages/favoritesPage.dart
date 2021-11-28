@@ -157,6 +157,7 @@ class _singleRecipe extends State<singleRecipe> {
       ),
       body: Card(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Stack(
               alignment: Alignment.bottomRight,

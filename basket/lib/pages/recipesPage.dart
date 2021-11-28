@@ -159,7 +159,7 @@ class _singleRecipe extends State<singleRecipe> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Stack(
-              alignment: Alignment.centerLeft,
+              alignment: Alignment.bottomRight,
               children: [
                 Ink.image(
                   image: AssetImage(findWhichImageToUse(indexOfRecipeList)),
