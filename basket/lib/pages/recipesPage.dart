@@ -176,7 +176,8 @@ class _singleRecipe extends State<singleRecipe> {
               child: Column(
                 children: [
                   for (final currentIngredient
-                      in recipes[indexOfRecipeList].getIngredients()) ...[
+                      in recipes[indexOfRecipeList]
+                        .getIngredients()) ...[
                     Text(
                       currentIngredient,
                       style: TextStyle(

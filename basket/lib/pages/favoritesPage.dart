@@ -179,7 +179,7 @@ class _singleRecipe extends State<singleRecipe> {
                 children: [
                   for (final currentIngredient
                       in favoritedRecipes[indexOfFavoritesList]
-                          .getIngredients()) ...[
+                        .getIngredients()) ...[
                     Text(
                       currentIngredient,
                       style: TextStyle(
