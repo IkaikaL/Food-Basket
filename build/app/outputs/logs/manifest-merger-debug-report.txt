@@ -1,0 +1,307 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:1:1-41:12
+INJECTED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:1:1-41:12
+INJECTED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:1:1-41:12
+INJECTED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:1:1-41:12
+MERGED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:1:1-41:12
+MERGED from [:flutter_barcode_scanner] D:\Tools\barcode_scanner_example-master\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-21:12
+MERGED from [:flutter_plugin_android_lifecycle] D:\Tools\barcode_scanner_example-master\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.window:window-java:1.0.0-beta03] C:\Users\south\.gradle\caches\transforms-2\files-2.1\a6e2aedc1d15908a2aa683899746d243\AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.window:window:1.0.0-beta03] C:\Users\south\.gradle\caches\transforms-2\files-2.1\dfb2ed0f01053ad5e7973952cb94e957\AndroidManifest.xml:17:1-33:12
+MERGED from [com.google.android.material:material:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\bbba2ee8ee57aa1274b4aa257e209f52\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\96bc9735f97ee4cf423a8933a50431d3\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\d85953d5fd6bbb9c55d2673e11d3b9f8\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-vision:19.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\b7458bd6bd6e38076c3016f0b063034d\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-vision-common:19.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\298518730bcaeb0c9cd01eb5f6ff62ae\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-clearcut:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\7efb68116864b094df4c5a1637a8bf2a\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-flags:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\70e1c4d3f246829e559eefa6e1b7d3b7\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-phenotype:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\b9f500ffff1525aae5219728b42fb8b0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-base:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\857c6379f9313e482970cae598a4f815\AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\f667ed4f6bbfc16b1635519b3147c492\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\2bdade6376d899894ed8404788d8cdc9\AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\bbb00210b721378ac31d7a2327e409b0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\53e9575620267d8b4bd71d330e4e936c\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\5de94f3be1699d71739400a111c523f4\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\3b3bd2215b60b742de3effbef39776af\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\46731f37cb7921a60364dc1cd0c932ae\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media:media:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\0b7c3848ffa66cd54228bcaca71a6cc8\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\a9a7728ddc7cb3c72c8b146503e18e0f\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\24ca560f12d4773a9af12abf126b8980\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\6e61a701cc3bfbe711ca1024b3e2f564\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\5aa5d3efafadab602475674e9c6bb5c6\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\d9121e202a27bf8661e28a207b63f656\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\4edcfc5d5d6a2c4db406db8b3e198c14\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\1134bc17515e9fb09b51a9e99734af20\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\f9aeebf440f4917ea3f0fe859a8d2ee8\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\004531cdd6c005ee8ac9f97b6bfadf11\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\d7523cdb319525bd7f1dcafe661d6b1a\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\6c43b5180a12c05d4f0e76321a847dfc\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\05e6ec7d0309030fe986dde3ebaeb2e2\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.6.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\0da34edf4798c4fed3507433f6498f89\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\aefd4c4f387cffd71f523561477802b6\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\941bc280823b837ed8b450eedddd4060\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\772d55ecb220ce5d5f9bb03a65b9f0fc\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\8df1a548da9f348afce6099bad65eb2a\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\3de49e3df3a77ae4611d05880183d600\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\bfb20aa64289a57815951672ab2996ea\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\e549c7579ff90631bef9e9048591c684\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\848dcf83c254ba0c5bef4306eb3b58a4\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\south\.gradle\caches\transforms-2\files-2.1\d23ffe52868d31bb2c05a1fc33354d0e\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\9b583d0ba335f7798a7a9335f877324c\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\3e027ee77f228e0f61e725de1acb2dac\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\d03b79e606880fe00dbd8412a380d1cc\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\9c518eabeb8c320f89ad71f6641076c9\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\36229a6bcd9c431e309844502efd8ebc\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\0fdf359541e84d31d39e5d8a6c0eaf21\AndroidManifest.xml:17:1-24:12
+INJECTED from D:\Tools\barcode_scanner_example-master\android\app\src\debug\AndroidManifest.xml:1:1-7:12
+INJECTED from D:\Tools\barcode_scanner_example-master\android\app\src\debug\AndroidManifest.xml:1:1-7:12
+INJECTED from D:\Tools\barcode_scanner_example-master\android\app\src\debug\AndroidManifest.xml:1:1-7:12
+	package
+		ADDED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:2:5-50
+		INJECTED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Tools\barcode_scanner_example-master\android\app\src\debug\AndroidManifest.xml
+	android:versionName
+		INJECTED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml
+		ADDED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:1:1-41:12
+		INJECTED from D:\Tools\barcode_scanner_example-master\android\app\src\debug\AndroidManifest.xml
+	android:versionCode
+		INJECTED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml
+		ADDED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:1:1-41:12
+		INJECTED from D:\Tools\barcode_scanner_example-master\android\app\src\debug\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:1:11-69
+application
+ADDED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:3:4-40:19
+MERGED from [:flutter_barcode_scanner] D:\Tools\barcode_scanner_example-master\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:15:5-19:19
+MERGED from [:flutter_barcode_scanner] D:\Tools\barcode_scanner_example-master\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:15:5-19:19
+MERGED from [androidx.window:window:1.0.0-beta03] C:\Users\south\.gradle\caches\transforms-2\files-2.1\dfb2ed0f01053ad5e7973952cb94e957\AndroidManifest.xml:24:5-31:19
+MERGED from [androidx.window:window:1.0.0-beta03] C:\Users\south\.gradle\caches\transforms-2\files-2.1\dfb2ed0f01053ad5e7973952cb94e957\AndroidManifest.xml:24:5-31:19
+MERGED from [com.google.android.material:material:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\bbba2ee8ee57aa1274b4aa257e209f52\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\bbba2ee8ee57aa1274b4aa257e209f52\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-vision:19.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\b7458bd6bd6e38076c3016f0b063034d\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-vision:19.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\b7458bd6bd6e38076c3016f0b063034d\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-vision-common:19.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\298518730bcaeb0c9cd01eb5f6ff62ae\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-vision-common:19.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\298518730bcaeb0c9cd01eb5f6ff62ae\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-clearcut:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\7efb68116864b094df4c5a1637a8bf2a\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-clearcut:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\7efb68116864b094df4c5a1637a8bf2a\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-phenotype:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\b9f500ffff1525aae5219728b42fb8b0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-phenotype:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\b9f500ffff1525aae5219728b42fb8b0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-base:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\857c6379f9313e482970cae598a4f815\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\857c6379f9313e482970cae598a4f815\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\f667ed4f6bbfc16b1635519b3147c492\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\f667ed4f6bbfc16b1635519b3147c492\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\2bdade6376d899894ed8404788d8cdc9\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\2bdade6376d899894ed8404788d8cdc9\AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.core:core:1.6.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\0da34edf4798c4fed3507433f6498f89\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.6.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\0da34edf4798c4fed3507433f6498f89\AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\south\.gradle\caches\transforms-2\files-2.1\d23ffe52868d31bb2c05a1fc33354d0e\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\south\.gradle\caches\transforms-2\files-2.1\d23ffe52868d31bb2c05a1fc33354d0e\AndroidManifest.xml:24:5-25:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.6.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\0da34edf4798c4fed3507433f6498f89\AndroidManifest.xml:24:18-86
+	android:label
+		ADDED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:4:9-48
+	android:largeHeap
+		ADDED from [:flutter_barcode_scanner] D:\Tools\barcode_scanner_example-master\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:16:9-33
+	android:icon
+		ADDED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:5:9-43
+	android:theme
+		ADDED from [:flutter_barcode_scanner] D:\Tools\barcode_scanner_example-master\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:17:9-59
+activity#com.example.barcode_scanner_example.MainActivity
+ADDED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:6:9-34:20
+	android:launchMode
+		ADDED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:8:13-43
+	android:hardwareAccelerated
+		ADDED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:11:13-47
+	android:windowSoftInputMode
+		ADDED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:12:13-55
+	android:configChanges
+		ADDED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:10:13-163
+	android:theme
+		ADDED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:9:13-47
+	android:name
+		ADDED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:7:13-41
+meta-data#io.flutter.embedding.android.NormalTheme
+ADDED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:17:13-20:17
+	android:resource
+		ADDED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:19:15-52
+	android:name
+		ADDED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:18:15-70
+meta-data#io.flutter.embedding.android.SplashScreenDrawable
+ADDED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:26:13-29:17
+	android:resource
+		ADDED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:28:15-61
+	android:name
+		ADDED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:27:15-79
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:30:13-33:29
+action#android.intent.action.MAIN
+ADDED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:31:17-68
+	android:name
+		ADDED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:31:25-66
+category#android.intent.category.LAUNCHER
+ADDED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:32:17-76
+	android:name
+		ADDED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:32:27-74
+meta-data#flutterEmbedding
+ADDED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:37:9-39:33
+	android:value
+		ADDED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:39:13-30
+	android:name
+		ADDED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml:38:13-44
+uses-sdk
+INJECTED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml
+INJECTED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml
+MERGED from [:flutter_barcode_scanner] D:\Tools\barcode_scanner_example-master\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_barcode_scanner] D:\Tools\barcode_scanner_example-master\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_plugin_android_lifecycle] D:\Tools\barcode_scanner_example-master\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:flutter_plugin_android_lifecycle] D:\Tools\barcode_scanner_example-master\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [androidx.window:window-java:1.0.0-beta03] C:\Users\south\.gradle\caches\transforms-2\files-2.1\a6e2aedc1d15908a2aa683899746d243\AndroidManifest.xml:19:5-21:41
+MERGED from [androidx.window:window-java:1.0.0-beta03] C:\Users\south\.gradle\caches\transforms-2\files-2.1\a6e2aedc1d15908a2aa683899746d243\AndroidManifest.xml:19:5-21:41
+MERGED from [androidx.window:window:1.0.0-beta03] C:\Users\south\.gradle\caches\transforms-2\files-2.1\dfb2ed0f01053ad5e7973952cb94e957\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.window:window:1.0.0-beta03] C:\Users\south\.gradle\caches\transforms-2\files-2.1\dfb2ed0f01053ad5e7973952cb94e957\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.material:material:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\bbba2ee8ee57aa1274b4aa257e209f52\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\bbba2ee8ee57aa1274b4aa257e209f52\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\96bc9735f97ee4cf423a8933a50431d3\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\96bc9735f97ee4cf423a8933a50431d3\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\d85953d5fd6bbb9c55d2673e11d3b9f8\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\d85953d5fd6bbb9c55d2673e11d3b9f8\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-vision:19.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\b7458bd6bd6e38076c3016f0b063034d\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-vision:19.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\b7458bd6bd6e38076c3016f0b063034d\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-vision-common:19.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\298518730bcaeb0c9cd01eb5f6ff62ae\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-vision-common:19.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\298518730bcaeb0c9cd01eb5f6ff62ae\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-clearcut:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\7efb68116864b094df4c5a1637a8bf2a\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-clearcut:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\7efb68116864b094df4c5a1637a8bf2a\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-flags:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\70e1c4d3f246829e559eefa6e1b7d3b7\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-flags:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\70e1c4d3f246829e559eefa6e1b7d3b7\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-phenotype:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\b9f500ffff1525aae5219728b42fb8b0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-phenotype:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\b9f500ffff1525aae5219728b42fb8b0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\857c6379f9313e482970cae598a4f815\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\857c6379f9313e482970cae598a4f815\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\f667ed4f6bbfc16b1635519b3147c492\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\f667ed4f6bbfc16b1635519b3147c492\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\2bdade6376d899894ed8404788d8cdc9\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\2bdade6376d899894ed8404788d8cdc9\AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\bbb00210b721378ac31d7a2327e409b0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\bbb00210b721378ac31d7a2327e409b0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\53e9575620267d8b4bd71d330e4e936c\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\53e9575620267d8b4bd71d330e4e936c\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\5de94f3be1699d71739400a111c523f4\AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\5de94f3be1699d71739400a111c523f4\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\3b3bd2215b60b742de3effbef39776af\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\3b3bd2215b60b742de3effbef39776af\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\46731f37cb7921a60364dc1cd0c932ae\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\46731f37cb7921a60364dc1cd0c932ae\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\0b7c3848ffa66cd54228bcaca71a6cc8\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\0b7c3848ffa66cd54228bcaca71a6cc8\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\a9a7728ddc7cb3c72c8b146503e18e0f\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\a9a7728ddc7cb3c72c8b146503e18e0f\AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\24ca560f12d4773a9af12abf126b8980\AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\24ca560f12d4773a9af12abf126b8980\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\6e61a701cc3bfbe711ca1024b3e2f564\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\6e61a701cc3bfbe711ca1024b3e2f564\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\5aa5d3efafadab602475674e9c6bb5c6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\5aa5d3efafadab602475674e9c6bb5c6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\d9121e202a27bf8661e28a207b63f656\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\d9121e202a27bf8661e28a207b63f656\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\4edcfc5d5d6a2c4db406db8b3e198c14\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\4edcfc5d5d6a2c4db406db8b3e198c14\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\1134bc17515e9fb09b51a9e99734af20\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\1134bc17515e9fb09b51a9e99734af20\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\f9aeebf440f4917ea3f0fe859a8d2ee8\AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\f9aeebf440f4917ea3f0fe859a8d2ee8\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\004531cdd6c005ee8ac9f97b6bfadf11\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\004531cdd6c005ee8ac9f97b6bfadf11\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\d7523cdb319525bd7f1dcafe661d6b1a\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\d7523cdb319525bd7f1dcafe661d6b1a\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\6c43b5180a12c05d4f0e76321a847dfc\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\6c43b5180a12c05d4f0e76321a847dfc\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\05e6ec7d0309030fe986dde3ebaeb2e2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\05e6ec7d0309030fe986dde3ebaeb2e2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.6.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\0da34edf4798c4fed3507433f6498f89\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.6.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\0da34edf4798c4fed3507433f6498f89\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\aefd4c4f387cffd71f523561477802b6\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\aefd4c4f387cffd71f523561477802b6\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\941bc280823b837ed8b450eedddd4060\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\941bc280823b837ed8b450eedddd4060\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\772d55ecb220ce5d5f9bb03a65b9f0fc\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\772d55ecb220ce5d5f9bb03a65b9f0fc\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\8df1a548da9f348afce6099bad65eb2a\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\8df1a548da9f348afce6099bad65eb2a\AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\3de49e3df3a77ae4611d05880183d600\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\3de49e3df3a77ae4611d05880183d600\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\bfb20aa64289a57815951672ab2996ea\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\bfb20aa64289a57815951672ab2996ea\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\e549c7579ff90631bef9e9048591c684\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\e549c7579ff90631bef9e9048591c684\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\848dcf83c254ba0c5bef4306eb3b58a4\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\848dcf83c254ba0c5bef4306eb3b58a4\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\south\.gradle\caches\transforms-2\files-2.1\d23ffe52868d31bb2c05a1fc33354d0e\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\south\.gradle\caches\transforms-2\files-2.1\d23ffe52868d31bb2c05a1fc33354d0e\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\9b583d0ba335f7798a7a9335f877324c\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\9b583d0ba335f7798a7a9335f877324c\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\3e027ee77f228e0f61e725de1acb2dac\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\3e027ee77f228e0f61e725de1acb2dac\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\d03b79e606880fe00dbd8412a380d1cc\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\d03b79e606880fe00dbd8412a380d1cc\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\9c518eabeb8c320f89ad71f6641076c9\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\9c518eabeb8c320f89ad71f6641076c9\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\36229a6bcd9c431e309844502efd8ebc\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\36229a6bcd9c431e309844502efd8ebc\AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\0fdf359541e84d31d39e5d8a6c0eaf21\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\0fdf359541e84d31d39e5d8a6c0eaf21\AndroidManifest.xml:20:5-22:41
+INJECTED from D:\Tools\barcode_scanner_example-master\android\app\src\debug\AndroidManifest.xml
+INJECTED from D:\Tools\barcode_scanner_example-master\android\app\src\debug\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Tools\barcode_scanner_example-master\android\app\src\debug\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\Tools\barcode_scanner_example-master\android\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Tools\barcode_scanner_example-master\android\app\src\debug\AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from D:\Tools\barcode_scanner_example-master\android\app\src\debug\AndroidManifest.xml:6:5-66
+	android:name
+		ADDED from D:\Tools\barcode_scanner_example-master\android\app\src\debug\AndroidManifest.xml:6:22-64
+uses-permission#android.permission.CAMERA
+ADDED from [:flutter_barcode_scanner] D:\Tools\barcode_scanner_example-master\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-65
+	android:name
+		ADDED from [:flutter_barcode_scanner] D:\Tools\barcode_scanner_example-master\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:9:22-62
+uses-feature#android.hardware.camera
+ADDED from [:flutter_barcode_scanner] D:\Tools\barcode_scanner_example-master\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-60
+	android:name
+		ADDED from [:flutter_barcode_scanner] D:\Tools\barcode_scanner_example-master\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:11:19-57
+uses-permission#android.permission.FLASHLIGHT
+ADDED from [:flutter_barcode_scanner] D:\Tools\barcode_scanner_example-master\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:13:5-69
+	android:name
+		ADDED from [:flutter_barcode_scanner] D:\Tools\barcode_scanner_example-master\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:13:22-66
+activity#com.amolg.flutterbarcodescanner.BarcodeCaptureActivity
+ADDED from [:flutter_barcode_scanner] D:\Tools\barcode_scanner_example-master\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:18:9-91
+	android:name
+		ADDED from [:flutter_barcode_scanner] D:\Tools\barcode_scanner_example-master\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:18:19-88
+uses-library#androidx.window.extensions
+ADDED from [androidx.window:window:1.0.0-beta03] C:\Users\south\.gradle\caches\transforms-2\files-2.1\dfb2ed0f01053ad5e7973952cb94e957\AndroidManifest.xml:25:9-27:40
+	android:required
+		ADDED from [androidx.window:window:1.0.0-beta03] C:\Users\south\.gradle\caches\transforms-2\files-2.1\dfb2ed0f01053ad5e7973952cb94e957\AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.window:window:1.0.0-beta03] C:\Users\south\.gradle\caches\transforms-2\files-2.1\dfb2ed0f01053ad5e7973952cb94e957\AndroidManifest.xml:26:13-54
+uses-library#androidx.window.sidecar
+ADDED from [androidx.window:window:1.0.0-beta03] C:\Users\south\.gradle\caches\transforms-2\files-2.1\dfb2ed0f01053ad5e7973952cb94e957\AndroidManifest.xml:28:9-30:40
+	android:required
+		ADDED from [androidx.window:window:1.0.0-beta03] C:\Users\south\.gradle\caches\transforms-2\files-2.1\dfb2ed0f01053ad5e7973952cb94e957\AndroidManifest.xml:30:13-37
+	android:name
+		ADDED from [androidx.window:window:1.0.0-beta03] C:\Users\south\.gradle\caches\transforms-2\files-2.1\dfb2ed0f01053ad5e7973952cb94e957\AndroidManifest.xml:29:13-51
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\857c6379f9313e482970cae598a4f815\AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\857c6379f9313e482970cae598a4f815\AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\857c6379f9313e482970cae598a4f815\AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\857c6379f9313e482970cae598a4f815\AndroidManifest.xml:24:13-79
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\2bdade6376d899894ed8404788d8cdc9\AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\2bdade6376d899894ed8404788d8cdc9\AndroidManifest.xml:25:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\south\.gradle\caches\transforms-2\files-2.1\2bdade6376d899894ed8404788d8cdc9\AndroidManifest.xml:24:13-58

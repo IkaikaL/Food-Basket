@@ -1,0 +1,1 @@
+D:\Tools\barcode_scanner_example-master\android\app\src\main\kotlin\com\example\barcode_scanner_example\MainActivity.kt
