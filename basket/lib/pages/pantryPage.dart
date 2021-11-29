@@ -77,10 +77,10 @@ class _pantryPage extends State<pantryPage> {
                           child: Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                            ingredients[index].name,
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
+                              ingredients[index].name,
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
@@ -137,6 +137,7 @@ class _addItemToInventoryManually extends State<addItemToInventoryManually> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Inventory Input'),
+        backgroundColor: (Colors.lightGreen),
       ),
       body: Column(children: [
         Padding(
@@ -199,6 +200,9 @@ class _addItemToInventoryManually extends State<addItemToInventoryManually> {
         },
         icon: const Icon(Icons.done),
         label: const Text('Done'),
+        style: ElevatedButton.styleFrom(
+          primary: Colors.black,
+        ),
       ),
     );
   }
