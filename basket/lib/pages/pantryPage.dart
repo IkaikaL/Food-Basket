@@ -102,7 +102,7 @@ class _pantryPage extends State<pantryPage> {
                     ),
                   ],
                 ),
-              )
+              ),
             ],
           );
         },
@@ -139,64 +139,77 @@ class _addItemToInventoryManually extends State<addItemToInventoryManually> {
         title: const Text('Inventory Input'),
         backgroundColor: (Colors.lightGreen),
       ),
-      body: Column(children: [
-        Padding(
+      body: Column(
+        children: [
+          Padding(
             padding:
                 const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
             child: TextField(
               onChanged: (value) => nameOfItem = value,
               decoration: const InputDecoration(
-                  filled: true,
-                  fillColor: Colors.white,
-                  hintText: 'Ingredient Name',
-                  hintStyle: TextStyle(color: Colors.black),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
+                filled: true,
+                fillColor: Colors.white,
+                hintText: 'Ingredient Name',
+                hintStyle: TextStyle(color: Colors.black),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(
                     Radius.circular(10.0),
-                  ))),
-            )),
-        Padding(
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Padding(
             padding:
                 const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
             child: TextField(
               onChanged: (value) => quantityOfItem = int.parse(value),
               decoration: const InputDecoration(
-                  filled: true,
-                  fillColor: Colors.white,
-                  hintText: 'Ingredient Quantity',
-                  hintStyle: TextStyle(color: Colors.black),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
+                filled: true,
+                fillColor: Colors.white,
+                hintText: 'Ingredient Quantity',
+                hintStyle: TextStyle(color: Colors.black),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(
                     Radius.circular(10.0),
-                  ))),
-            )),
-        Padding(
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Padding(
             padding:
                 const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
             child: TextField(
               onChanged: (value) => caloriesOfItem = double.parse(value),
               decoration: const InputDecoration(
-                  filled: true,
-                  fillColor: Colors.white,
-                  hintText: 'Ingredient Calories',
-                  hintStyle: TextStyle(color: Colors.black),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
+                filled: true,
+                fillColor: Colors.white,
+                hintText: 'Ingredient Calories',
+                hintStyle: TextStyle(color: Colors.black),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(
                     Radius.circular(10.0),
-                  ))),
-            ))
-      ]),
+                  ),
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
       floatingActionButton: ElevatedButton.icon(
         onPressed: () {
           Navigator.pop(context,
               MaterialPageRoute(builder: (context) => const pantryPage()));
-          AppDatabase.instance.addIngredientInventory(Ingredient(
-            name: nameOfItem,
-            quantity: quantityOfItem,
-            unit: 'grams',
-            calories: caloriesOfItem,
-            barcode: 6969696,
-          ));
+          AppDatabase.instance.addIngredientInventory(
+            Ingredient(
+              name: nameOfItem,
+              quantity: quantityOfItem,
+              unit: 'grams',
+              calories: caloriesOfItem,
+              barcode: 6969696,
+            ),
+          );
         },
         icon: const Icon(Icons.done),
         label: const Text('Done'),
