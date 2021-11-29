@@ -157,67 +157,71 @@ class _singleRecipe extends State<singleRecipe> {
         title: Text(findWhichNameToPutAtTop(widget.indexOfSingleRecipe)),
         backgroundColor: (Colors.lightGreen),
       ),
-      body: Card(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Stack(
-              alignment: Alignment.bottomRight,
-              children: [
-                Ink.image(
-                  image: AssetImage(
-                      findWhichImageToUse(widget.indexOfSingleRecipe)),
-                  child: InkWell(
-                    onTap: () {},
+      body: SingleChildScrollView(
+        child: Card(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Stack(
+                alignment: Alignment.bottomRight,
+                children: [
+                  Ink.image(
+                    image: AssetImage(
+                        findWhichImageToUse(widget.indexOfSingleRecipe)),
+                    child: InkWell(
+                      onTap: () {},
+                    ),
+                    height: 240,
+                    fit: BoxFit.cover,
                   ),
-                  height: 240,
-                  fit: BoxFit.cover,
+                ],
+              ),
+              Padding(
+                padding: EdgeInsets.all(10).copyWith(left: 5),
+                child: Column(
+                  children: [
+                    const Text(
+                      "Ingredients: ",
+                      style:
+                          TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+                    ),
+                    for (final currentIngredient
+                        in recipes[widget.indexOfSingleRecipe]
+                            .getIngredients()) ...[
+                      Text(
+                        currentIngredient,
+                        style: const TextStyle(
+                          fontSize: 20,
+                        ),
+                      ),
+                    ],
+                  ],
                 ),
-              ],
-            ),
-            Padding(
-              padding: EdgeInsets.all(10).copyWith(left: 5),
-              child: Column(
-                children: [
-                  const Text(
-                    "Ingredients: ",
-                    style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
-                  ),
-                  for (final currentIngredient
-                      in recipes[widget.indexOfSingleRecipe]
-                          .getIngredients()) ...[
-                    Text(
-                      currentIngredient,
-                      style: const TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ],
-                ],
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10).copyWith(left: 5),
-              child: Column(
-                children: [
-                  const Text(
-                    "Instructions: ",
-                    style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
-                  ),
-                  for (final currentInstructions
-                      in recipes[widget.indexOfSingleRecipe]
-                          .getInstructions()) ...[
-                    Text(
-                      currentInstructions,
-                      style: const TextStyle(
-                        fontSize: 20,
-                      ),
+              Padding(
+                padding: const EdgeInsets.all(10).copyWith(left: 5),
+                child: Column(
+                  children: [
+                    const Text(
+                      "Instructions: ",
+                      style:
+                          TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
                     ),
+                    for (final currentInstructions
+                        in recipes[widget.indexOfSingleRecipe]
+                            .getInstructions()) ...[
+                      Text(
+                        currentInstructions,
+                        style: const TextStyle(
+                          fontSize: 20,
+                        ),
+                      ),
+                    ],
                   ],
-                ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
