@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
@@ -45,10 +47,10 @@ class BarCodeState extends State<BarCodeScanner> {
       case 1:
         {
           Timer(const Duration(seconds: 1), () {
-            itemScanned = 'Soy Sauce';
+            itemScanned = 'soy sauce';
             refreshDisplay();
             AppDatabase.instance.addIngredientInventory(const Ingredient(
-              name: 'Soy Sauce',
+              name: 'soy sauce',
               quantity: 1,
               unit: '666 grams',
               calories: 5,
@@ -60,10 +62,10 @@ class BarCodeState extends State<BarCodeScanner> {
       case 2:
         {
           Timer(const Duration(seconds: 1), () {
-            itemScanned = 'Rice';
+            itemScanned = 'rice';
             refreshDisplay();
             AppDatabase.instance.addIngredientInventory(const Ingredient(
-              name: 'Rice',
+              name: 'rice',
               quantity: 1,
               unit: '2267 grams',
               calories: 164,
@@ -75,10 +77,10 @@ class BarCodeState extends State<BarCodeScanner> {
       case 3:
         {
           Timer(const Duration(seconds: 1), () {
-            itemScanned = 'Olive Oil';
+            itemScanned = 'beans';
             refreshDisplay();
             AppDatabase.instance.addIngredientInventory(const Ingredient(
-              name: 'Olive Oil',
+              name: 'beans',
               quantity: 1,
               unit: '958 grams',
               calories: 120,
