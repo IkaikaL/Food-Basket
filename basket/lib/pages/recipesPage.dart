@@ -106,8 +106,9 @@ class _RecipesPage extends State<RecipesPage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        const singleRecipe()));
+                                    builder: (context) => singleRecipe(
+                                        indexOfSingleRecipe:
+                                            indexOfRecipeList)));
                           },
                         ),
                       ],
@@ -124,7 +125,9 @@ class _RecipesPage extends State<RecipesPage> {
 }
 
 class singleRecipe extends StatefulWidget {
-  const singleRecipe({Key? key}) : super(key: key);
+  final indexOfSingleRecipe;
+  const singleRecipe({Key? key, @required this.indexOfSingleRecipe})
+      : super(key: key);
 
   @override
   _singleRecipe createState() => _singleRecipe();
@@ -151,7 +154,7 @@ class _singleRecipe extends State<singleRecipe> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text(findWhichNameToPutAtTop(indexOfRecipeList)),
+        title: Text(findWhichNameToPutAtTop(widget.indexOfSingleRecipe)),
         backgroundColor: (Colors.lightGreen),
       ),
       body: Card(
@@ -162,7 +165,8 @@ class _singleRecipe extends State<singleRecipe> {
               alignment: Alignment.bottomRight,
               children: [
                 Ink.image(
-                  image: AssetImage(findWhichImageToUse(indexOfRecipeList)),
+                  image: AssetImage(
+                      findWhichImageToUse(widget.indexOfSingleRecipe)),
                   child: InkWell(
                     onTap: () {},
                   ),
@@ -175,15 +179,13 @@ class _singleRecipe extends State<singleRecipe> {
               padding: EdgeInsets.all(10).copyWith(left: 5),
               child: Column(
                 children: [
-                  const Text("Ingredients: ",
-                  style: TextStyle(
-                    fontSize: 23,
-                    fontWeight: FontWeight.bold
-                    ),
+                  const Text(
+                    "Ingredients: ",
+                    style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
                   ),
                   for (final currentIngredient
-                      in recipes[indexOfRecipeList]
-                        .getIngredients()) ...[
+                      in recipes[widget.indexOfSingleRecipe]
+                          .getIngredients()) ...[
                     Text(
                       currentIngredient,
                       style: const TextStyle(
@@ -198,14 +200,13 @@ class _singleRecipe extends State<singleRecipe> {
               padding: const EdgeInsets.all(10).copyWith(left: 5),
               child: Column(
                 children: [
-                  const Text("Instructions: ",
-                  style: TextStyle(
-                    fontSize: 23,
-                    fontWeight: FontWeight.bold
-                    ),
+                  const Text(
+                    "Instructions: ",
+                    style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
                   ),
                   for (final currentInstructions
-                      in recipes[indexOfRecipeList].getInstructions()) ...[
+                      in recipes[widget.indexOfSingleRecipe]
+                          .getInstructions()) ...[
                     Text(
                       currentInstructions,
                       style: const TextStyle(

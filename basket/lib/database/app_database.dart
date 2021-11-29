@@ -351,8 +351,8 @@ class AppDatabase {
       }
       if (match == recipe.ingredients.length) {
         result.add(recipe);
-        match = 0;
       }
+      match = 0;
     }
     return result;
   }

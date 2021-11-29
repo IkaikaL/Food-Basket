@@ -88,12 +88,12 @@ class _FavoritesPage extends State<FavoritesPage> {
                           child: Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                            favoritedRecipes[indexOfFavoritesList].name,
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
+                              favoritedRecipes[indexOfFavoritesList].name,
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
                           ),
                         ),
                         TextButton(
@@ -108,8 +108,9 @@ class _FavoritesPage extends State<FavoritesPage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        const singleRecipe()));
+                                    builder: (context) => singleRecipe(
+                                        indexOfSingleFavorite:
+                                            indexOfFavoritesList)));
                           },
                         ),
                       ],
@@ -126,7 +127,9 @@ class _FavoritesPage extends State<FavoritesPage> {
 }
 
 class singleRecipe extends StatefulWidget {
-  const singleRecipe({Key? key}) : super(key: key);
+  final indexOfSingleFavorite;
+  const singleRecipe({Key? key, @required this.indexOfSingleFavorite})
+      : super(key: key);
 
   @override
   _singleRecipe createState() => _singleRecipe();
@@ -153,7 +156,7 @@ class _singleRecipe extends State<singleRecipe> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text(findWhichNameToPutAtTop(indexOfFavoritesList)),
+        title: Text(findWhichNameToPutAtTop(widget.indexOfSingleFavorite)),
         backgroundColor: (Colors.lightGreen),
       ),
       body: Card(
@@ -164,7 +167,8 @@ class _singleRecipe extends State<singleRecipe> {
               alignment: Alignment.bottomRight,
               children: [
                 Ink.image(
-                  image: AssetImage(findWhichImageToUse(indexOfFavoritesList)),
+                  image: AssetImage(
+                      findWhichImageToUse(widget.indexOfSingleFavorite)),
                   child: InkWell(
                     onTap: () {},
                   ),
@@ -178,15 +182,13 @@ class _singleRecipe extends State<singleRecipe> {
               padding: const EdgeInsets.all(10).copyWith(left: 5),
               child: Column(
                 children: [
-                  const Text("Ingredients: ",
-                  style: TextStyle(
-                    fontSize: 23,
-                    fontWeight: FontWeight.bold
-                    ),
+                  const Text(
+                    "Ingredients: ",
+                    style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
                   ),
                   for (final currentIngredient
-                      in favoritedRecipes[indexOfFavoritesList]
-                        .getIngredients()) ...[
+                      in favoritedRecipes[widget.indexOfSingleFavorite]
+                          .getIngredients()) ...[
                     Text(
                       currentIngredient,
                       style: const TextStyle(
@@ -201,14 +203,12 @@ class _singleRecipe extends State<singleRecipe> {
               padding: const EdgeInsets.all(10).copyWith(left: 5),
               child: Column(
                 children: [
-                  const Text("Instructions: ",
-                  style: TextStyle(
-                    fontSize: 23,
-                    fontWeight: FontWeight.bold
-                    ),
+                  const Text(
+                    "Instructions: ",
+                    style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
                   ),
                   for (final currentInstructions
-                      in favoritedRecipes[indexOfFavoritesList]
+                      in favoritedRecipes[widget.indexOfSingleFavorite]
                           .getInstructions()) ...[
                     Text(
                       currentInstructions,
@@ -226,7 +226,7 @@ class _singleRecipe extends State<singleRecipe> {
       floatingActionButton: ElevatedButton.icon(
         onPressed: () {
           AppDatabase.instance.addGroceryList(
-              (favoritedRecipes[indexOfFavoritesList]).toRecipe());
+              (favoritedRecipes[widget.indexOfSingleFavorite]).toRecipe());
         },
         icon: const Icon(Icons.add),
         label: const Text('Add Ingredients to Grocery List'),
