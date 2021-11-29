@@ -5,6 +5,7 @@ import 'package:basket/database/app_database.dart';
 import 'package:basket/database/ingredient.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter/material.dart';
+import 'package:basket/main.dart';
 
 class BarCodeScanner extends StatefulWidget {
   const BarCodeScanner({Key? key}) : super(key: key);
@@ -14,18 +15,28 @@ class BarCodeScanner extends StatefulWidget {
 }
 
 class BarCodeState extends State<BarCodeScanner> {
-  int demoIngredientID = 1;
   String? itemScanned = "null";
+  bool _visibleYesNoButtons = false;
 
   refreshDisplay() {
     setState(() {});
+  }
+
+  void _toggleYesNoButtons() {
+    setState(() {
+      _visibleYesNoButtons = !_visibleYesNoButtons;
+    });
+  }
+
+  _demoIngredientIDAdd() {
+    demoIngredientID = demoIngredientID + 1;
   }
 
   Future<String> _scanScreen() async {
     String barcodeScanResult;
 
     barcodeScanResult = await FlutterBarcodeScanner.scanBarcode(
-        '#ff6666', 'Cancel', false, ScanMode.BARCODE);
+        '#ff6666', ' ', false, ScanMode.BARCODE);
     return barcodeScanResult;
   }
 
@@ -43,7 +54,6 @@ class BarCodeState extends State<BarCodeScanner> {
               calories: 5,
               barcode: 000001,
             ));
-            demoIngredientID = 2;
           });
         }
         break;
@@ -59,7 +69,6 @@ class BarCodeState extends State<BarCodeScanner> {
               calories: 164,
               barcode: 000002,
             ));
-            demoIngredientID = 3;
           });
         }
         break;
@@ -75,7 +84,6 @@ class BarCodeState extends State<BarCodeScanner> {
               calories: 120,
               barcode: 000003,
             ));
-            demoIngredientID = 1;
           });
         }
         break;
@@ -96,14 +104,43 @@ class BarCodeState extends State<BarCodeScanner> {
         title: const Text('Groceries Scanner'),
         centerTitle: true,
       ),
-      body: Center(
-        child: Text(
-          itemScanned == "null"
-              ? 'Select the button below to start scanning Groceries.'
-              : 'Scan Result:  $itemScanned',
-          style: const TextStyle(fontSize: 22),
-          textAlign: TextAlign.center,
-        ),
+      body: ButtonBar(
+        alignment: MainAxisAlignment.center,
+        buttonPadding: EdgeInsets.symmetric(horizontal: 70, vertical: 10),
+        children: [
+          Text(
+            itemScanned == "null"
+                ? 'Select the button below to start scanning Groceries.'
+                : 'Scan Result:  $itemScanned',
+            style: const TextStyle(fontSize: 22),
+            textAlign: TextAlign.center,
+          ),
+          Visibility(
+              visible: _visibleYesNoButtons,
+              child: TextButton(
+                  style: TextButton.styleFrom(
+                      padding: const EdgeInsets.all(7.0),
+                      primary: Colors.white,
+                      textStyle: const TextStyle(fontSize: 20),
+                      backgroundColor: Colors.lightGreen),
+                  onPressed: () {
+                    _toggleYesNoButtons();
+                  },
+                  child: Text('Yes'))),
+          Visibility(
+            visible: _visibleYesNoButtons,
+            child: TextButton(
+                style: TextButton.styleFrom(
+                    padding: const EdgeInsets.all(7.0),
+                    primary: Colors.white,
+                    textStyle: const TextStyle(fontSize: 20),
+                    backgroundColor: Colors.lightGreen),
+                onPressed: () {
+                  _toggleYesNoButtons();
+                },
+                child: Text('No')),
+          )
+        ],
       ),
       floatingActionButton: ElevatedButton.icon(
         icon: const Icon(Icons.add),
@@ -112,7 +149,10 @@ class BarCodeState extends State<BarCodeScanner> {
         onPressed: () {
           _scanScreen();
           _setItemValueDEMO(demoIngredientID);
-          demoIngredientID = demoIngredientID + 1;
+          _demoIngredientIDAdd();
+          Timer(const Duration(seconds: 1), () {
+            _toggleYesNoButtons();
+          });
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
