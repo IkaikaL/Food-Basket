@@ -162,7 +162,7 @@ class _singleRecipe extends State<singleRecipe> {
       body: SingleChildScrollView(
         child: Card(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Stack(
                 alignment: Alignment.bottomRight,
@@ -182,19 +182,26 @@ class _singleRecipe extends State<singleRecipe> {
               Padding(
                 padding: const EdgeInsets.all(10).copyWith(left: 5),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Text(
-                      "Ingredients: ",
-                      style:
-                          TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+                    const Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        "Ingredients: ",
+                        style: TextStyle(
+                            fontSize: 23, fontWeight: FontWeight.bold),
+                      ),
                     ),
                     for (final currentIngredient
                         in favoritedRecipes[widget.indexOfSingleFavorite]
                             .getIngredients()) ...[
-                      Text(
-                        currentIngredient,
-                        style: const TextStyle(
-                          fontSize: 20,
+                      Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          currentIngredient + '\n',
+                          style: const TextStyle(
+                            fontSize: 20,
+                          ),
                         ),
                       ),
                     ],
@@ -205,18 +212,25 @@ class _singleRecipe extends State<singleRecipe> {
                 padding: const EdgeInsets.all(10).copyWith(left: 5),
                 child: Column(
                   children: [
-                    const Text(
-                      "Instructions: ",
-                      style:
-                          TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+                    const Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        "Instructions: ",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 23, fontWeight: FontWeight.bold),
+                      ),
                     ),
                     for (final currentInstructions
                         in favoritedRecipes[widget.indexOfSingleFavorite]
                             .getInstructions()) ...[
-                      Text(
-                        currentInstructions,
-                        style: const TextStyle(
-                          fontSize: 20,
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          currentInstructions + '\n',
+                          style: const TextStyle(
+                            fontSize: 20,
+                          ),
                         ),
                       ),
                     ],
