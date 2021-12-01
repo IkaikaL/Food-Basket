@@ -19,6 +19,7 @@ class BarCodeScanner extends StatefulWidget {
 class BarCodeState extends State<BarCodeScanner> {
   String? itemScanned = "null";
   bool _visibleYesNoButtons = false;
+  String inventoryItem = '';
 
   refreshDisplay() {
     setState(() {});
@@ -29,6 +30,20 @@ class BarCodeState extends State<BarCodeScanner> {
       _visibleYesNoButtons = !_visibleYesNoButtons;
     });
   }
+
+//String fileFinder = 'assets/images/' + inventortyItem + '.jpg';
+/*
+
+children: [
+                        Ink.image(
+                          image: AssetImage(findWhichImageToUse(index)),
+                          child: InkWell(
+                            onTap: () {},
+                          ),
+                          height: 300,
+                          fit: BoxFit.cover,
+
+*/
 
   _demoIngredientIDAdd() {
     demoIngredientID = demoIngredientID + 1;
@@ -48,6 +63,7 @@ class BarCodeState extends State<BarCodeScanner> {
         {
           Timer(const Duration(seconds: 1), () {
             itemScanned = 'soy sauce';
+            inventoryItem = 'soy sauce';
             refreshDisplay();
             AppDatabase.instance.addIngredientInventory(const Ingredient(
               name: 'soy sauce',
@@ -63,6 +79,7 @@ class BarCodeState extends State<BarCodeScanner> {
         {
           Timer(const Duration(seconds: 1), () {
             itemScanned = 'rice';
+            inventoryItem = 'rice';
             refreshDisplay();
             AppDatabase.instance.addIngredientInventory(const Ingredient(
               name: 'rice',
@@ -78,6 +95,7 @@ class BarCodeState extends State<BarCodeScanner> {
         {
           Timer(const Duration(seconds: 1), () {
             itemScanned = 'beans';
+            inventoryItem = 'beans';
             refreshDisplay();
             AppDatabase.instance.addIngredientInventory(const Ingredient(
               name: 'beans',
@@ -106,7 +124,97 @@ class BarCodeState extends State<BarCodeScanner> {
         title: const Text('Groceries Scanner'),
         centerTitle: true,
       ),
-      body: ButtonBar(
+      body: ListView.builder(
+          itemCount: 1,
+          itemBuilder: (context, index) {
+            return Column(
+              children: [
+                Card(
+                  child: Column(
+                    children: [
+                      Stack(
+                        alignment: Alignment.topCenter,
+                        children: [
+                          Ink.image(
+                            image: AssetImage(
+                                'assets/images/' + inventoryItem + '.jpg'),
+                            child: InkWell(
+                              onTap: () {},
+                            ),
+                            height: 300,
+                            fit: BoxFit.cover,
+                          ),
+                        ],
+                      ),
+                      Text(
+                        itemScanned == "null"
+                            ? 'Select the button below to start scanning Groceries.'
+                            : 'Would you like to add $itemScanned to your pantry?',
+                        style: const TextStyle(fontSize: 22),
+                        textAlign: TextAlign.center,
+                      ),
+                      Visibility(
+                          visible: _visibleYesNoButtons,
+                          child: TextButton(
+                              style: TextButton.styleFrom(
+                                  padding: const EdgeInsets.all(7.0),
+                                  primary: Colors.white,
+                                  textStyle: const TextStyle(fontSize: 20),
+                                  backgroundColor: Colors.lightGreen),
+                              onPressed: () {
+                                _toggleYesNoButtons();
+                              },
+                              child: Text('Yes'))),
+                      Visibility(
+                        visible: _visibleYesNoButtons,
+                        child: TextButton(
+                            style: TextButton.styleFrom(
+                                padding: const EdgeInsets.all(7.0),
+                                primary: Colors.white,
+                                textStyle: const TextStyle(fontSize: 20),
+                                backgroundColor: Colors.lightGreen),
+                            onPressed: () {
+                              _toggleYesNoButtons();
+                            },
+                            child: Text('No')),
+                      ),
+                      /*Visibility(
+                          visible: _visibleYesNoButtons,
+                          child: Ink.image(
+                            image: AssetImage(
+                                'assets/images/' + inventoryItem + '.jpg'),
+                            child: InkWell(
+                              onTap: () {},
+                            ),
+                            height: 1,
+                            fit: BoxFit.scaleDown,
+                          )),*/
+                    ],
+                  ),
+                ),
+              ],
+            );
+          }),
+      floatingActionButton: ElevatedButton.icon(
+        icon: const Icon(Icons.add),
+        label: const Text('Start Scan'),
+        style: ElevatedButton.styleFrom(primary: Colors.lightGreen),
+        onPressed: () {
+          _scanScreen();
+          _setItemValueDEMO(demoIngredientID);
+          _demoIngredientIDAdd();
+          Timer(const Duration(seconds: 1), () {
+            _toggleYesNoButtons();
+          });
+        },
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+    );
+  }
+}
+/*
+
+body: ButtonBar(
         alignment: MainAxisAlignment.center,
         buttonPadding: EdgeInsets.symmetric(horizontal: 70, vertical: 10),
         children: [
@@ -141,7 +249,17 @@ class BarCodeState extends State<BarCodeScanner> {
                   _toggleYesNoButtons();
                 },
                 child: Text('No')),
-          )
+          ),
+          Visibility(
+              visible: _visibleYesNoButtons,
+              child: Ink.image(
+                image: AssetImage('assets/images/' + inventoryItem + '.jpg'),
+                child: InkWell(
+                  onTap: () {},
+                ),
+                height: 1,
+                fit: BoxFit.scaleDown,
+              )),
         ],
       ),
       floatingActionButton: ElevatedButton.icon(
@@ -159,5 +277,5 @@ class BarCodeState extends State<BarCodeScanner> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
-  }
-}
+
+    */
