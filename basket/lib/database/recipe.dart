@@ -24,12 +24,12 @@ class Recipe {
   });
 
   List<String> getIngredients() {
-    final ingredients = this.ingredients.split('.');
+    final ingredients = this.ingredients.split('~');
     return ingredients;
   }
 
   List<String> getInstructions() {
-    final instructions = this.instructions.split('.');
+    final instructions = this.instructions.split('~');
     return instructions;
   }
 
