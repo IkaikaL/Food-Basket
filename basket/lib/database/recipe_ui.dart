@@ -29,14 +29,14 @@ class RecipeUI {
       if (i == 0) {
         ingr = ingr + ingredients[i];
       } else {
-        ingr = ingr + '.' + ingredients[i];
+        ingr = ingr + '~' + ingredients[i];
       }
     }
     for (int i = 0; i < instructions.length; i++) {
       if (i == 0) {
         inst = inst + instructions[i];
       } else {
-        inst = inst + '.' + instructions[i];
+        inst = inst + '~' + instructions[i];
       }
     }
 
