@@ -26,23 +26,23 @@ class DatabaseDriver {
     AppDatabase.instance.createRecipe(const Recipe(
       name: 'salad',
       ingredients: 'l',
-      instructions: 'mix,eat',
+      instructions: 'mix.eat',
     ));
   }
 
   addGreenBeanSalad() {
     AppDatabase.instance.createRecipe(const Recipe(
       name: 'GreenBeanSalad',
-      ingredients: 'f,b,w',
-      instructions: 'throw that shit in a bowl,add heat',
+      ingredients: 'f.b.w',
+      instructions: 'throw that shit in a bowl.add heat',
     ));
   }
 
   addMeatBalls() {
     AppDatabase.instance.createRecipe(const Recipe(
       name: 'Meatballs',
-      ingredients: 'Groundmeat,salt,pepper',
-      instructions: 'throw that shit in a bowl,add heat',
+      ingredients: 'Groundmeat.salt.pepper',
+      instructions: 'throw that shit in a bowl.add heat',
     ));
   }
 
@@ -55,8 +55,8 @@ class DatabaseDriver {
   addFavorites() {
     AppDatabase.instance.addFavorite(const Recipe(
       name: 'Meatballs',
-      ingredients: 'Groundmeat,salt,pepper',
-      instructions: 'throw that shit in a bowl,add heat',
+      ingredients: 'Groundmeat.salt.pepper',
+      instructions: 'throw that shit in a bowl.add heat',
     ));
   }
 
